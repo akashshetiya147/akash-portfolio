@@ -317,6 +317,9 @@ async function loadGitHubProjects() {
         );
 
 
+        addProjectEffects();
+
+
     } catch (error) {
 
 
@@ -631,12 +634,6 @@ function addProjectEffects() {
     );
 
 }
-
-
-setTimeout(
-    addProjectEffects,
-    1000
-);
 
 
 
