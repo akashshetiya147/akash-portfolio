@@ -463,8 +463,6 @@ body {
 }
 
 
-/* BUTTONS */
-
 .hero-buttons {
 
     display:
@@ -555,8 +553,6 @@ body {
 
 }
 
-
-/* SOCIALS */
 
 .socials {
 
@@ -816,8 +812,6 @@ body {
 }
 
 
-/* ORBITS */
-
 .orbital {
 
     position:
@@ -863,8 +857,6 @@ body {
 
 }
 
-
-/* FLOATING BOXES */
 
 .floating-box {
 
@@ -1439,9 +1431,6 @@ body {
     border-color:
         var(--blue);
 
-    transform:
-        translateY(-10px);
-
 }
 
 
@@ -1509,6 +1498,9 @@ body {
     font-size:
         23px;
 
+    word-break:
+        break-word;
+
 }
 
 
@@ -1562,6 +1554,43 @@ body {
 
     color:
         var(--cyan);
+
+}
+
+
+.loading-projects {
+
+    grid-column:
+        1 / -1;
+
+    text-align:
+        center;
+
+    color:
+        var(--cyan);
+
+    font-family:
+        monospace;
+
+    letter-spacing:
+        2px;
+
+    padding:
+        60px;
+
+}
+
+
+.loading-projects a {
+
+    color:
+        var(--cyan);
+
+    text-decoration:
+        none;
+
+    font-weight:
+        bold;
 
 }
 
@@ -2343,7 +2372,7 @@ footer {
     .projects-grid {
 
         grid-template-columns:
-            1fr;
+            repeat(2,1fr);
 
     }
 
@@ -2435,6 +2464,14 @@ footer {
 
 
     .skills-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .projects-grid {
 
         grid-template-columns:
             1fr;
