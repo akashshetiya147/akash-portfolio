@@ -46,7 +46,7 @@ const certificates = [
 
 
 /* ==========================================
-   CREATE CERTIFICATE CARDS
+   DISPLAY CERTIFICATES
 ========================================== */
 
 const certificateContainer =
@@ -86,41 +86,30 @@ function displayCertificates() {
                 <div class="certificate-content">
 
                     <span>
-
                         ${certificate.issuer}
-
                     </span>
 
 
                     <h3>
-
                         ${certificate.title}
-
                     </h3>
 
 
                     <p>
-
                         ${certificate.description}
-
                     </p>
 
 
                     <small>
-
                         ${certificate.date}
-
                     </small>
 
                 </div>
 
 
                 <a
-
                     href="${certificate.url}"
-
                     target="_blank"
-
                     rel="noopener noreferrer">
 
                     OPEN CERTIFICATE POST ↗
@@ -141,6 +130,234 @@ function displayCertificates() {
 
 
 displayCertificates();
+
+
+
+/* ==========================================
+   GITHUB PROJECTS
+========================================== */
+
+const githubProjects =
+    document.getElementById(
+        "githubProjects"
+    );
+
+
+const githubUsername =
+    "akashshetiya147";
+
+
+async function loadGitHubProjects() {
+
+
+    try {
+
+
+        const response =
+            await fetch(
+
+                `https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc&per_page=12`
+
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "GitHub API error"
+            );
+
+        }
+
+
+        const repositories =
+            await response.json();
+
+
+        githubProjects.innerHTML = "";
+
+
+        if (
+            repositories.length === 0
+        ) {
+
+
+            githubProjects.innerHTML = `
+
+                <p class="loading-projects">
+
+                    NO PUBLIC PROJECTS FOUND.
+
+                </p>
+
+            `;
+
+
+            return;
+
+        }
+
+
+        repositories.forEach(
+            (repo, index) => {
+
+
+                const project =
+                    document.createElement(
+                        "article"
+                    );
+
+
+                project.className =
+                    "project-card reveal";
+
+
+                const language =
+                    repo.language ||
+                    "CODE";
+
+
+                const description =
+                    repo.description ||
+                    "A project developed by Akash Shetiya.";
+
+
+                const stars =
+                    repo.stargazers_count;
+
+
+                const forks =
+                    repo.forks_count;
+
+
+                project.innerHTML = `
+
+                    <div class="project-top">
+
+                        <span>
+
+                            ${String(index + 1)
+                                .padStart(2, "0")}
+
+                        </span>
+
+                        <span>
+
+                            ${language.toUpperCase()}
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="project-symbol">
+
+                        &lt;/&gt;
+
+                    </div>
+
+
+                    <h3>
+
+                        ${repo.name}
+
+                    </h3>
+
+
+                    <p>
+
+                        ${description}
+
+                    </p>
+
+
+                    <div class="github-stats">
+
+                        ★ ${stars}
+
+                        &nbsp;&nbsp;
+
+                        ⑂ ${forks}
+
+                    </div>
+
+
+                    <a
+
+                        href="${repo.html_url}"
+
+                        target="_blank"
+
+                        rel="noopener noreferrer">
+
+                        VIEW ON GITHUB →
+
+                    </a>
+
+                `;
+
+
+                githubProjects.appendChild(
+                    project
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        project.classList.add(
+                            "visible"
+                        );
+
+                    },
+                    index * 100
+                );
+
+            }
+        );
+
+
+    } catch (error) {
+
+
+        console.error(
+            "GitHub Error:",
+            error
+        );
+
+
+        githubProjects.innerHTML = `
+
+            <div class="github-error">
+
+                <h3>
+                    GITHUB PROJECTS
+                </h3>
+
+                <p>
+                    Projects could not be loaded
+                    right now.
+                </p>
+
+                <a
+                    href="https://github.com/akashshetiya147"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    VIEW GITHUB →
+
+                </a>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+loadGitHubProjects();
 
 
 
@@ -277,7 +494,6 @@ const revealElements =
     document.querySelectorAll(
 
         ".skill-card, " +
-        ".project-card, " +
         ".certificate, " +
         ".education, " +
         ".about-main, " +
@@ -305,6 +521,10 @@ const revealObserver =
                             "visible"
                         );
 
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
 
                     }
 
@@ -335,7 +555,6 @@ revealElements.forEach(
             element
         );
 
-
     }
 );
 
@@ -345,67 +564,78 @@ revealElements.forEach(
    3D PROJECT EFFECT
 ========================================== */
 
-const projectCards =
-    document.querySelectorAll(
-        ".project-card"
+function addProjectEffects() {
+
+
+    const projectCards =
+        document.querySelectorAll(
+            ".project-card"
+        );
+
+
+    projectCards.forEach(
+        card => {
+
+
+            card.addEventListener(
+                "mousemove",
+                event => {
+
+
+                    const rect =
+                        card.getBoundingClientRect();
+
+
+                    const x =
+                        event.clientX -
+                        rect.left;
+
+
+                    const y =
+                        event.clientY -
+                        rect.top;
+
+
+                    const rotateX =
+                        ((y / rect.height) - 0.5)
+                        * -7;
+
+
+                    const rotateY =
+                        ((x / rect.width) - 0.5)
+                        * 7;
+
+
+                    card.style.transform =
+
+                        `perspective(800px)
+                         rotateX(${rotateX}deg)
+                         rotateY(${rotateY}deg)
+                         translateY(-8px)`;
+
+                }
+            );
+
+
+            card.addEventListener(
+                "mouseleave",
+                () => {
+
+                    card.style.transform =
+                        "";
+
+                }
+            );
+
+        }
     );
 
-
-projectCards.forEach(
-    card => {
+}
 
 
-        card.addEventListener(
-            "mousemove",
-            event => {
-
-
-                const rect =
-                    card.getBoundingClientRect();
-
-
-                const x =
-                    event.clientX -
-                    rect.left;
-
-
-                const y =
-                    event.clientY -
-                    rect.top;
-
-
-                const rotateX =
-                    ((y / rect.height) - 0.5)
-                    * -7;
-
-
-                const rotateY =
-                    ((x / rect.width) - 0.5)
-                    * 7;
-
-
-                card.style.transform =
-
-                    `perspective(800px)
-                     rotateX(${rotateX}deg)
-                     rotateY(${rotateY}deg)
-                     translateY(-8px)`;
-
-            }
-        );
-
-
-        card.addEventListener(
-            "mouseleave",
-            () => {
-
-                card.style.transform =
-                    "";
-
-            }
-        );
-
-    }
+setTimeout(
+    addProjectEffects,
+    1000
 );
 
 
@@ -543,7 +773,7 @@ console.log(
 
 console.log(
 
-    "%cWelcome to my portfolio.",
+    "%cGitHub projects loaded automatically.",
 
     "color:#00d9ff;" +
     "font-size:13px;"
