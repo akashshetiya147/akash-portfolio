@@ -1595,6 +1595,86 @@ body {
 }
 
 
+.github-stats {
+
+    position:
+        absolute;
+
+    bottom:
+        55px;
+
+    right:
+        30px;
+
+    color:
+        #555;
+
+    font-family:
+        monospace;
+
+    font-size:
+        10px;
+
+}
+
+
+.github-error {
+
+    grid-column:
+        1 / -1;
+
+    text-align:
+        center;
+
+    padding:
+        60px;
+
+    border:
+        1px solid
+        var(--border);
+
+}
+
+
+.github-error h3 {
+
+    color:
+        var(--cyan);
+
+    margin-bottom:
+        15px;
+
+}
+
+
+.github-error p {
+
+    color:
+        #777;
+
+    margin-bottom:
+        20px;
+
+}
+
+
+.github-error a {
+
+    color:
+        var(--cyan);
+
+    text-decoration:
+        none;
+
+    font-size:
+        11px;
+
+    font-weight:
+        bold;
+
+}
+
+
 /* ==========================================
    CERTIFICATES
 ========================================== */
@@ -2084,6 +2164,9 @@ body {
     transition:
         0.3s;
 
+    max-width:
+        100%;
+
 }
 
 
@@ -2331,7 +2414,7 @@ footer {
 
 
 /* ==========================================
-   RESPONSIVE
+   TABLET
 ========================================== */
 
 @media (max-width:1000px) {
@@ -2387,6 +2470,11 @@ footer {
 }
 
 
+/* ==========================================
+   MOBILE
+   FIXED SHETIYA OVERLAPPING ISSUE
+========================================== */
+
 @media (max-width:700px) {
 
 
@@ -2409,29 +2497,175 @@ footer {
     .hero {
 
         padding:
-            120px 6% 70px;
+            120px 6% 60px;
+
+        min-height:
+            auto;
+
+        display:
+            block;
 
     }
 
+
+    .hero-left {
+
+        width:
+            100%;
+
+    }
+
+
+    .eyebrow {
+
+        font-size:
+            9px;
+
+        letter-spacing:
+            2px;
+
+        margin-bottom:
+            28px;
+
+    }
+
+
+    .hello {
+
+        font-size:
+            12px;
+
+        letter-spacing:
+            4px;
+
+    }
+
+
+    /* MAIN MOBILE NAME FIX */
 
     .hero h1 {
 
         font-size:
-            70px;
+            58px;
+
+        line-height:
+            0.95;
 
         letter-spacing:
-            -4px;
+            -2px;
+
+        width:
+            100%;
 
     }
 
 
+    /* SHETIYA FIX */
+
+    .hero h1 strong {
+
+        display:
+            block;
+
+        margin-top:
+            8px;
+
+        line-height:
+            1;
+
+        -webkit-text-stroke:
+            1.5px white;
+
+        white-space:
+            nowrap;
+
+    }
+
+
+    .typing-line {
+
+        margin-top:
+            28px;
+
+        font-size:
+            17px;
+
+        min-height:
+            25px;
+
+    }
+
+
+    .typing-line i {
+
+        width:
+            6px;
+
+        height:
+            17px;
+
+    }
+
+
+    .hero-description {
+
+        font-size:
+            14px;
+
+        line-height:
+            1.7;
+
+        margin-top:
+            22px;
+
+    }
+
+
+    .hero-buttons {
+
+        flex-direction:
+            column;
+
+        width:
+            100%;
+
+    }
+
+
+    .button {
+
+        text-align:
+            center;
+
+        width:
+            100%;
+
+    }
+
+
+    .socials {
+
+        flex-wrap:
+            wrap;
+
+        gap:
+            18px;
+
+    }
+
+
+    /* MOBILE HERO GRAPHIC */
+
     .hero-right {
 
+        min-height:
+            400px;
+
         transform:
-            scale(0.85);
+            scale(0.75);
 
         margin:
-            -40px -10%;
+            -30px -15%;
 
     }
 
@@ -2463,6 +2697,40 @@ footer {
     }
 
 
+    .floating-box {
+
+        padding:
+            9px 13px;
+
+    }
+
+
+    .box-c {
+
+        left:
+            10px;
+
+    }
+
+
+    .box-python {
+
+        right:
+            10px;
+
+    }
+
+
+    .box-ai {
+
+        left:
+            25px;
+
+    }
+
+
+    /* SECTIONS */
+
     .skills-grid {
 
         grid-template-columns:
@@ -2492,8 +2760,13 @@ footer {
         font-size:
             60px;
 
+        top:
+            60px;
+
     }
 
+
+    /* PROJECTS */
 
     .project-heading {
 
@@ -2513,6 +2786,16 @@ footer {
 
     }
 
+
+    .project-card {
+
+        min-height:
+            400px;
+
+    }
+
+
+    /* CERTIFICATES */
 
     .certificates-grid {
 
@@ -2544,10 +2827,15 @@ footer {
     }
 
 
+    /* EDUCATION */
+
     .education {
 
         grid-template-columns:
             1fr;
+
+        padding:
+            30px;
 
     }
 
@@ -2560,6 +2848,8 @@ footer {
     }
 
 
+    /* LINKEDIN */
+
     .linkedin-link {
 
         flex-direction:
@@ -2570,6 +2860,8 @@ footer {
 
     }
 
+
+    /* CONTACT */
 
     .contact-section {
 
@@ -2584,6 +2876,17 @@ footer {
         letter-spacing:
             -3px;
 
+        font-size:
+            55px;
+
+    }
+
+
+    .contact-section h2 strong {
+
+        -webkit-text-stroke:
+            1.5px white;
+
     }
 
 
@@ -2591,6 +2894,12 @@ footer {
 
         font-size:
             20px;
+
+        word-break:
+            break-word;
+
+        overflow-wrap:
+            anywhere;
 
     }
 
@@ -2610,6 +2919,8 @@ footer {
 
     }
 
+
+    /* FOOTER */
 
     footer {
 
