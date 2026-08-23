@@ -5,17 +5,14 @@
 const certificates = [
 
     {
-        title:
-            "Python (Basic)",
+        title: "Python (Basic)",
 
-        issuer:
-            "HACKERRANK",
+        issuer: "HACKERRANK",
 
         description:
             "Python programming certification covering fundamentals, programming concepts and problem solving.",
 
-        date:
-            "2026",
+        date: "2026",
 
         url:
             "https://www.linkedin.com/feed/update/urn:li:activity:7469989380703604736/"
@@ -23,23 +20,51 @@ const certificates = [
 
 
     {
-        title:
-            "Introduction to Generative AI",
+        title: "Introduction to Generative AI",
 
-        issuer:
-            "GOOGLE",
+        issuer: "GOOGLE",
 
         description:
             "Introduction to Generative AI and its fundamentals, concepts and applications.",
 
-        date:
-            "2026",
+        date: "2026",
 
         url:
             "https://www.linkedin.com/feed/update/urn:li:activity:7494730038274162688/"
     }
 
 ];
+
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value) {
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+
+        return "";
+
+    }
+
+
+    const div =
+        document.createElement("div");
+
+
+    div.textContent =
+        value;
+
+
+    return div.innerHTML;
+
+}
+
 
 
 /* =====================================================
@@ -55,7 +80,9 @@ function loadCertificates() {
 
 
     if (!container) {
+
         return;
+
     }
 
 
@@ -148,38 +175,11 @@ function loadCertificates() {
 }
 
 
+
+/* LOAD CERTIFICATES */
+
 loadCertificates();
 
-
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHTML(value) {
-
-    if (
-        value === null ||
-        value === undefined
-    ) {
-
-        return "";
-
-    }
-
-
-    const div =
-        document.createElement(
-            "div"
-        );
-
-
-    div.textContent =
-        value;
-
-
-    return div.innerHTML;
-
-}
 
 
 /* =====================================================
@@ -210,6 +210,7 @@ const nav =
     );
 
 
+
 /* =====================================================
    OPEN MOBILE MENU
 ===================================================== */
@@ -217,7 +218,9 @@ const nav =
 function openMobileMenu() {
 
     if (!nav) {
+
         return;
+
     }
 
 
@@ -231,19 +234,22 @@ function openMobileMenu() {
         menuBtn.innerHTML =
             "✕";
 
+
         menuBtn.setAttribute(
             "aria-expanded",
             "true"
         );
 
+
         menuBtn.setAttribute(
             "aria-label",
-            "Close navigation menu"
+            "Close menu"
         );
 
     }
 
 }
+
 
 
 /* =====================================================
@@ -253,7 +259,9 @@ function openMobileMenu() {
 function closeMobileMenu() {
 
     if (!nav) {
+
         return;
+
     }
 
 
@@ -267,14 +275,16 @@ function closeMobileMenu() {
         menuBtn.innerHTML =
             "☰";
 
+
         menuBtn.setAttribute(
             "aria-expanded",
             "false"
         );
 
+
         menuBtn.setAttribute(
             "aria-label",
-            "Open navigation menu"
+            "Open menu"
         );
 
     }
@@ -282,8 +292,9 @@ function closeMobileMenu() {
 }
 
 
+
 /* =====================================================
-   SHOW ONLY SELECTED SECTION
+   SHOW ONLY ONE SECTION
 ===================================================== */
 
 function showSection(
@@ -292,7 +303,7 @@ function showSection(
 ) {
 
 
-    /* HIDE ALL SECTIONS */
+    /* HIDE EVERYTHING */
 
     pageSections.forEach(
         function(section) {
@@ -305,7 +316,7 @@ function showSection(
     );
 
 
-    /* FIND SECTION */
+    /* FIND REQUESTED SECTION */
 
     let selectedSection =
         document.getElementById(
@@ -313,12 +324,13 @@ function showSection(
         );
 
 
-    /* DEFAULT TO HOME */
+    /* IF NOT FOUND -> HOME */
 
     if (!selectedSection) {
 
         sectionId =
             "home";
+
 
         selectedSection =
             document.getElementById(
@@ -329,18 +341,20 @@ function showSection(
 
 
     if (!selectedSection) {
+
         return;
+
     }
 
 
-    /* SHOW SECTION */
+    /* SHOW SELECTED SECTION */
 
     selectedSection.classList.add(
         "active-section"
     );
 
 
-    /* ACTIVE NAVIGATION */
+    /* UPDATE NAV */
 
     navigationLinks.forEach(
         function(link) {
@@ -386,7 +400,7 @@ function showSection(
     }
 
 
-    /* SCROLL TO TOP */
+    /* GO TOP */
 
     window.scrollTo({
 
@@ -399,8 +413,9 @@ function showSection(
 }
 
 
+
 /* =====================================================
-   NAVIGATION CLICKS
+   NAVIGATION CLICK
 ===================================================== */
 
 navigationLinks.forEach(
@@ -446,6 +461,7 @@ navigationLinks.forEach(
 );
 
 
+
 /* =====================================================
    MOBILE MENU BUTTON
 ===================================================== */
@@ -461,13 +477,11 @@ if (
         function() {
 
 
-            const isOpen =
+            if (
                 nav.classList.contains(
                     "mobile-open"
-                );
-
-
-            if (isOpen) {
+                )
+            ) {
 
                 closeMobileMenu();
 
@@ -485,8 +499,9 @@ if (
 }
 
 
+
 /* =====================================================
-   ESCAPE KEY
+   ESC KEY
 ===================================================== */
 
 document.addEventListener(
@@ -507,8 +522,9 @@ document.addEventListener(
 );
 
 
+
 /* =====================================================
-   CLOSE MENU OUTSIDE
+   CLICK OUTSIDE MOBILE MENU
 ===================================================== */
 
 document.addEventListener(
@@ -554,8 +570,9 @@ document.addEventListener(
 );
 
 
+
 /* =====================================================
-   WINDOW RESIZE
+   RESIZE
 ===================================================== */
 
 window.addEventListener(
@@ -575,8 +592,9 @@ window.addEventListener(
 );
 
 
+
 /* =====================================================
-   INITIAL PAGE
+   LOAD INITIAL SECTION
 ===================================================== */
 
 function loadInitialSection() {
@@ -627,8 +645,9 @@ function loadInitialSection() {
 loadInitialSection();
 
 
+
 /* =====================================================
-   BACK / FORWARD BUTTON
+   BROWSER BACK / FORWARD
 ===================================================== */
 
 window.addEventListener(
@@ -667,8 +686,9 @@ window.addEventListener(
 );
 
 
+
 /* =====================================================
-   HERO INTERNAL LINKS
+   HERO BUTTONS
 ===================================================== */
 
 document
@@ -706,14 +726,15 @@ document
     );
 
 
+
 /* =====================================================
-   CONSOLE
+   FINISHED
 ===================================================== */
 
 console.log(
-    "Akash Shetiya Portfolio loaded."
+    "Akash Shetiya Portfolio loaded successfully."
 );
 
 console.log(
-    "Project: Akash Notes"
+    "Projects: AKASH NOTES only."
 );
