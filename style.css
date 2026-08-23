@@ -20,7 +20,6 @@
 
     margin: 0;
     padding: 0;
-
     box-sizing: border-box;
 
 }
@@ -481,26 +480,17 @@ body {
 
 
 .programmer-tabs span:nth-child(2) {
-
-    animation-delay:
-        .2s;
-
+    animation-delay: .2s;
 }
 
 
 .programmer-tabs span:nth-child(3) {
-
-    animation-delay:
-        .4s;
-
+    animation-delay: .4s;
 }
 
 
 .programmer-tabs span:nth-child(4) {
-
-    animation-delay:
-        .6s;
-
+    animation-delay: .6s;
 }
 
 
@@ -508,17 +498,11 @@ body {
 
     0%,
     100% {
-
-        opacity:
-            1;
-
+        opacity: 1;
     }
 
     50% {
-
-        opacity:
-            .35;
-
+        opacity: .35;
     }
 
 }
@@ -547,6 +531,10 @@ body {
 
 }
 
+
+/* =====================================================
+   BUTTONS
+===================================================== */
 
 .hero-buttons {
 
@@ -613,7 +601,7 @@ body {
 }
 
 
-/* RESUME BUTTON */
+/* RESUME */
 
 .button-resume {
 
@@ -847,26 +835,17 @@ body {
 
 
 .purple {
-
-    color:
-        #c792ea;
-
+    color: #c792ea;
 }
 
 
 .blue {
-
-    color:
-        #82aaff;
-
+    color: #82aaff;
 }
 
 
 .green {
-
-    color:
-        #c3e88d;
-
+    color: #c3e88d;
 }
 
 
@@ -891,18 +870,12 @@ body {
 
 
 .terminal-line span {
-
-    color:
-        var(--cyan);
-
+    color: var(--cyan);
 }
 
 
 .terminal-line b {
-
-    color:
-        white;
-
+    color: white;
 }
 
 
@@ -1009,35 +982,20 @@ body {
 
 
 .box-c {
-
-    top:
-        70px;
-
-    left:
-        0;
-
+    top: 70px;
+    left: 0;
 }
 
 
 .box-python {
-
-    top:
-        220px;
-
-    right:
-        0;
-
+    top: 220px;
+    right: 0;
 }
 
 
 .box-ai {
-
-    bottom:
-        70px;
-
-    left:
-        30px;
-
+    bottom: 70px;
+    left: 30px;
 }
 
 
@@ -1077,7 +1035,7 @@ body {
 
 
 /* =====================================================
-   SECTION HEADINGS
+   HEADINGS
 ===================================================== */
 
 .section-heading span {
@@ -1272,9 +1230,6 @@ body {
 
     overflow:
         hidden;
-
-    transition:
-        .4s;
 
 }
 
@@ -2199,13 +2154,11 @@ footer {
 @keyframes spin {
 
     from {
-        transform:
-            rotate(0deg);
+        transform: rotate(0deg);
     }
 
     to {
-        transform:
-            rotate(360deg);
+        transform: rotate(360deg);
     }
 
 }
@@ -2214,13 +2167,11 @@ footer {
 @keyframes spinReverse {
 
     from {
-        transform:
-            rotate(-25deg);
+        transform: rotate(-25deg);
     }
 
     to {
-        transform:
-            rotate(335deg);
+        transform: rotate(335deg);
     }
 
 }
@@ -2230,17 +2181,11 @@ footer {
 
     0%,
     100% {
-
-        transform:
-            translateY(0);
-
+        transform: translateY(0);
     }
 
     50% {
-
-        transform:
-            translateY(-12px);
-
+        transform: translateY(-12px);
     }
 
 }
@@ -2253,34 +2198,20 @@ footer {
 @media (max-width:1100px) {
 
     .navbar nav {
-
-        gap:
-            15px;
-
+        gap: 15px;
     }
-
 
     .hero {
-
-        grid-template-columns:
-            1fr;
-
+        grid-template-columns: 1fr;
     }
-
 
     .about-layout {
-
-        grid-template-columns:
-            1fr;
-
+        grid-template-columns: 1fr;
     }
 
-
     .skills-grid {
-
         grid-template-columns:
             repeat(2,minmax(0,1fr));
-
     }
 
 }
@@ -2431,26 +2362,17 @@ footer {
 
 
     .navbar nav a.active-nav::after {
-
-        display:
-            none;
-
+        display: none;
     }
 
 
     .page-section {
-
-        display:
-            none !important;
-
+        display: none !important;
     }
 
 
     .page-section.active-section {
-
-        display:
-            block !important;
-
+        display: block !important;
     }
 
 
@@ -2502,10 +2424,7 @@ footer {
 
 
     .hero-description {
-
-        font-size:
-            14px;
-
+        font-size: 14px;
     }
 
 
@@ -2557,10 +2476,7 @@ footer {
 
 
     .developer-card {
-
-        width:
-            340px;
-
+        width: 340px;
     }
 
 
@@ -2598,26 +2514,17 @@ footer {
 
 
     .about-main .large-text {
-
-        font-size:
-            19px;
-
+        font-size: 19px;
     }
 
 
     .about-main p {
-
-        font-size:
-            14px;
-
+        font-size: 14px;
     }
 
 
     .about-stats {
-
-        margin-top:
-            35px;
-
+        margin-top: 35px;
     }
 
 
@@ -2644,10 +2551,7 @@ footer {
 
 
     .project-card {
-
-        min-height:
-            340px;
-
+        min-height: 340px;
     }
 
 
@@ -2663,18 +2567,12 @@ footer {
 
 
     .certificate {
-
-        padding:
-            24px;
-
+        padding: 24px;
     }
 
 
     .certificate-content h3 {
-
-        font-size:
-            19px;
-
+        font-size: 19px;
     }
 
 
@@ -2704,10 +2602,7 @@ footer {
 
 
     .education-list {
-
-        margin-top:
-            50px;
-
+        margin-top: 50px;
     }
 
 
@@ -2726,66 +2621,42 @@ footer {
 
 
     .education-info .college-name {
-
-        font-size:
-            19px;
-
+        font-size: 19px;
     }
 
 
     .education-info h3 {
-
-        font-size:
-            13px;
-
+        font-size: 13px;
     }
 
 
     .education-info p {
-
-        font-size:
-            11px;
-
+        font-size: 11px;
     }
 
 
     .education-badge {
-
-        width:
-            fit-content;
-
+        width: fit-content;
     }
 
 
     .contact-section {
-
-        padding:
-            95px 6%;
-
+        padding: 95px 6%;
     }
 
 
     .contact-section h2 {
-
-        font-size:
-            clamp(40px,12vw,52px);
-
+        font-size: clamp(40px,12vw,52px);
     }
 
 
     .contact-buttons {
-
-        grid-template-columns:
-            1fr;
-
+        grid-template-columns: 1fr;
     }
 
 
     .contact-socials {
-
-        gap:
-            8px;
-
+        gap: 8px;
     }
 
 
