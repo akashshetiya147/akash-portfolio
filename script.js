@@ -1,17 +1,11 @@
 /* =====================================================
-   AKASH SHETIYA - PORTFOLIO JAVASCRIPT
-===================================================== */
-
-
-/* =====================================================
-   CONFIGURATION
+   PORTFOLIO CONFIGURATION
 ===================================================== */
 
 const githubUsername = "akashshetiya147";
 
 const akashNotesURL =
     "https://akash-notes.vercel.app/";
-
 
 
 /* =====================================================
@@ -21,38 +15,41 @@ const akashNotesURL =
 const certificates = [
 
     {
-        title: "Python (Basic)",
+        title:
+            "Python (Basic)",
 
-        issuer: "HACKERRANK",
+        issuer:
+            "HACKERRANK",
 
         description:
             "Python programming certification covering fundamentals, programming concepts and problem solving.",
 
-        date: "2026",
+        date:
+            "2026",
 
         url:
             "https://www.linkedin.com/feed/update/urn:li:activity:7469989380703604736/"
-
     },
 
 
     {
-        title: "Introduction to Generative AI",
+        title:
+            "Introduction to Generative AI",
 
-        issuer: "GOOGLE",
+        issuer:
+            "GOOGLE",
 
         description:
             "Introduction to Generative AI and its fundamentals, concepts and applications.",
 
-        date: "2026",
+        date:
+            "2026",
 
         url:
             "https://www.linkedin.com/feed/update/urn:li:activity:7494730038274162688/"
-
     }
 
 ];
-
 
 
 /* =====================================================
@@ -129,7 +126,8 @@ function loadCertificates() {
 
                     <small>
 
-                        ISSUED ${escapeHTML(
+                        ISSUED
+                        ${escapeHTML(
                             certificate.date
                         )}
 
@@ -163,13 +161,11 @@ function loadCertificates() {
 loadCertificates();
 
 
-
 /* =====================================================
-   GITHUB PROJECTS
+   GITHUB + AKASH NOTES PROJECTS
 ===================================================== */
 
 async function loadGitHubProjects() {
-
 
     const container =
         document.getElementById(
@@ -182,12 +178,38 @@ async function loadGitHubProjects() {
     }
 
 
+    /* =================================================
+       AKASH NOTES
+    ================================================= */
+
+    const akashNotes = {
+
+        name:
+            "AKASH NOTES",
+
+        description:
+            "A personal academic notes platform created to organize and access study materials easily.",
+
+        language:
+            "WEB",
+
+        html_url:
+            akashNotesURL,
+
+        stargazers_count:
+            0,
+
+        forks_count:
+            0,
+
+        featured:
+            true
+
+    };
+
+
     try {
 
-
-        /* =========================================
-           SHOW LOADING
-        ========================================= */
 
         container.innerHTML = `
 
@@ -202,10 +224,9 @@ async function loadGitHubProjects() {
         `;
 
 
-
-        /* =========================================
-           GET GITHUB REPOSITORIES
-        ========================================= */
+        /* =============================================
+           FETCH GITHUB
+        ============================================= */
 
         const response =
             await fetch(
@@ -215,54 +236,20 @@ async function loadGitHubProjects() {
             );
 
 
-        if (!response.ok) {
+        let repos = [];
 
-            throw new Error(
-                "GitHub API request failed"
-            );
+
+        if (response.ok) {
+
+            repos =
+                await response.json();
 
         }
 
 
-        const repos =
-            await response.json();
-
-
-
-        /* =========================================
-           AKASH NOTES PROJECT
-        ========================================= */
-
-        const akashNotes = {
-
-            name:
-                "AKASH NOTES",
-
-            description:
-                "A personal academic notes platform created to organize and access study materials easily.",
-
-            language:
-                "WEB",
-
-            html_url:
-                akashNotesURL,
-
-            stargazers_count:
-                0,
-
-            forks_count:
-                0,
-
-            featured:
-                true
-
-        };
-
-
-
-        /* =========================================
-           PUT AKASH NOTES FIRST
-        ========================================= */
+        /* =============================================
+           AKASH NOTES ALWAYS FIRST
+        ============================================= */
 
         const projects = [
 
@@ -273,21 +260,15 @@ async function loadGitHubProjects() {
         ];
 
 
-
-        /* =========================================
-           CLEAR LOADING
-        ========================================= */
-
         container.innerHTML = "";
 
 
-
-        /* =========================================
+        /* =============================================
            CREATE PROJECT CARDS
-        ========================================= */
+        ============================================= */
 
         projects.forEach(
-            function(repo, index) {
+            function(repo) {
 
 
                 const card =
@@ -300,74 +281,53 @@ async function loadGitHubProjects() {
                     "project-card";
 
 
-
-                /* ---------------------------------
-                   PROJECT LANGUAGE
-                --------------------------------- */
-
                 const language =
                     repo.language ||
                     "CODE";
 
-
-
-                /* ---------------------------------
-                   PROJECT DESCRIPTION
-                --------------------------------- */
 
                 const description =
                     repo.description ||
                     "A project developed by Akash Shetiya.";
 
 
+                const isFeatured =
+                    repo.featured === true;
 
-                /* ---------------------------------
-                   PROJECT TYPE
-                --------------------------------- */
 
                 const projectType =
-                    repo.featured
+                    isFeatured
                     ? "FEATURED"
                     : "PROJECT";
 
 
-
-                /* ---------------------------------
-                   PROJECT ICON
-                --------------------------------- */
-
-                const projectIcon =
-                    repo.featured
+                const icon =
+                    isFeatured
                     ? "AN"
                     : "&lt;/&gt;";
 
 
-
-                /* ---------------------------------
-                   PROJECT BUTTON
-                --------------------------------- */
-
-                const buttonText =
-                    repo.featured
+                const button =
+                    isFeatured
                     ? "OPEN WEBSITE →"
                     : "VIEW PROJECT →";
 
 
-
-                /* ---------------------------------
-                   STATS
-                --------------------------------- */
-
                 const stats =
-                    repo.featured
+                    isFeatured
 
                     ? `
+
                         <div class="github-stats">
+
                             LIVE
+
                         </div>
+
                       `
 
                     : `
+
                         <div class="github-stats">
 
                             ★
@@ -379,13 +339,9 @@ async function loadGitHubProjects() {
                             ${repo.forks_count || 0}
 
                         </div>
+
                       `;
 
-
-
-                /* ---------------------------------
-                   CARD HTML
-                --------------------------------- */
 
                 card.innerHTML = `
 
@@ -409,13 +365,11 @@ async function loadGitHubProjects() {
                     </div>
 
 
-
                     <div class="project-symbol">
 
-                        ${projectIcon}
+                        ${icon}
 
                     </div>
-
 
 
                     <h3>
@@ -427,7 +381,6 @@ async function loadGitHubProjects() {
                     </h3>
 
 
-
                     <p>
 
                         ${escapeHTML(
@@ -437,9 +390,7 @@ async function loadGitHubProjects() {
                     </p>
 
 
-
                     ${stats}
-
 
 
                     <a
@@ -447,12 +398,11 @@ async function loadGitHubProjects() {
                         target="_blank"
                         rel="noopener noreferrer">
 
-                        ${buttonText}
+                        ${button}
 
                     </a>
 
                 `;
-
 
 
                 container.appendChild(
@@ -469,19 +419,18 @@ async function loadGitHubProjects() {
 
 
         console.error(
-            "GitHub Error:",
+            "GitHub loading error:",
             error
         );
 
 
-        /* =========================================
-           FALLBACK
-        ========================================= */
+        /* =============================================
+           AKASH NOTES FALLBACK
+        ============================================= */
 
         container.innerHTML = `
 
             <article class="project-card">
-
 
                 <div class="project-top">
 
@@ -489,13 +438,11 @@ async function loadGitHubProjects() {
                         FEATURED
                     </span>
 
-
                     <span>
                         WEB
                     </span>
 
                 </div>
-
 
 
                 <div class="project-symbol">
@@ -505,13 +452,11 @@ async function loadGitHubProjects() {
                 </div>
 
 
-
                 <h3>
 
                     AKASH NOTES
 
                 </h3>
-
 
 
                 <p>
@@ -523,13 +468,11 @@ async function loadGitHubProjects() {
                 </p>
 
 
-
                 <div class="github-stats">
 
                     LIVE
 
                 </div>
-
 
 
                 <a
@@ -541,11 +484,9 @@ async function loadGitHubProjects() {
 
                 </a>
 
-
             </article>
 
         `;
-
 
     }
 
@@ -555,16 +496,16 @@ async function loadGitHubProjects() {
 loadGitHubProjects();
 
 
-
 /* =====================================================
    ESCAPE HTML
 ===================================================== */
 
 function escapeHTML(value) {
 
-
-    if (value === null ||
-        value === undefined) {
+    if (
+        value === null ||
+        value === undefined
+    ) {
 
         return "";
 
@@ -586,9 +527,8 @@ function escapeHTML(value) {
 }
 
 
-
 /* =====================================================
-   NAVIGATION ELEMENTS
+   NAVIGATION
 ===================================================== */
 
 const pageSections =
@@ -615,13 +555,11 @@ const nav =
     );
 
 
-
 /* =====================================================
    OPEN MOBILE MENU
 ===================================================== */
 
 function openMobileMenu() {
-
 
     if (!nav) {
         return;
@@ -635,16 +573,13 @@ function openMobileMenu() {
 
     if (menuBtn) {
 
-
         menuBtn.innerHTML =
             "✕";
-
 
         menuBtn.setAttribute(
             "aria-expanded",
             "true"
         );
-
 
         menuBtn.setAttribute(
             "aria-label",
@@ -656,13 +591,11 @@ function openMobileMenu() {
 }
 
 
-
 /* =====================================================
    CLOSE MOBILE MENU
 ===================================================== */
 
 function closeMobileMenu() {
-
 
     if (!nav) {
         return;
@@ -676,16 +609,13 @@ function closeMobileMenu() {
 
     if (menuBtn) {
 
-
         menuBtn.innerHTML =
             "☰";
-
 
         menuBtn.setAttribute(
             "aria-expanded",
             "false"
         );
-
 
         menuBtn.setAttribute(
             "aria-label",
@@ -697,9 +627,8 @@ function closeMobileMenu() {
 }
 
 
-
 /* =====================================================
-   SHOW SELECTED SECTION ONLY
+   SHOW ONE SECTION ONLY
 ===================================================== */
 
 function showSection(
@@ -708,9 +637,7 @@ function showSection(
 ) {
 
 
-    /* -----------------------------------------
-       HIDE EVERY SECTION
-    ----------------------------------------- */
+    /* HIDE ALL */
 
     pageSections.forEach(
         function(section) {
@@ -723,10 +650,7 @@ function showSection(
     );
 
 
-
-    /* -----------------------------------------
-       FIND SELECTED SECTION
-    ----------------------------------------- */
+    /* FIND SECTION */
 
     const selectedSection =
         document.getElementById(
@@ -736,48 +660,44 @@ function showSection(
 
     if (!selectedSection) {
 
-        showSection(
-            "home",
-            false
-        );
-
-        return;
+        sectionId =
+            "home";
 
     }
 
 
+    const finalSection =
+        document.getElementById(
+            sectionId
+        );
 
-    /* -----------------------------------------
-       SHOW SELECTED SECTION
-    ----------------------------------------- */
 
-    selectedSection.classList.add(
+    if (!finalSection) {
+        return;
+    }
+
+
+    /* SHOW */
+
+    finalSection.classList.add(
         "active-section"
     );
 
 
-
-    /* -----------------------------------------
-       UPDATE ACTIVE NAVIGATION
-    ----------------------------------------- */
+    /* ACTIVE NAV */
 
     navigationLinks.forEach(
         function(link) {
-
 
             link.classList.remove(
                 "active-nav"
             );
 
 
-            const linkTarget =
+            if (
                 link.getAttribute(
                     "href"
-                );
-
-
-            if (
-                linkTarget ===
+                ) ===
                 "#" + sectionId
             ) {
 
@@ -791,21 +711,14 @@ function showSection(
     );
 
 
-
-    /* -----------------------------------------
-       CLOSE MOBILE MENU
-    ----------------------------------------- */
+    /* CLOSE MOBILE */
 
     closeMobileMenu();
 
 
-
-    /* -----------------------------------------
-       UPDATE URL
-    ----------------------------------------- */
+    /* URL */
 
     if (updateURL) {
-
 
         history.pushState(
             null,
@@ -816,25 +729,18 @@ function showSection(
     }
 
 
-
-    /* -----------------------------------------
-       SCROLL TO TOP
-    ----------------------------------------- */
+    /* TOP */
 
     window.scrollTo({
-
         top: 0,
-
         behavior: "smooth"
-
     });
 
 }
 
 
-
 /* =====================================================
-   NAVIGATION CLICK EVENTS
+   NAVIGATION CLICKS
 ===================================================== */
 
 navigationLinks.forEach(
@@ -880,12 +786,14 @@ navigationLinks.forEach(
 );
 
 
-
 /* =====================================================
    MOBILE MENU BUTTON
 ===================================================== */
 
-if (menuBtn && nav) {
+if (
+    menuBtn &&
+    nav
+) {
 
 
     menuBtn.addEventListener(
@@ -893,13 +801,11 @@ if (menuBtn && nav) {
         function() {
 
 
-            const menuIsOpen =
+            if (
                 nav.classList.contains(
                     "mobile-open"
-                );
-
-
-            if (menuIsOpen) {
+                )
+            ) {
 
                 closeMobileMenu();
 
@@ -917,15 +823,13 @@ if (menuBtn && nav) {
 }
 
 
-
 /* =====================================================
-   CLOSE MENU WITH ESCAPE KEY
+   ESCAPE KEY
 ===================================================== */
 
 document.addEventListener(
     "keydown",
     function(event) {
-
 
         if (
             event.key ===
@@ -940,9 +844,8 @@ document.addEventListener(
 );
 
 
-
 /* =====================================================
-   CLOSE MENU WHEN CLICKING OUTSIDE
+   CLOSE MOBILE MENU OUTSIDE
 ===================================================== */
 
 document.addEventListener(
@@ -950,8 +853,13 @@ document.addEventListener(
     function(event) {
 
 
-        if (!nav || !menuBtn) {
+        if (
+            !nav ||
+            !menuBtn
+        ) {
+
             return;
+
         }
 
 
@@ -967,8 +875,12 @@ document.addEventListener(
 
 
         if (
-            !nav.contains(event.target) &&
-            !menuBtn.contains(event.target)
+            !nav.contains(
+                event.target
+            ) &&
+            !menuBtn.contains(
+                event.target
+            )
         ) {
 
             closeMobileMenu();
@@ -979,15 +891,13 @@ document.addEventListener(
 );
 
 
-
 /* =====================================================
-   WINDOW RESIZE
+   RESIZE
 ===================================================== */
 
 window.addEventListener(
     "resize",
     function() {
-
 
         if (
             window.innerWidth > 700
@@ -1001,9 +911,8 @@ window.addEventListener(
 );
 
 
-
 /* =====================================================
-   LOAD INITIAL SECTION
+   INITIAL SECTION
 ===================================================== */
 
 function loadInitialSection() {
@@ -1012,10 +921,6 @@ function loadInitialSection() {
     const hash =
         window.location.hash;
 
-
-    /* -----------------------------------------
-       OPEN HASH SECTION
-    ----------------------------------------- */
 
     if (
         hash &&
@@ -1027,13 +932,11 @@ function loadInitialSection() {
             hash.substring(1);
 
 
-        const section =
+        if (
             document.getElementById(
                 sectionId
-            );
-
-
-        if (section) {
+            )
+        ) {
 
 
             showSection(
@@ -1049,11 +952,6 @@ function loadInitialSection() {
     }
 
 
-
-    /* -----------------------------------------
-       DEFAULT HOME
-    ----------------------------------------- */
-
     showSection(
         "home",
         false
@@ -1065,9 +963,8 @@ function loadInitialSection() {
 loadInitialSection();
 
 
-
 /* =====================================================
-   BROWSER BACK / FORWARD
+   BACK / FORWARD
 ===================================================== */
 
 window.addEventListener(
@@ -1085,12 +982,8 @@ window.addEventListener(
         ) {
 
 
-            const sectionId =
-                hash.substring(1);
-
-
             showSection(
-                sectionId,
+                hash.substring(1),
                 false
             );
 
@@ -1111,109 +1004,32 @@ window.addEventListener(
 );
 
 
-
 /* =====================================================
-   HERO INTERNAL BUTTONS
+   HERO BUTTONS
 ===================================================== */
 
-const heroInternalLinks =
-    document.querySelectorAll(
+document
+    .querySelectorAll(
         '.hero a[href^="#"]'
-    );
+    )
+    .forEach(
+        function(link) {
 
 
-heroInternalLinks.forEach(
-    function(link) {
-
-
-        link.addEventListener(
-            "click",
-            function(event) {
-
-
-                event.preventDefault();
-
-
-                const href =
-                    link.getAttribute(
-                        "href"
-                    );
-
-
-                const sectionId =
-                    href.substring(1);
-
-
-                showSection(
-                    sectionId
-                );
-
-            }
-        );
-
-    }
-);
-
-
-
-/* =====================================================
-   CONTACT INTERNAL LINKS
-===================================================== */
-
-const internalLinks =
-    document.querySelectorAll(
-        'a[href^="#"]'
-    );
-
-
-internalLinks.forEach(
-    function(link) {
-
-
-        if (
-            link.closest(
-                ".navbar"
-            )
-        ) {
-
-            return;
-
-        }
-
-
-        link.addEventListener(
-            "click",
-            function(event) {
-
-
-                const href =
-                    link.getAttribute(
-                        "href"
-                    );
-
-
-                if (
-                    !href ||
-                    href === "#"
-                ) {
-
-                    return;
-
-                }
-
-
-                const sectionId =
-                    href.substring(1);
-
-
-                if (
-                    document.getElementById(
-                        sectionId
-                    )
-                ) {
+            link.addEventListener(
+                "click",
+                function(event) {
 
 
                     event.preventDefault();
+
+
+                    const sectionId =
+                        link
+                        .getAttribute(
+                            "href"
+                        )
+                        .substring(1);
 
 
                     showSection(
@@ -1221,17 +1037,14 @@ internalLinks.forEach(
                     );
 
                 }
+            );
 
-            }
-        );
-
-    }
-);
-
+        }
+    );
 
 
 /* =====================================================
-   CONSOLE MESSAGE
+   FINISHED
 ===================================================== */
 
 console.log(
