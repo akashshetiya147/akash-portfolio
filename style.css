@@ -97,8 +97,7 @@ body {
 
     border-radius: 50%;
 
-    filter:
-        blur(130px);
+    filter: blur(130px);
 
     pointer-events: none;
 
@@ -157,7 +156,7 @@ body {
     justify-content: space-between;
 
     background:
-        rgba(3,4,5,0.95);
+        rgba(3,4,5,0.96);
 
     backdrop-filter:
         blur(20px);
@@ -306,7 +305,7 @@ body {
 
     border:
         1px solid
-        rgba(0,217,255,0.4);
+        var(--cyan);
 
     color:
         var(--cyan);
@@ -421,11 +420,7 @@ body {
 .hero h1 {
 
     font-size:
-        clamp(
-            65px,
-            9vw,
-            145px
-        );
+        clamp(65px, 9vw, 145px);
 
     line-height:
         0.88;
@@ -462,7 +457,7 @@ body {
 
 
 /* =====================================================
-   PROGRAMMER TABS
+   PROGRAMMER TAGS
 ===================================================== */
 
 .programmer-tabs {
@@ -498,7 +493,9 @@ body {
         #8e98a4;
 
     font-family:
-        monospace;
+        Arial,
+        Helvetica,
+        sans-serif;
 
     font-size:
         10px;
@@ -525,7 +522,7 @@ body {
 
 
 /* =====================================================
-   HERO DESCRIPTION
+   HERO TEXT
 ===================================================== */
 
 .hero-description {
@@ -547,10 +544,6 @@ body {
 
 }
 
-
-/* =====================================================
-   BUTTONS
-===================================================== */
 
 .hero-buttons {
 
@@ -599,7 +592,7 @@ body {
         var(--blue);
 
     color:
-        black;
+        #000;
 
 }
 
@@ -619,6 +612,9 @@ body {
 
     color:
         white;
+
+    background:
+        transparent;
 
 }
 
@@ -681,7 +677,7 @@ body {
 
 
 /* =====================================================
-   HERO GRAPHICS
+   HERO GRAPHIC
 ===================================================== */
 
 .hero-right {
@@ -1035,7 +1031,7 @@ body {
 
 
 /* =====================================================
-   SINGLE PAGE SYSTEM
+   SINGLE PAGE
 ===================================================== */
 
 .page-section {
@@ -1119,11 +1115,7 @@ body {
 .section-heading h2 {
 
     font-size:
-        clamp(
-            45px,
-            6vw,
-            80px
-        );
+        clamp(45px, 6vw, 80px);
 
     line-height:
         1;
@@ -2184,6 +2176,9 @@ body {
         1px solid
         var(--border);
 
+    min-height:
+        calc(100vh - 76px);
+
 }
 
 
@@ -2207,11 +2202,7 @@ body {
         25px;
 
     font-size:
-        clamp(
-            55px,
-            9vw,
-            130px
-        );
+        clamp(55px, 9vw, 130px);
 
     line-height:
         0.9;
@@ -2496,13 +2487,11 @@ footer {
 @keyframes spin {
 
     from {
-        transform:
-            rotate(0deg);
+        transform: rotate(0deg);
     }
 
     to {
-        transform:
-            rotate(360deg);
+        transform: rotate(360deg);
     }
 
 }
@@ -2511,13 +2500,11 @@ footer {
 @keyframes spinReverse {
 
     from {
-        transform:
-            rotate(-25deg);
+        transform: rotate(-25deg);
     }
 
     to {
-        transform:
-            rotate(335deg);
+        transform: rotate(335deg);
     }
 
 }
@@ -2527,17 +2514,11 @@ footer {
 
     0%,
     100% {
-
-        transform:
-            translateY(0);
-
+        transform: translateY(0);
     }
 
     50% {
-
-        transform:
-            translateY(-12px);
-
+        transform: translateY(-12px);
     }
 
 }
@@ -2549,60 +2530,32 @@ footer {
 
 @media (max-width: 1100px) {
 
-
     .navbar {
-
-        padding:
-            0 4%;
-
+        padding: 0 4%;
     }
-
 
     .navbar nav {
-
-        gap:
-            13px;
-
+        gap: 13px;
     }
-
 
     .navbar nav a {
-
-        font-size:
-            9px;
-
+        font-size: 9px;
     }
-
 
     .hero {
-
-        grid-template-columns:
-            1fr;
-
+        grid-template-columns: 1fr;
     }
-
 
     .about-layout {
-
-        grid-template-columns:
-            1fr;
-
+        grid-template-columns: 1fr;
     }
-
 
     .skills-grid {
-
-        grid-template-columns:
-            repeat(2,1fr);
-
+        grid-template-columns: repeat(2,1fr);
     }
 
-
     .projects-grid {
-
-        grid-template-columns:
-            repeat(2,1fr);
-
+        grid-template-columns: repeat(2,1fr);
     }
 
 }
@@ -2615,12 +2568,12 @@ footer {
 @media (max-width: 700px) {
 
 
-    /* HIDE AKASH LOGO */
+    /* REMOVE AKASH. COMPLETELY */
 
     .navbar .logo {
 
         display:
-            none;
+            none !important;
 
     }
 
@@ -2631,7 +2584,7 @@ footer {
             70px;
 
         padding:
-            0 6%;
+            0 20px;
 
         justify-content:
             flex-end;
@@ -2639,28 +2592,58 @@ footer {
     }
 
 
-    /* MENU BUTTON */
+    /* =================================================
+       MENU BUTTON
+    ================================================= */
 
     .menu-btn {
 
         display:
             flex;
 
-        position:
-            relative;
+        width:
+            44px;
+
+        height:
+            44px;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        background:
+            transparent;
+
+        border:
+            1px solid
+            var(--cyan);
+
+        color:
+            var(--cyan);
+
+        font-size:
+            23px;
+
+        cursor:
+            pointer;
 
         z-index:
-            10001;
+            10002;
 
     }
 
 
-    /* MOBILE MENU */
+    /* =================================================
+       MOBILE MENU BANNER
+       HIDDEN ABOVE SCREEN
+    ================================================= */
 
     .navbar nav {
 
         display:
-            none;
+            flex;
 
         position:
             fixed;
@@ -2678,7 +2661,7 @@ footer {
             calc(100vh - 70px);
 
         padding:
-            30px 25px;
+            25px 20px;
 
         background:
             rgba(3,4,5,0.99);
@@ -2687,7 +2670,8 @@ footer {
             blur(25px);
 
         border-top:
-            1px solid var(--border);
+            1px solid
+            rgba(0,217,255,0.25);
 
         flex-direction:
             column;
@@ -2695,25 +2679,58 @@ footer {
         align-items:
             stretch;
 
+        justify-content:
+            flex-start;
+
         gap:
-            5px;
+            8px;
 
         overflow-y:
             auto;
 
         z-index:
-            10000;
+            10001;
+
+        /* START ABOVE SCREEN */
+
+        transform:
+            translateY(-110%);
+
+        opacity:
+            0;
+
+        visibility:
+            hidden;
+
+        transition:
+            transform 0.35s ease,
+            opacity 0.25s ease,
+            visibility 0.35s ease;
 
     }
 
+
+    /* =================================================
+       MENU SLIDES DOWN
+    ================================================= */
 
     .navbar nav.mobile-open {
 
-        display:
-            flex;
+        transform:
+            translateY(0);
+
+        opacity:
+            1;
+
+        visibility:
+            visible;
 
     }
 
+
+    /* =================================================
+       MOBILE OPTIONS
+    ================================================= */
 
     .navbar nav a {
 
@@ -2730,34 +2747,47 @@ footer {
             58px;
 
         padding:
-            15px 18px;
-
-        border:
-            1px solid
-            rgba(255,255,255,0.06);
+            16px 20px;
 
         background:
             rgba(255,255,255,0.025);
 
+        border:
+            1px solid
+            rgba(255,255,255,0.08);
+
         color:
-            #d0d5da;
+            #d8dde2;
+
+        text-decoration:
+            none;
 
         font-size:
             12px;
 
+        font-weight:
+            700;
+
         letter-spacing:
             2px;
+
+        transition:
+            0.25s;
 
     }
 
 
+    .navbar nav a:hover,
     .navbar nav a.active-nav {
 
         color:
+            #000;
+
+        background:
             var(--cyan);
 
         border-color:
-            rgba(0,217,255,0.35);
+            var(--cyan);
 
     }
 
@@ -2770,7 +2800,9 @@ footer {
     }
 
 
-    /* ONLY ACTIVE SECTION */
+    /* =================================================
+       ONLY SELECTED SECTION
+    ================================================= */
 
     .page-section {
 
@@ -2788,7 +2820,9 @@ footer {
     }
 
 
-    /* HOME */
+    /* =================================================
+       HOME
+    ================================================= */
 
     .hero {
 
@@ -2919,7 +2953,9 @@ footer {
     }
 
 
-    /* SECTIONS */
+    /* =================================================
+       SECTIONS
+    ================================================= */
 
     .section {
 
@@ -2943,7 +2979,9 @@ footer {
     }
 
 
-    /* SKILLS */
+    /* =================================================
+       SKILLS
+    ================================================= */
 
     .skills-grid {
 
@@ -2953,7 +2991,9 @@ footer {
     }
 
 
-    /* PROJECTS */
+    /* =================================================
+       PROJECTS
+    ================================================= */
 
     .projects-grid {
 
@@ -2982,7 +3022,9 @@ footer {
     }
 
 
-    /* CERTIFICATES */
+    /* =================================================
+       CERTIFICATES
+    ================================================= */
 
     .certificates-grid {
 
@@ -2992,7 +3034,9 @@ footer {
     }
 
 
-    /* EDUCATION */
+    /* =================================================
+       EDUCATION
+    ================================================= */
 
     .education-card {
 
@@ -3052,7 +3096,9 @@ footer {
     }
 
 
-    /* CONTACT */
+    /* =================================================
+       CONTACT
+    ================================================= */
 
     .contact-section {
 
@@ -3092,7 +3138,9 @@ footer {
     }
 
 
-    /* FOOTER */
+    /* =================================================
+       FOOTER
+    ================================================= */
 
     footer {
 
