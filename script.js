@@ -1,16 +1,11 @@
 /* =====================================================
-   AKASH SHETIYA PORTFOLIO
-===================================================== */
-
-
-/* =====================================================
    CERTIFICATES
 ===================================================== */
 
 const certificates = [
 
     {
-        number: "01",
+        number: "CERT",
 
         title: "Python (Basic)",
 
@@ -27,7 +22,7 @@ const certificates = [
 
 
     {
-        number: "02",
+        number: "CERT",
 
         title: "Introduction to Generative AI",
 
@@ -58,9 +53,7 @@ function loadCertificates() {
         );
 
 
-    if (!container) {
-        return;
-    }
+    if (!container) return;
 
 
     container.innerHTML = "";
@@ -146,7 +139,7 @@ loadCertificates();
 
 
 /* =====================================================
-   GITHUB
+   GITHUB PROJECTS
 ===================================================== */
 
 const githubUsername =
@@ -162,9 +155,7 @@ async function loadGitHubProjects() {
         );
 
 
-    if (!container) {
-        return;
-    }
+    if (!container) return;
 
 
     try {
@@ -238,12 +229,8 @@ async function loadGitHubProjects() {
                     <div class="project-top">
 
                         <span>
-
-                            ${String(index + 1)
-                                .padStart(2, "0")}
-
+                            PROJECT
                         </span>
-
 
                         <span>
 
@@ -434,9 +421,7 @@ const nav =
 
 function openMobileMenu() {
 
-    if (!nav) {
-        return;
-    }
+    if (!nav) return;
 
 
     nav.classList.add(
@@ -466,9 +451,7 @@ function openMobileMenu() {
 
 function closeMobileMenu() {
 
-    if (!nav) {
-        return;
-    }
+    if (!nav) return;
 
 
     nav.classList.remove(
@@ -502,8 +485,6 @@ function showSection(
 ) {
 
 
-    /* HIDE ALL */
-
     pageSections.forEach(
         function(section) {
 
@@ -515,27 +496,19 @@ function showSection(
     );
 
 
-    /* SELECT */
-
     const selectedSection =
         document.getElementById(
             sectionId
         );
 
 
-    if (!selectedSection) {
-        return;
-    }
+    if (!selectedSection) return;
 
-
-    /* SHOW ONLY SELECTED */
 
     selectedSection.classList.add(
         "active-section"
     );
 
-
-    /* ACTIVE TAB */
 
     navigationLinks.forEach(
         function(link) {
@@ -561,12 +534,8 @@ function showSection(
     );
 
 
-    /* CLOSE MOBILE MENU */
-
     closeMobileMenu();
 
-
-    /* URL */
 
     if (updateURL) {
 
@@ -579,8 +548,6 @@ function showSection(
     }
 
 
-    /* TOP */
-
     window.scrollTo({
         top: 0,
         behavior: "smooth"
@@ -591,7 +558,7 @@ function showSection(
 
 
 /* =====================================================
-   NAVIGATION CLICK
+   NAVIGATION CLICKS
 ===================================================== */
 
 navigationLinks.forEach(
@@ -636,13 +603,11 @@ if (menuBtn) {
         function() {
 
 
-            const isOpen =
+            if (
                 nav.classList.contains(
                     "mobile-open"
-                );
-
-
-            if (isOpen) {
+                )
+            ) {
 
                 closeMobileMenu();
 
@@ -669,7 +634,6 @@ window.addEventListener(
     "resize",
     function() {
 
-
         if (
             window.innerWidth > 700
         ) {
@@ -684,7 +648,7 @@ window.addEventListener(
 
 
 /* =====================================================
-   INITIAL SECTION
+   INITIAL PAGE
 ===================================================== */
 
 function loadInitialSection() {
@@ -710,12 +674,10 @@ function loadInitialSection() {
             )
         ) {
 
-
             showSection(
                 sectionId,
                 false
             );
-
 
             return;
 
@@ -737,7 +699,7 @@ loadInitialSection();
 
 
 /* =====================================================
-   BACK / FORWARD
+   BROWSER BACK / FORWARD
 ===================================================== */
 
 window.addEventListener(
@@ -754,7 +716,6 @@ window.addEventListener(
             hash.length > 1
         ) {
 
-
             showSection(
                 hash.substring(1),
                 false
@@ -763,7 +724,6 @@ window.addEventListener(
         }
 
         else {
-
 
             showSection(
                 "home",
@@ -812,18 +772,3 @@ document
 
         }
     );
-
-
-
-/* =====================================================
-   CONSOLE
-===================================================== */
-
-console.log(
-    "AKASH SHETIYA PORTFOLIO"
-);
-
-console.log(
-    "GitHub:",
-    githubUsername
-);
