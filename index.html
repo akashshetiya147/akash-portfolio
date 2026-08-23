@@ -1,575 +1,1398 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="Akash Shetiya - BTech CSE AIML Student Portfolio">
+          content="Akash Shetiya - Personal Portfolio">
 
     <title>Akash Shetiya | Portfolio</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <div class="background-grid"></div>
-    <div class="glow glow-one"></div>
-    <div class="glow glow-two"></div>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
 
-        <a href="#home" class="logo">
-            AKASH<span>.</span>
+<div class="background-grid"></div>
+
+<div class="glow glow-one"></div>
+
+<div class="glow glow-two"></div>
+
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+
+    <a href="#home"
+       class="logo">
+
+        AKASH<span>.</span>
+
+    </a>
+
+
+
+    <nav id="nav">
+
+        <a href="#home"
+           class="active-nav">
+
+            HOME
+
         </a>
 
-        <nav id="nav">
-            <a href="#home">HOME</a>
-            <a href="#about">ABOUT</a>
-            <a href="#skills">SKILLS</a>
-            <a href="#projects">PROJECTS</a>
-            <a href="#certificates">CERTIFICATES</a>
-            <a href="#contact">CONTACT</a>
-        </nav>
+        <a href="#about">
 
-        <button class="menu-btn" id="menuBtn">
-            ☰
-        </button>
+            ABOUT
 
-    </header>
+        </a>
+
+        <a href="#skills">
+
+            SKILLS
+
+        </a>
+
+        <a href="#projects">
+
+            PROJECTS
+
+        </a>
+
+        <a href="#certificates">
+
+            CERTIFICATES
+
+        </a>
+
+        <a href="#education">
+
+            EDUCATION
+
+        </a>
+
+        <a href="#contact">
+
+            CONTACT
+
+        </a>
+
+    </nav>
 
 
-    <!-- HERO -->
-    <section id="home" class="hero">
 
-        <div class="hero-left">
+    <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open navigation menu"
+        aria-expanded="false">
 
-            <div class="eyebrow">
-                <span></span>
-                WELCOME TO MY PORTFOLIO
-            </div>
+        ☰
 
-            <p class="hello">
-                HELLO, I'M
-            </p>
+    </button>
 
-            <h1>
-                AKASH
-                <strong>SHETIYA</strong>
-            </h1>
 
-            <div class="typing-line">
-                <span id="typing"></span>
-                <i></i>
-            </div>
+</header>
 
-            <p class="hero-description">
-                BTech Computer Science & Engineering student
-                specializing in Artificial Intelligence and
-                Machine Learning at PES University.
 
-                <br><br>
 
-                I build, learn and explore technology through
-                programming and practical projects.
-            </p>
+<!-- =====================================================
+     HOME
+===================================================== -->
 
-            <div class="hero-buttons">
+<section
+    id="home"
+    class="hero page-section active-section">
 
-                <a href="#projects"
-                   class="button button-primary">
-                    EXPLORE MY WORK →
-                </a>
 
-                <a href="#contact"
-                   class="button button-outline">
-                    CONTACT ME
-                </a>
+    <div class="hero-left">
 
-            </div>
 
-            <div class="socials">
+        <div class="eyebrow">
 
-                <a href="https://github.com/akashshetiya147"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    GITHUB
-                </a>
+            <span></span>
 
-                <a href="https://www.linkedin.com/in/akash-shetiya-00070a389/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    LINKEDIN
-                </a>
-
-                <a href="https://www.instagram.com/akashks147/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    INSTAGRAM
-                </a>
-
-            </div>
+            WELCOME TO MY PORTFOLIO
 
         </div>
 
 
-        <!-- GRAPHIC -->
-        <div class="hero-right">
-
-            <div class="orbital orbital-one"></div>
-            <div class="orbital orbital-two"></div>
 
-            <div class="developer-card">
+        <p class="hello">
 
-                <div class="card-top">
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-
-                    <small>
-                        developer.py
-                    </small>
-                </div>
-
-                <div class="code">
-
-                    <p>
-                        <span class="purple">class</span>
-                        <span class="blue">Developer</span>:
-                    </p>
-
-                    <p class="indent">
-                        name =
-                        <span class="green">
-                            "Akash Shetiya"
-                        </span>
-                    </p>
-
-                    <p class="indent">
-                        language =
-                        <span class="green">
-                            ["C", "Python"]
-                        </span>
-                    </p>
-
-                    <p class="indent">
-                        focus =
-                        <span class="green">
-                            "AI / ML"
-                        </span>
-                    </p>
-
-                    <p class="indent">
-                        university =
-                        <span class="green">
-                            "PES University"
-                        </span>
-                    </p>
-
-                    <p>
-                        <span class="purple">return</span>
-                        <span class="blue">success</span>
-                    </p>
-
-                </div>
-
-                <div class="terminal-line">
-                    <span>➜</span>
-                    akash@portfolio:~$
-                    <b>./build_future</b>
-                </div>
-
-            </div>
+            HELLO, I'M
 
+        </p>
 
-            <div class="floating-box box-c">
-                <b>C</b>
-                <small>PROGRAMMING</small>
-            </div>
-
-            <div class="floating-box box-python">
-                <b>PY</b>
-                <small>PYTHON</small>
-            </div>
 
-            <div class="floating-box box-ai">
-                <b>AI</b>
-                <small>EXPLORING</small>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-
-        <div class="section-number">
-            01
-        </div>
-
-        <div class="section-heading">
-            <span>ABOUT ME</span>
-            <h2>WHO AM I?</h2>
-        </div>
-
-        <div class="about-layout">
-
-            <div class="about-main">
-
-                <p class="large-text">
-                    I'm
-                    <strong>Akash Shetiya</strong>,
-                    a BTech Computer Science and Engineering
-                    student specializing in Artificial
-                    Intelligence and Machine Learning
-                    at PES University.
-                </p>
-
-                <p>
-                    I'm passionate about programming,
-                    problem solving and exploring how
-                    technology can be used to create
-                    useful and creative solutions.
-                </p>
-
-                <p>
-                    I enjoy working with C and Python
-                    while strengthening my understanding
-                    of Data Structures, Algorithms and AI.
-                </p>
-
-                <p>
-                    My goal is simple — keep learning,
-                    build meaningful projects and grow
-                    into a strong software developer.
-                </p>
-
-            </div>
-
-            <div class="about-stats">
-
-                <div>
-                    <strong>C</strong>
-                    <span>PROGRAMMING</span>
-                </div>
-
-                <div>
-                    <strong>PY</strong>
-                    <span>PYTHON</span>
-                </div>
-
-                <div>
-                    <strong>AI</strong>
-                    <span>EXPLORING</span>
-                </div>
-
-                <div>
-                    <strong>∞</strong>
-                    <span>LEARNING</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SKILLS -->
-    <section id="skills" class="section">
-
-        <div class="section-number">
-            02
-        </div>
-
-        <div class="section-heading">
-            <span>MY SKILLS</span>
-            <h2>WHAT I USE</h2>
-        </div>
-
-        <div class="skills-grid">
-
-            <div class="skill-card">
-                <div class="skill-icon">&lt;/&gt;</div>
-                <span class="skill-number">01</span>
-                <h3>C</h3>
-                <p>
-                    Programming<br>
-                    Data Structures<br>
-                    Algorithms<br>
-                    Problem Solving
-                </p>
-                <div class="skill-line"></div>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon">PY</div>
-                <span class="skill-number">02</span>
-                <h3>PYTHON</h3>
-                <p>
-                    Programming<br>
-                    Automation<br>
-                    AI / ML Basics<br>
-                    Problem Solving
-                </p>
-                <div class="skill-line"></div>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon">WEB</div>
-                <span class="skill-number">03</span>
-                <h3>HTML / CSS</h3>
-                <p>
-                    Web Development<br>
-                    Responsive Design<br>
-                    UI Design<br>
-                    Modern Layouts
-                </p>
-                <div class="skill-line"></div>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon">JS</div>
-                <span class="skill-number">04</span>
-                <h3>JAVASCRIPT</h3>
-                <p>
-                    Interactions<br>
-                    DOM<br>
-                    Animations<br>
-                    Frontend
-                </p>
-                <div class="skill-line"></div>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon">GIT</div>
-                <span class="skill-number">05</span>
-                <h3>GIT & GITHUB</h3>
-                <p>
-                    Version Control<br>
-                    Repositories<br>
-                    Collaboration<br>
-                    Open Source
-                </p>
-                <div class="skill-line"></div>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon">AI</div>
-                <span class="skill-number">06</span>
-                <h3>AI / ML</h3>
-                <p>
-                    Artificial Intelligence<br>
-                    Machine Learning<br>
-                    Python<br>
-                    Continuous Learning
-                </p>
-                <div class="skill-line"></div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-
-        <div class="section-number">
-            03
-        </div>
-
-        <div class="section-heading project-heading">
-
-            <div>
-                <span>MY WORK</span>
-                <h2>PROJECTS</h2>
-            </div>
-
-            <a href="https://github.com/akashshetiya147"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="github-button">
-                VIEW GITHUB →
-            </a>
-
-        </div>
-
-        <div class="projects-grid"
-             id="githubProjects">
-
-            <p class="loading-projects">
-                LOADING PROJECTS...
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- CERTIFICATES -->
-    <section id="certificates"
-             class="section">
-
-        <div class="section-number">
-            04
-        </div>
-
-        <div class="section-heading">
-            <span>CERTIFICATIONS</span>
-            <h2>CERTIFICATES</h2>
-        </div>
-
-        <div id="certificateContainer"
-             class="certificates-grid">
-        </div>
-
-        <div class="linkedin-link">
+
+        <h1>
+
+            AKASH
+
+            <strong>
+
+                SHETIYA
+
+            </strong>
+
+        </h1>
+
+
+
+        <!-- PROGRAMMER TABS -->
+
+        <div class="programmer-tabs">
+
+
+            <span class="active">
+
+                C PROGRAMMER
+
+            </span>
+
 
             <span>
-                MORE CERTIFICATES & ACHIEVEMENTS
+
+                PYTHON DEVELOPER
+
             </span>
 
-            <a href="https://www.linkedin.com/in/akash-shetiya-00070a389/"
-               target="_blank"
-               rel="noopener noreferrer">
-                VISIT LINKEDIN →
+
+            <span>
+
+                AI / ML EXPLORER
+
+            </span>
+
+
+            <span>
+
+                TECH ENTHUSIAST
+
+            </span>
+
+
+        </div>
+
+
+
+        <p class="hero-description">
+
+            BTech Computer Science and Engineering
+            student specializing in Artificial Intelligence
+            and Machine Learning at PES University.
+
+            <br><br>
+
+            I enjoy programming, problem solving and
+            building projects while continuously learning
+            new technologies.
+
+        </p>
+
+
+
+        <div class="hero-buttons">
+
+
+            <a
+                href="#projects"
+                class="button button-primary">
+
+                EXPLORE MY WORK →
+
             </a>
 
+
+
+            <a
+                href="#contact"
+                class="button button-outline">
+
+                CONTACT ME
+
+            </a>
+
+
         </div>
 
-    </section>
 
 
-    <!-- EDUCATION -->
-    <section class="section">
+        <div class="socials">
 
-        <div class="section-number">
-            05
+
+            <a
+                href="https://github.com/akashshetiya147"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                GITHUB
+
+            </a>
+
+
+
+            <a
+                href="https://www.linkedin.com/in/akash-shetiya-00070a389/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                LINKEDIN
+
+            </a>
+
+
+
+            <a
+                href="https://www.instagram.com/akashks147/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                INSTAGRAM
+
+            </a>
+
+
         </div>
 
-        <div class="section-heading">
-            <span>EDUCATION</span>
-            <h2>MY JOURNEY</h2>
-        </div>
 
-        <div class="education">
+    </div>
 
-            <div class="education-date">
-                2025
-                <br>—<br>
-                PRESENT
+
+
+    <!-- HOME GRAPHIC -->
+
+    <div class="hero-right">
+
+
+        <div class="orbital orbital-one"></div>
+
+        <div class="orbital orbital-two"></div>
+
+
+
+        <div class="developer-card">
+
+
+            <div class="card-top">
+
+                <span class="dot"></span>
+
+                <span class="dot"></span>
+
+                <span class="dot"></span>
+
+
+                <small>
+
+                    developer.py
+
+                </small>
+
             </div>
 
-            <div class="education-content">
 
-                <span>PES UNIVERSITY</span>
 
-                <h3>
-                    BTech — Computer Science &
-                    Engineering (AIML)
-                </h3>
+            <div class="code">
+
 
                 <p>
-                    Bengaluru, India
+
+                    <span class="purple">
+
+                        class
+
+                    </span>
+
+                    <span class="blue">
+
+                        Developer
+
+                    </span>:
+
                 </p>
 
+
+
+                <p class="indent">
+
+                    name =
+
+                    <span class="green">
+
+                        "Akash Shetiya"
+
+                    </span>
+
+                </p>
+
+
+
+                <p class="indent">
+
+                    language =
+
+                    <span class="green">
+
+                        ["C", "Python"]
+
+                    </span>
+
+                </p>
+
+
+
+                <p class="indent">
+
+                    focus =
+
+                    <span class="green">
+
+                        "AI / ML"
+
+                    </span>
+
+                </p>
+
+
+
+                <p class="indent">
+
+                    university =
+
+                    <span class="green">
+
+                        "PES University"
+
+                    </span>
+
+                </p>
+
+
+
+                <p>
+
+                    <span class="purple">
+
+                        return
+
+                    </span>
+
+                    <span class="blue">
+
+                        success
+
+                    </span>
+
+                </p>
+
+
             </div>
 
-            <div class="education-status">
-                CURRENTLY STUDYING
+
+
+            <div class="terminal-line">
+
+                <span>
+
+                    ➜
+
+                </span>
+
+                akash@portfolio:~$
+
+                <b>
+
+                    ./build_future
+
+                </b>
+
             </div>
+
 
         </div>
 
-    </section>
 
 
-    <!-- CONTACT -->
-    <section id="contact"
-             class="contact-section">
+        <div class="floating-box box-c">
 
-        <div class="contact-inner">
+            <b>
 
-            <span class="contact-label">
-                06 / CONTACT
-            </span>
+                C
 
-            <h2>
-                LET'S BUILD
-                <strong>SOMETHING.</strong>
-            </h2>
+            </b>
 
-            <p>
-                I'm always interested in learning,
-                building and connecting with people
-                who love technology.
+            <small>
+
+                PROGRAMMING
+
+            </small>
+
+        </div>
+
+
+
+        <div class="floating-box box-python">
+
+            <b>
+
+                PY
+
+            </b>
+
+            <small>
+
+                PYTHON
+
+            </small>
+
+        </div>
+
+
+
+        <div class="floating-box box-ai">
+
+            <b>
+
+                AI
+
+            </b>
+
+            <small>
+
+                EXPLORING
+
+            </small>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+    id="about"
+    class="section page-section">
+
+
+    <div class="section-number">
+
+        01
+
+    </div>
+
+
+
+    <div class="section-heading">
+
+        <span>
+
+            ABOUT ME
+
+        </span>
+
+
+        <h2>
+
+            WHO AM I?
+
+        </h2>
+
+    </div>
+
+
+
+    <div class="about-layout">
+
+
+        <div class="about-main">
+
+
+            <p class="large-text">
+
+                I'm
+
+                <strong>
+
+                    Akash Shetiya
+
+                </strong>,
+
+                a BTech Computer Science and Engineering
+                student specializing in Artificial
+                Intelligence and Machine Learning.
+
             </p>
 
-            <div class="contact-details">
 
-                <a href="mailto:akashkiranshetiya@gmail.com"
-                   class="email">
-                    akashkiranshetiya@gmail.com
-                </a>
 
-                <a href="tel:+917676444177"
-                   class="phone">
-                    +91 76764 44177
-                </a>
+            <p>
 
-            </div>
+                I'm passionate about programming,
+                problem solving and exploring how
+                technology can be used to create
+                useful solutions.
 
-            <div class="contact-socials">
+            </p>
 
-                <a href="https://github.com/akashshetiya147"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    GITHUB ↗
-                </a>
 
-                <a href="https://www.linkedin.com/in/akash-shetiya-00070a389/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    LINKEDIN ↗
-                </a>
 
-                <a href="https://www.instagram.com/akashks147/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    INSTAGRAM ↗
-                </a>
+            <p>
 
-            </div>
+                I enjoy working with C and Python
+                while developing my understanding
+                of Data Structures, Algorithms and
+                Artificial Intelligence.
+
+            </p>
+
+
+
+            <p>
+
+                My goal is to keep learning,
+                build meaningful projects and
+                grow into a strong software developer.
+
+            </p>
+
 
         </div>
 
-    </section>
 
 
-    <!-- FOOTER -->
-    <footer>
+        <div class="about-stats">
 
-        <div class="footer-logo">
-            AKASH<span>.</span>
+
+            <div>
+
+                <strong>
+
+                    C
+
+                </strong>
+
+                <span>
+
+                    PROGRAMMING
+
+                </span>
+
+            </div>
+
+
+
+            <div>
+
+                <strong>
+
+                    PY
+
+                </strong>
+
+                <span>
+
+                    PYTHON
+
+                </span>
+
+            </div>
+
+
+
+            <div>
+
+                <strong>
+
+                    AI
+
+                </strong>
+
+                <span>
+
+                    EXPLORING
+
+                </span>
+
+            </div>
+
+
+
+            <div>
+
+                <strong>
+
+                    ∞
+
+                </strong>
+
+                <span>
+
+                    LEARNING
+
+                </span>
+
+            </div>
+
+
         </div>
 
-        <p>
-            © 2026 AKASH SHETIYA
-        </p>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section
+    id="skills"
+    class="section page-section">
+
+
+    <div class="section-number">
+
+        02
+
+    </div>
+
+
+
+    <div class="section-heading">
+
+        <span>
+
+            MY SKILLS
+
+        </span>
+
+
+        <h2>
+
+            WHAT I USE
+
+        </h2>
+
+    </div>
+
+
+
+    <div class="skills-grid">
+
+
+        <!-- C -->
+
+        <div class="skill-card">
+
+
+            <div class="skill-icon">
+
+                C
+
+            </div>
+
+
+            <span class="skill-number">
+
+                01
+
+            </span>
+
+
+            <h3>
+
+                C PROGRAMMING
+
+            </h3>
+
+
+            <p>
+
+                Programming<br>
+
+                Data Structures<br>
+
+                Algorithms<br>
+
+                Problem Solving
+
+            </p>
+
+
+            <div class="skill-line"></div>
+
+
+        </div>
+
+
+
+        <!-- PYTHON -->
+
+        <div class="skill-card">
+
+
+            <div class="skill-icon">
+
+                PY
+
+            </div>
+
+
+            <span class="skill-number">
+
+                02
+
+            </span>
+
+
+            <h3>
+
+                PYTHON
+
+            </h3>
+
+
+            <p>
+
+                Programming<br>
+
+                Problem Solving<br>
+
+                Automation<br>
+
+                AI / ML Basics
+
+            </p>
+
+
+            <div class="skill-line"></div>
+
+
+        </div>
+
+
+
+        <!-- AI -->
+
+        <div class="skill-card">
+
+
+            <div class="skill-icon">
+
+                AI
+
+            </div>
+
+
+            <span class="skill-number">
+
+                03
+
+            </span>
+
+
+            <h3>
+
+                AI / ML
+
+            </h3>
+
+
+            <p>
+
+                Artificial Intelligence<br>
+
+                Machine Learning<br>
+
+                Python<br>
+
+                Continuous Learning
+
+            </p>
+
+
+            <div class="skill-line"></div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section
+    id="projects"
+    class="section page-section">
+
+
+    <div class="section-number">
+
+        03
+
+    </div>
+
+
+
+    <div class="section-heading project-heading">
+
+
+        <div>
+
+            <span>
+
+                MY WORK
+
+            </span>
+
+
+            <h2>
+
+                PROJECTS
+
+            </h2>
+
+        </div>
+
+
+
+        <a
+            href="https://github.com/akashshetiya147"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="github-button">
+
+            VIEW GITHUB →
+
+        </a>
+
+
+    </div>
+
+
+
+    <div
+        id="githubProjects"
+        class="projects-grid">
+
+
+        <div class="loading-projects">
+
+
+            <div class="loader"></div>
+
+
+            LOADING GITHUB PROJECTS...
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CERTIFICATES
+===================================================== -->
+
+<section
+    id="certificates"
+    class="section page-section">
+
+
+    <div class="section-number">
+
+        04
+
+    </div>
+
+
+
+    <div class="section-heading">
+
+
+        <span>
+
+            CERTIFICATIONS
+
+        </span>
+
+
+        <h2>
+
+            CERTIFICATES
+
+        </h2>
+
+
+    </div>
+
+
+
+    <div
+        id="certificateContainer"
+        class="certificates-grid">
+
+    </div>
+
+
+
+    <div class="linkedin-link">
+
+
+        <span>
+
+            MORE CERTIFICATES & ACHIEVEMENTS
+
+        </span>
+
+
+
+        <a
+            href="https://www.linkedin.com/in/akash-shetiya-00070a389/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            VISIT LINKEDIN →
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     EDUCATION
+===================================================== -->
+
+<section
+    id="education"
+    class="section page-section">
+
+
+    <div class="section-number">
+
+        05
+
+    </div>
+
+
+
+    <div class="section-heading">
+
+
+        <span>
+
+            EDUCATION
+
+        </span>
+
+
+        <h2>
+
+            MY JOURNEY
+
+        </h2>
+
+
+    </div>
+
+
+
+    <div class="education-list">
+
+
+        <!-- PES UNIVERSITY -->
+
+        <div class="education-card">
+
+
+            <div class="education-year">
+
+                2025
+
+                <span>
+
+                    PRESENT
+
+                </span>
+
+            </div>
+
+
+
+            <div class="education-info">
+
+
+                <span>
+
+                    PES UNIVERSITY
+
+                </span>
+
+
+                <h3>
+
+                    BTech — Computer Science
+                    & Engineering (AIML)
+
+                </h3>
+
+
+                <p>
+
+                    Bengaluru, Karnataka
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="education-badge">
+
+                CURRENT
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- PU -->
+
+        <div class="education-card">
+
+
+            <div class="education-year">
+
+                2023
+
+                <span>
+
+                    2025
+
+                </span>
+
+            </div>
+
+
+
+            <div class="education-info">
+
+
+                <span>
+
+                    CREATIVE PU COLLEGE UDUPI
+
+                </span>
+
+
+                <h3>
+
+                    II PUC
+
+                </h3>
+
+
+                <p>
+
+                    97.68% in II PUC Examination
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="education-badge">
+
+                COMPLETED
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="education-note">
+
+        EDUCATION DETAILS ARE BASED ON
+        INFORMATION AVAILABLE ON MY
+        LINKEDIN PROFILE.
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section
+    id="contact"
+    class="contact-section page-section">
+
+
+    <div class="contact-inner">
+
+
+        <span class="contact-label">
+
+            06 / CONTACT
+
+        </span>
+
+
+
+        <h2>
+
+            LET'S BUILD
+
+            <strong>
+
+                SOMETHING.
+
+            </strong>
+
+        </h2>
+
+
 
         <p>
-            BUILT WITH CODE & CURIOSITY
+
+            I'm always interested in learning,
+            building and connecting with people
+            who love technology.
+
         </p>
 
-    </footer>
 
 
-    <script src="script.js"></script>
+        <!-- EMAIL + PHONE -->
+
+        <div class="contact-buttons">
+
+
+            <a
+                href="mailto:akashkiranshetiya@gmail.com"
+                class="contact-box">
+
+
+                <span>
+
+                    ✉
+
+                </span>
+
+
+                <div>
+
+                    <small>
+
+                        EMAIL ME
+
+                    </small>
+
+
+                    <b>
+
+                        SEND AN EMAIL
+
+                    </b>
+
+                </div>
+
+
+                <strong>
+
+                    →
+
+                </strong>
+
+
+            </a>
+
+
+
+            <a
+                href="tel:+917676444177"
+                class="contact-box">
+
+
+                <span>
+
+                    ☎
+
+                </span>
+
+
+                <div>
+
+                    <small>
+
+                        CALL ME
+
+                    </small>
+
+
+                    <b>
+
+                        +91 76764 44177
+
+                    </b>
+
+                </div>
+
+
+                <strong>
+
+                    →
+
+                </strong>
+
+
+            </a>
+
+
+        </div>
+
+
+
+        <div class="contact-socials">
+
+
+            <a
+                href="https://github.com/akashshetiya147"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                GITHUB ↗
+
+            </a>
+
+
+
+            <a
+                href="https://www.linkedin.com/in/akash-shetiya-00070a389/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                LINKEDIN ↗
+
+            </a>
+
+
+
+            <a
+                href="https://www.instagram.com/akashks147/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                INSTAGRAM ↗
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <div class="footer-logo">
+
+        AKASH<span>.</span>
+
+    </div>
+
+
+    <p>
+
+        © 2026 AKASH SHETIYA
+
+    </p>
+
+
+    <p>
+
+        BUILT WITH CODE & CURIOSITY
+
+    </p>
+
+
+</footer>
+
+
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
