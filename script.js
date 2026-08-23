@@ -154,6 +154,7 @@ function loadCertificates() {
 
 
                 <a
+                    class="certificate-link"
                     href="${certificate.url}"
                     target="_blank"
                     rel="noopener noreferrer">
@@ -175,15 +176,12 @@ function loadCertificates() {
 }
 
 
-
-/* LOAD CERTIFICATES */
-
 loadCertificates();
 
 
 
 /* =====================================================
-   NAVIGATION ELEMENTS
+   NAVIGATION
 ===================================================== */
 
 const pageSections =
@@ -294,7 +292,7 @@ function closeMobileMenu() {
 
 
 /* =====================================================
-   SHOW ONLY ONE SECTION
+   SHOW SECTION
 ===================================================== */
 
 function showSection(
@@ -302,8 +300,6 @@ function showSection(
     updateURL = true
 ) {
 
-
-    /* HIDE EVERYTHING */
 
     pageSections.forEach(
         function(section) {
@@ -316,15 +312,11 @@ function showSection(
     );
 
 
-    /* FIND REQUESTED SECTION */
-
     let selectedSection =
         document.getElementById(
             sectionId
         );
 
-
-    /* IF NOT FOUND -> HOME */
 
     if (!selectedSection) {
 
@@ -347,14 +339,10 @@ function showSection(
     }
 
 
-    /* SHOW SELECTED SECTION */
-
     selectedSection.classList.add(
         "active-section"
     );
 
-
-    /* UPDATE NAV */
 
     navigationLinks.forEach(
         function(link) {
@@ -382,12 +370,8 @@ function showSection(
     );
 
 
-    /* CLOSE MOBILE MENU */
-
     closeMobileMenu();
 
-
-    /* UPDATE URL */
 
     if (updateURL) {
 
@@ -399,8 +383,6 @@ function showSection(
 
     }
 
-
-    /* GO TOP */
 
     window.scrollTo({
 
@@ -415,7 +397,7 @@ function showSection(
 
 
 /* =====================================================
-   NAVIGATION CLICK
+   NAVIGATION CLICKS
 ===================================================== */
 
 navigationLinks.forEach(
@@ -474,7 +456,10 @@ if (
 
     menuBtn.addEventListener(
         "click",
-        function() {
+        function(event) {
+
+
+            event.stopPropagation();
 
 
             if (
@@ -524,7 +509,7 @@ document.addEventListener(
 
 
 /* =====================================================
-   CLICK OUTSIDE MOBILE MENU
+   CLICK OUTSIDE MENU
 ===================================================== */
 
 document.addEventListener(
@@ -594,7 +579,7 @@ window.addEventListener(
 
 
 /* =====================================================
-   LOAD INITIAL SECTION
+   INITIAL SECTION
 ===================================================== */
 
 function loadInitialSection() {
@@ -647,7 +632,7 @@ loadInitialSection();
 
 
 /* =====================================================
-   BROWSER BACK / FORWARD
+   BACK / FORWARD
 ===================================================== */
 
 window.addEventListener(
@@ -688,7 +673,7 @@ window.addEventListener(
 
 
 /* =====================================================
-   HERO BUTTONS
+   HERO INTERNAL LINKS
 ===================================================== */
 
 document
@@ -728,7 +713,7 @@ document
 
 
 /* =====================================================
-   FINISHED
+   CONSOLE
 ===================================================== */
 
 console.log(
