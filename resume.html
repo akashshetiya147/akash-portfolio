@@ -18,7 +18,7 @@
     <title>Akash Shetiya | Resume</title>
 
 
-    <!-- RESUME PAGE LOGO -->
+    <!-- AS LOGO -->
 
     <link
         rel="icon"
@@ -29,32 +29,25 @@
 
     <style>
 
-
         * {
-
-            box-sizing:
-                border-box;
-
+            box-sizing: border-box;
         }
 
 
-        html,
+        html {
+            scroll-behavior: smooth;
+        }
+
+
         body {
 
-            margin:
-                0;
-
-            padding:
-                0;
-
-            width:
-                100%;
-
-            height:
-                100%;
+            margin: 0;
 
             background:
-                #111;
+                #eef2f6;
+
+            color:
+                #18232d;
 
             font-family:
                 Arial,
@@ -64,49 +57,39 @@
         }
 
 
-        body {
-
-            overflow:
-                hidden;
-
-        }
-
-
-        /* =================================================
+        /* =============================================
            TOP BAR
-        ================================================= */
+        ============================================= */
 
         .topbar {
 
-            width:
-                100%;
+            position: sticky;
 
-            height:
-                64px;
+            top: 0;
 
-            padding:
-                0 20px;
+            z-index: 1000;
 
-            display:
-                flex;
+            height: 66px;
 
-            align-items:
-                center;
+            display: flex;
 
-            justify-content:
-                space-between;
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 6%;
 
             background:
                 #07111f;
 
             border-bottom:
                 1px solid
-                #1c3347;
+                #1e3448;
 
         }
 
 
-        .title {
+        .brand {
 
             color:
                 #00d9ff;
@@ -115,7 +98,7 @@
                 15px;
 
             font-weight:
-                700;
+                800;
 
             letter-spacing:
                 1.5px;
@@ -123,7 +106,7 @@
         }
 
 
-        .buttons {
+        .top-actions {
 
             display:
                 flex;
@@ -134,7 +117,7 @@
         }
 
 
-        .btn {
+        .top-btn {
 
             display:
                 inline-flex;
@@ -146,7 +129,17 @@
                 center;
 
             padding:
-                10px 15px;
+                10px 16px;
+
+            border:
+                1px solid
+                #00d9ff;
+
+            color:
+                #00d9ff;
+
+            background:
+                transparent;
 
             text-decoration:
                 none;
@@ -160,23 +153,13 @@
             letter-spacing:
                 1px;
 
-            border:
-                1px solid
-                #00d9ff;
-
-            color:
-                #00d9ff;
-
-            background:
-                transparent;
-
             transition:
                 .25s;
 
         }
 
 
-        .btn:hover {
+        .top-btn:hover {
 
             background:
                 #00d9ff;
@@ -187,71 +170,613 @@
         }
 
 
-        /* =================================================
-           PDF
-        ================================================= */
+        /* =============================================
+           PAGE
+        ============================================= */
 
-        .viewer {
+        .page {
 
             width:
-                100%;
+                min(900px, 92%);
 
-            height:
-                calc(100vh - 64px);
-
-            background:
-                #222;
+            margin:
+                40px auto;
 
         }
 
 
-        iframe {
+        .resume {
 
-            width:
-                100%;
+            background:
+                #ffffff;
 
-            height:
-                100%;
+            box-shadow:
+                0 20px 60px
+                rgba(0,0,0,.12);
+
+            padding:
+                52px 58px;
+
+        }
+
+
+        /* =============================================
+           HEADER
+        ============================================= */
+
+        .resume-header {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                flex-start;
+
+            gap:
+                40px;
+
+            padding-bottom:
+                30px;
+
+            border-bottom:
+                2px solid
+                #e6edf3;
+
+        }
+
+
+        .name {
+
+            margin:
+                0;
+
+            color:
+                #07111f;
+
+            font-size:
+                clamp(36px, 5vw, 50px);
+
+            line-height:
+                1;
+
+            font-weight:
+                900;
+
+            letter-spacing:
+                -1px;
+
+        }
+
+
+        .role {
+
+            margin-top:
+                12px;
+
+            color:
+                #0077cc;
+
+            font-size:
+                14px;
+
+            font-weight:
+                700;
+
+        }
+
+
+        .contact {
+
+            text-align:
+                right;
+
+            color:
+                #5f6c76;
+
+            font-size:
+                11px;
+
+            line-height:
+                1.9;
+
+        }
+
+
+        .contact a {
+
+            color:
+                #0077cc;
+
+            text-decoration:
+                none;
+
+        }
+
+
+        .contact a:hover {
+
+            text-decoration:
+                underline;
+
+        }
+
+
+        /* =============================================
+           SECTIONS
+        ============================================= */
+
+        .resume-section {
+
+            margin-top:
+                34px;
+
+        }
+
+
+        .section-title {
+
+            margin:
+                0 0 14px;
+
+            color:
+                #0077cc;
+
+            font-size:
+                13px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                2px;
+
+            padding-bottom:
+                8px;
+
+            border-bottom:
+                1px solid
+                #dce6ee;
+
+        }
+
+
+        .profile {
+
+            color:
+                #46535d;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.8;
+
+            margin:
+                0;
+
+        }
+
+
+        /* =============================================
+           EDUCATION
+        ============================================= */
+
+        .education-item {
+
+            margin-bottom:
+                24px;
+
+        }
+
+
+        .education-item:last-child {
+
+            margin-bottom:
+                0;
+
+        }
+
+
+        .education-top {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+
+        }
+
+
+        .institution {
+
+            color:
+                #17232d;
+
+            font-size:
+                15px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .education-date {
+
+            color:
+                #73808a;
+
+            font-size:
+                11px;
+
+            white-space:
+                nowrap;
+
+        }
+
+
+        .education-course {
+
+            color:
+                #46535d;
+
+            font-size:
+                12.5px;
+
+            margin-top:
+                5px;
+
+            line-height:
+                1.6;
+
+        }
+
+
+        .education-location {
+
+            color:
+                #7a8791;
+
+            font-size:
+                11px;
+
+            margin-top:
+                3px;
+
+        }
+
+
+        /* =============================================
+           SKILLS
+        ============================================= */
+
+        .skills-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px;
+
+        }
+
+
+        .skill {
+
+            padding:
+                16px 18px;
+
+            background:
+                #f5f8fb;
 
             border:
-                none;
+                1px solid
+                #dce6ee;
+
+        }
+
+
+        .skill strong {
 
             display:
                 block;
 
+            color:
+                #17232d;
+
+            font-size:
+                12px;
+
+            margin-bottom:
+                6px;
+
         }
 
 
-        /* =================================================
-           MOBILE
-        ================================================= */
+        .skill span {
 
-        @media (max-width:700px) {
+            color:
+                #68757f;
+
+            font-size:
+                11px;
+
+            line-height:
+                1.6;
+
+        }
+
+
+        /* =============================================
+           PROJECT
+        ============================================= */
+
+        .project {
+
+            padding:
+                20px;
+
+            border:
+                1px solid
+                #dce6ee;
+
+            background:
+                #fbfcfd;
+
+        }
+
+
+        .project-name {
+
+            color:
+                #17232d;
+
+            font-size:
+                16px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .project-description {
+
+            color:
+                #5b6872;
+
+            margin:
+                9px 0 14px;
+
+            font-size:
+                12px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+        .project-link {
+
+            color:
+                #0077cc;
+
+            text-decoration:
+                none;
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1px;
+
+        }
+
+
+        .project-link:hover {
+
+            text-decoration:
+                underline;
+
+        }
+
+
+        /* =============================================
+           CERTIFICATIONS
+        ============================================= */
+
+        .certificate {
+
+            display:
+                flex;
+
+            align-items:
+                flex-start;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+
+            padding:
+                15px 0;
+
+            border-bottom:
+                1px solid
+                #e5ebef;
+
+        }
+
+
+        .certificate:last-child {
+
+            border-bottom:
+                none;
+
+        }
+
+
+        .certificate-title {
+
+            color:
+                #17232d;
+
+            font-size:
+                12.5px;
+
+            font-weight:
+                700;
+
+        }
+
+
+        .certificate-issuer {
+
+            color:
+                #7b8790;
+
+            font-size:
+                10.5px;
+
+            margin-top:
+                4px;
+
+        }
+
+
+        .certificate-link {
+
+            color:
+                #0077cc;
+
+            text-decoration:
+                none;
+
+            font-size:
+                10px;
+
+            font-weight:
+                700;
+
+            white-space:
+                nowrap;
+
+        }
+
+
+        /* =============================================
+           LINKS
+        ============================================= */
+
+        .links {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                12px;
+
+        }
+
+
+        .links a {
+
+            color:
+                #0077cc;
+
+            text-decoration:
+                none;
+
+            font-size:
+                11px;
+
+            font-weight:
+                700;
+
+            padding:
+                10px 13px;
+
+            background:
+                #f3f7fa;
+
+            border:
+                1px solid
+                #dce6ee;
+
+        }
+
+
+        .links a:hover {
+
+            background:
+                #e5f5ff;
+
+        }
+
+
+        /* =============================================
+           FOOTER
+        ============================================= */
+
+        .footer {
+
+            text-align:
+                center;
+
+            color:
+                #83909a;
+
+            font-size:
+                10px;
+
+            padding:
+                25px 0 10px;
+
+        }
+
+
+        /* =============================================
+           MOBILE
+        ============================================= */
+
+        @media (max-width: 700px) {
 
 
             .topbar {
 
-                height:
-                    60px;
-
                 padding:
-                    0 12px;
+                    0 14px;
 
             }
 
 
-            .title {
+            .brand {
 
                 font-size:
                     11px;
 
-                letter-spacing:
-                    1px;
-
             }
 
 
-            .buttons {
+            .top-actions {
 
                 gap:
                     5px;
@@ -259,7 +784,7 @@
             }
 
 
-            .btn {
+            .top-btn {
 
                 padding:
                     8px 9px;
@@ -270,10 +795,108 @@
             }
 
 
-            .viewer {
+            .page {
 
-                height:
-                    calc(100vh - 60px);
+                width:
+                    100%;
+
+                margin:
+                    0;
+
+            }
+
+
+            .resume {
+
+                padding:
+                    30px 22px;
+
+                box-shadow:
+                    none;
+
+            }
+
+
+            .resume-header {
+
+                flex-direction:
+                    column;
+
+                gap:
+                    18px;
+
+            }
+
+
+            .contact {
+
+                text-align:
+                    left;
+
+            }
+
+
+            .education-top {
+
+                flex-direction:
+                    column;
+
+                gap:
+                    5px;
+
+            }
+
+
+            .education-date {
+
+                white-space:
+                    normal;
+
+            }
+
+
+            .skills-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .certificate {
+
+                flex-direction:
+                    column;
+
+                gap:
+                    8px;
+
+            }
+
+
+            .certificate-link {
+
+                white-space:
+                    normal;
+
+            }
+
+
+            .links {
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .links a {
+
+                width:
+                    100%;
+
+                text-align:
+                    center;
 
             }
 
@@ -288,39 +911,39 @@
 
 
 <!-- =====================================================
-     RESUME HEADER
+     TOP BAR
 ===================================================== -->
 
-<div class="topbar">
+<header class="topbar">
 
 
-    <div class="title">
+    <div class="brand">
 
         AKASH SHETIYA — RESUME
 
     </div>
 
 
-    <div class="buttons">
+    <div class="top-actions">
 
 
         <a
-            class="btn"
+            class="top-btn"
             href="assets/Akash_Shetiya_Resume.pdf"
             download>
 
-            DOWNLOAD
+            DOWNLOAD PDF
 
         </a>
 
 
         <a
-            class="btn"
-            href="assets/Akash_Shetiya_Resume.pdf"
+            class="top-btn"
+            href="https://akash-shetiya.vercel.app/"
             target="_blank"
             rel="noopener noreferrer">
 
-            OPEN PDF ↗
+            PORTFOLIO ↗
 
         </a>
 
@@ -328,25 +951,519 @@
     </div>
 
 
-</div>
+</header>
 
 
 
 <!-- =====================================================
-     PDF VIEWER
+     RESUME
 ===================================================== -->
 
-<div class="viewer">
+<main class="page">
 
 
-    <iframe
-        src="assets/Akash_Shetiya_Resume.pdf"
-        title="Akash Shetiya Resume">
-
-    </iframe>
+    <article class="resume">
 
 
-</div>
+        <!-- HEADER -->
+
+        <div class="resume-header">
+
+
+            <div>
+
+                <h1 class="name">
+                    Akash Shetiya
+                </h1>
+
+
+                <div class="role">
+
+                    BTech Computer Science &
+                    Engineering (AIML)
+
+                </div>
+
+            </div>
+
+
+            <div class="contact">
+
+                +91 76764 44177
+
+                <br>
+
+                <a
+                    href="mailto:akashkiranshetiya@gmail.com">
+
+                    akashkiranshetiya@gmail.com
+
+                </a>
+
+                <br>
+
+                <a
+                    href="https://github.com/akashshetiya147"
+                    target="_blank">
+
+                    GitHub
+
+                </a>
+
+                &nbsp;•&nbsp;
+
+                <a
+                    href="https://www.linkedin.com/in/akash-shetiya-00070a389/"
+                    target="_blank">
+
+                    LinkedIn
+
+                </a>
+
+                <br>
+
+                Bengaluru, Karnataka
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- PROFILE -->
+
+        <section class="resume-section">
+
+
+            <h2 class="section-title">
+                PROFILE
+            </h2>
+
+
+            <p class="profile">
+
+                First-year BTech Computer Science and
+                Engineering (AIML) student at PES University,
+                interested in C, Python, problem solving and
+                Artificial Intelligence and Machine Learning.
+                Focused on building strong programming
+                fundamentals and practical projects while
+                continuously learning.
+
+            </p>
+
+
+        </section>
+
+
+
+        <!-- EDUCATION -->
+
+        <section class="resume-section">
+
+
+            <h2 class="section-title">
+                EDUCATION
+            </h2>
+
+
+
+            <div class="education-item">
+
+
+                <div class="education-top">
+
+                    <div class="institution">
+                        PES UNIVERSITY
+                    </div>
+
+                    <div class="education-date">
+                        2025 – Present
+                    </div>
+
+                </div>
+
+
+                <div class="education-course">
+
+                    BTech — Computer Science &
+                    Engineering (AIML)
+
+                </div>
+
+
+                <div class="education-location">
+
+                    Bengaluru, Karnataka
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="education-item">
+
+
+                <div class="education-top">
+
+                    <div class="institution">
+
+                        CREATIVE PU COLLEGE UDUPI
+
+                    </div>
+
+                    <div class="education-date">
+                        2023 – 2025
+                    </div>
+
+                </div>
+
+
+                <div class="education-course">
+
+                    II PUC — 97.68%
+
+                </div>
+
+
+                <div class="education-location">
+
+                    Udupi, Karnataka
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="education-item">
+
+
+                <div class="education-top">
+
+                    <div class="institution">
+
+                        C V S K HIGH SCHOOL, KUMTA
+
+                    </div>
+
+                    <div class="education-date">
+                        2023
+                    </div>
+
+                </div>
+
+
+                <div class="education-course">
+
+                    10th Grade — 99.68 in
+                    SSLC Examination
+
+                </div>
+
+
+                <div class="education-location">
+
+                    Kumta, Karnataka
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- SKILLS -->
+
+        <section class="resume-section">
+
+
+            <h2 class="section-title">
+                TECHNICAL SKILLS
+            </h2>
+
+
+            <div class="skills-grid">
+
+
+                <div class="skill">
+
+                    <strong>
+                        Programming
+                    </strong>
+
+                    <span>
+                        C, Python
+                    </span>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <strong>
+                        Computer Science
+                    </strong>
+
+                    <span>
+                        Data Structures, Algorithms,
+                        Problem Solving
+                    </span>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <strong>
+                        Artificial Intelligence
+                    </strong>
+
+                    <span>
+                        AI / ML fundamentals
+                    </span>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <strong>
+                        Tools & Platforms
+                    </strong>
+
+                    <span>
+                        GitHub, Vercel
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- PROJECT -->
+
+        <section class="resume-section">
+
+
+            <h2 class="section-title">
+                PROJECT
+            </h2>
+
+
+            <div class="project">
+
+
+                <div class="project-name">
+
+                    Personal Portfolio Website
+
+                </div>
+
+
+                <p class="project-description">
+
+                    Designed and deployed a responsive
+                    personal portfolio showcasing programming
+                    skills, education, certifications and
+                    professional links.
+
+                </p>
+
+
+                <a
+                    class="project-link"
+                    href="https://akash-shetiya.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    OPEN PORTFOLIO →
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- CERTIFICATIONS -->
+
+        <section class="resume-section">
+
+
+            <h2 class="section-title">
+                CERTIFICATIONS
+            </h2>
+
+
+            <div class="certificate">
+
+
+                <div>
+
+                    <div class="certificate-title">
+
+                        Python (Basic)
+
+                    </div>
+
+
+                    <div class="certificate-issuer">
+
+                        HackerRank
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    class="certificate-link"
+                    href="https://www.linkedin.com/feed/update/urn:li:activity:7469989380703604736/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    VIEW ↗
+
+                </a>
+
+
+            </div>
+
+
+
+            <div class="certificate">
+
+
+                <div>
+
+                    <div class="certificate-title">
+
+                        Introduction to Generative AI
+
+                    </div>
+
+
+                    <div class="certificate-issuer">
+
+                        Google
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    class="certificate-link"
+                    href="https://www.linkedin.com/feed/update/urn:li:activity:7494730038274162688/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    VIEW ↗
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ONLINE PROFILES -->
+
+        <section class="resume-section">
+
+
+            <h2 class="section-title">
+                ONLINE PROFILES
+            </h2>
+
+
+            <div class="links">
+
+
+                <a
+                    href="https://akash-shetiya.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    PORTFOLIO ↗
+
+                </a>
+
+
+                <a
+                    href="https://github.com/akashshetiya147"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    GITHUB ↗
+
+                </a>
+
+
+                <a
+                    href="https://www.linkedin.com/in/akash-shetiya-00070a389/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    LINKEDIN ↗
+
+                </a>
+
+
+                <a
+                    href="https://www.instagram.com/akashks147/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    INSTAGRAM ↗
+
+                </a>
+
+
+                <a
+                    href="mailto:akashkiranshetiya@gmail.com">
+
+                    EMAIL ↗
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+        <div class="footer">
+
+            © 2026 Akash Shetiya
+
+        </div>
+
+
+    </article>
+
+
+</main>
 
 
 </body>
