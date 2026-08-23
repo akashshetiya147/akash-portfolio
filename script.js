@@ -36,7 +36,6 @@ const certificates = [
 ];
 
 
-
 /* =====================================================
    ESCAPE HTML
 ===================================================== */
@@ -64,7 +63,6 @@ function escapeHTML(value) {
     return div.innerHTML;
 
 }
-
 
 
 /* =====================================================
@@ -177,7 +175,6 @@ function loadCertificates() {
 loadCertificates();
 
 
-
 /* =====================================================
    NAVIGATION
 ===================================================== */
@@ -206,7 +203,6 @@ const nav =
     );
 
 
-
 /* =====================================================
    MOBILE MENU
 ===================================================== */
@@ -214,7 +210,9 @@ const nav =
 function openMenu() {
 
     if (!nav) {
+
         return;
+
     }
 
 
@@ -238,11 +236,12 @@ function openMenu() {
 }
 
 
-
 function closeMenu() {
 
     if (!nav) {
+
         return;
+
     }
 
 
@@ -266,9 +265,8 @@ function closeMenu() {
 }
 
 
-
 /* =====================================================
-   SHOW ONE SECTION ONLY
+   SHOW ONE SECTION
 ===================================================== */
 
 function showSection(
@@ -306,7 +304,9 @@ function showSection(
 
 
     if (!selected) {
+
         return;
+
     }
 
 
@@ -317,7 +317,6 @@ function showSection(
 
     navLinks.forEach(
         function(link) {
-
 
             link.classList.remove(
                 "active-nav"
@@ -366,9 +365,8 @@ function showSection(
 }
 
 
-
 /* =====================================================
-   NAVIGATION
+   NAVIGATION CLICKS
 ===================================================== */
 
 navLinks.forEach(
@@ -410,7 +408,6 @@ navLinks.forEach(
 );
 
 
-
 /* =====================================================
    MENU BUTTON
 ===================================================== */
@@ -449,9 +446,8 @@ if (
 }
 
 
-
 /* =====================================================
-   CLOSE WITH ESC
+   ESC
 ===================================================== */
 
 document.addEventListener(
@@ -471,9 +467,8 @@ document.addEventListener(
 );
 
 
-
 /* =====================================================
-   CLOSE MENU OUTSIDE
+   CLICK OUTSIDE
 ===================================================== */
 
 document.addEventListener(
@@ -519,7 +514,6 @@ document.addEventListener(
 );
 
 
-
 /* =====================================================
    RESIZE
 ===================================================== */
@@ -527,7 +521,6 @@ document.addEventListener(
 window.addEventListener(
     "resize",
     function() {
-
 
         if (
             window.innerWidth > 700
@@ -541,13 +534,11 @@ window.addEventListener(
 );
 
 
-
 /* =====================================================
    INITIAL SECTION
 ===================================================== */
 
 function loadInitialSection() {
-
 
     const hash =
         window.location.hash;
@@ -557,7 +548,6 @@ function loadInitialSection() {
         hash &&
         hash.length > 1
     ) {
-
 
         const id =
             hash.substring(1);
@@ -590,7 +580,6 @@ function loadInitialSection() {
 
 
 loadInitialSection();
-
 
 
 /* =====================================================
@@ -629,9 +618,8 @@ window.addEventListener(
 );
 
 
-
 /* =====================================================
-   HERO INTERNAL LINKS
+   HERO INTERNAL BUTTONS
 ===================================================== */
 
 document
@@ -665,11 +653,6 @@ document
     );
 
 
-
 console.log(
-    "Portfolio loaded successfully."
-);
-
-console.log(
-    "Resume: assets/Akash_Shetiya_Resume.pdf"
+    "Akash Shetiya Portfolio loaded."
 );
