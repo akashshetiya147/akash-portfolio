@@ -2,12 +2,16 @@
 
     --black: #030405;
     --card: #090d12;
+
     --white: #ffffff;
     --text: #d7dbe0;
     --muted: #7e8792;
+
     --blue: #008cff;
     --cyan: #00d9ff;
-    --border: rgba(255,255,255,0.11);
+
+    --border:
+        rgba(255,255,255,0.11);
 
 }
 
@@ -16,6 +20,7 @@
 
     margin: 0;
     padding: 0;
+
     box-sizing: border-box;
 
 }
@@ -30,8 +35,11 @@ html {
 
 body {
 
-    background: var(--black);
-    color: var(--white);
+    background:
+        var(--black);
+
+    color:
+        var(--white);
 
     font-family:
         Arial,
@@ -50,7 +58,9 @@ body {
 .background-grid {
 
     position: fixed;
+
     inset: 0;
+
     z-index: -5;
 
     background-image:
@@ -66,7 +76,8 @@ body {
             transparent 1px
         );
 
-    background-size: 60px 60px;
+    background-size:
+        60px 60px;
 
 }
 
@@ -80,7 +91,8 @@ body {
 
     border-radius: 50%;
 
-    filter: blur(130px);
+    filter:
+        blur(130px);
 
     pointer-events: none;
 
@@ -125,55 +137,75 @@ body {
     width: 100%;
     height: 76px;
 
-    padding: 0 5%;
+    padding:
+        0 5%;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
-    justify-content: center;
+    align-items:
+        center;
+
+    justify-content:
+        center;
 
     background:
         rgba(3,4,5,0.97);
 
-    backdrop-filter: blur(20px);
+    backdrop-filter:
+        blur(20px);
 
     border-bottom:
         1px solid var(--border);
 
-    z-index: 9999;
+    z-index:
+        9999;
 
 }
 
 
 .navbar nav {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
-    justify-content: center;
+    align-items:
+        center;
 
-    gap: 30px;
+    justify-content:
+        center;
+
+    gap:
+        30px;
 
 }
 
 
 .navbar nav a {
 
-    color: #bfc4ca;
+    color:
+        #bfc4ca;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    font-size: 10px;
+    font-size:
+        10px;
 
-    font-weight: 700;
+    font-weight:
+        700;
 
-    letter-spacing: 1px;
+    letter-spacing:
+        1px;
 
-    white-space: nowrap;
+    white-space:
+        nowrap;
 
-    padding: 10px 0;
+    padding:
+        10px 0;
 
-    transition: .3s;
+    transition:
+        .3s;
 
 }
 
@@ -181,21 +213,28 @@ body {
 .navbar nav a:hover,
 .navbar nav a.active-nav {
 
-    color: var(--cyan);
+    color:
+        var(--cyan);
 
 }
 
 
 .navbar nav a.active-nav::after {
 
-    content: "";
+    content:
+        "";
 
-    display: block;
+    display:
+        block;
 
-    height: 2px;
-    width: 100%;
+    height:
+        2px;
 
-    margin-top: 5px;
+    width:
+        100%;
+
+    margin-top:
+        5px;
 
     background:
         linear-gradient(
@@ -209,24 +248,35 @@ body {
 
 .menu-btn {
 
-    display: none;
+    display:
+        none;
 
-    width: 44px;
-    height: 44px;
+    width:
+        44px;
 
-    background: transparent;
+    height:
+        44px;
+
+    background:
+        transparent;
 
     border:
         1px solid var(--cyan);
 
-    color: var(--cyan);
+    color:
+        var(--cyan);
 
-    font-size: 22px;
+    font-size:
+        22px;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    align-items: center;
-    justify-content: center;
+    align-items:
+        center;
+
+    justify-content:
+        center;
 
 }
 
@@ -237,69 +287,92 @@ body {
 
 .hero {
 
-    min-height: 100vh;
+    min-height:
+        100vh;
 
     padding:
         140px 7% 80px;
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         minmax(0,1.05fr)
         minmax(0,.95fr);
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 60px;
+    gap:
+        60px;
 
 }
 
 
 .hero-left {
 
-    max-width: 750px;
+    max-width:
+        750px;
+
+    min-width:
+        0;
 
 }
 
 
 .eyebrow {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 12px;
+    gap:
+        12px;
 
-    color: var(--cyan);
+    color:
+        var(--cyan);
 
-    font-size: 11px;
+    font-size:
+        11px;
 
-    letter-spacing: 3px;
+    letter-spacing:
+        3px;
 
-    margin-bottom: 35px;
+    margin-bottom:
+        35px;
 
 }
 
 
 .eyebrow span {
 
-    width: 30px;
-    height: 1px;
+    width:
+        30px;
 
-    background: var(--cyan);
+    height:
+        1px;
+
+    background:
+        var(--cyan);
 
 }
 
 
 .hello {
 
-    color: #999;
+    color:
+        #999;
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    letter-spacing: 5px;
+    letter-spacing:
+        5px;
 
-    margin-bottom: 12px;
+    margin-bottom:
+        12px;
 
 }
 
@@ -309,38 +382,47 @@ body {
     font-size:
         clamp(65px,9vw,145px);
 
-    line-height: .88;
+    line-height:
+        .88;
 
-    letter-spacing: -6px;
+    letter-spacing:
+        -6px;
 
-    font-weight: 900;
+    font-weight:
+        900;
 
 }
 
 
 .akash-name {
 
-    display: block;
+    display:
+        block;
 
-    color: var(--blue);
+    color:
+        var(--blue);
 
 }
 
 
 .hero h1 strong {
 
-    display: block;
+    display:
+        block;
 
-    color: white;
+    color:
+        white;
 
-    transition: .3s;
+    transition:
+        .3s;
 
 }
 
 
 .hero h1 strong:hover {
 
-    color: var(--blue);
+    color:
+        var(--blue);
 
     text-shadow:
         0 0 25px
@@ -355,20 +437,25 @@ body {
 
 .programmer-tabs {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-wrap: wrap;
+    flex-wrap:
+        wrap;
 
-    gap: 9px;
+    gap:
+        9px;
 
-    margin-top: 35px;
+    margin-top:
+        35px;
 
 }
 
 
 .programmer-tabs span {
 
-    padding: 9px 13px;
+    padding:
+        9px 13px;
 
     border:
         1px solid
@@ -377,11 +464,14 @@ body {
     background:
         rgba(0,140,255,.05);
 
-    color: var(--cyan);
+    color:
+        var(--cyan);
 
-    font-size: 10px;
+    font-size:
+        10px;
 
-    font-weight: 700;
+    font-weight:
+        700;
 
     animation:
         tagBlink 1.3s
@@ -391,28 +481,44 @@ body {
 
 
 .programmer-tabs span:nth-child(2) {
-    animation-delay: .2s;
+
+    animation-delay:
+        .2s;
+
 }
 
 
 .programmer-tabs span:nth-child(3) {
-    animation-delay: .4s;
+
+    animation-delay:
+        .4s;
+
 }
 
 
 .programmer-tabs span:nth-child(4) {
-    animation-delay: .6s;
+
+    animation-delay:
+        .6s;
+
 }
 
 
 @keyframes tagBlink {
 
-    0%,100% {
-        opacity: 1;
+    0%,
+    100% {
+
+        opacity:
+            1;
+
     }
 
     50% {
-        opacity: .35;
+
+        opacity:
+            .35;
+
     }
 
 }
@@ -424,32 +530,37 @@ body {
 
 .hero-description {
 
-    max-width: 650px;
+    max-width:
+        650px;
 
-    margin-top: 28px;
+    margin-top:
+        28px;
 
-    color: var(--text);
+    color:
+        var(--text);
 
-    font-size: 16px;
+    font-size:
+        16px;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 
 }
 
 
-/* =====================================================
-   BUTTONS
-===================================================== */
-
 .hero-buttons {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-wrap: wrap;
+    flex-wrap:
+        wrap;
 
-    gap: 14px;
+    gap:
+        14px;
 
-    margin-top: 32px;
+    margin-top:
+        32px;
 
 }
 
@@ -459,34 +570,42 @@ body {
     padding:
         15px 22px;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    font-size: 11px;
+    font-size:
+        11px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    letter-spacing: 1px;
+    letter-spacing:
+        1px;
 
     border:
         1px solid var(--blue);
 
-    transition: .3s;
+    transition:
+        .3s;
 
 }
 
 
 .button-primary {
 
-    background: var(--blue);
+    background:
+        var(--blue);
 
-    color: #000;
+    color:
+        #000;
 
 }
 
 
 .button-primary:hover {
 
-    background: var(--cyan);
+    background:
+        var(--cyan);
 
     transform:
         translateY(-3px);
@@ -498,7 +617,8 @@ body {
 
 .button-resume {
 
-    color: var(--cyan);
+    color:
+        var(--cyan);
 
     background:
         rgba(0,217,255,.05);
@@ -514,7 +634,8 @@ body {
     background:
         var(--cyan);
 
-    color: #000;
+    color:
+        #000;
 
     transform:
         translateY(-3px);
@@ -524,18 +645,22 @@ body {
 
 .button-outline {
 
-    color: white;
+    color:
+        white;
 
-    background: transparent;
+    background:
+        transparent;
 
 }
 
 
 .button-outline:hover {
 
-    background: white;
+    background:
+        white;
 
-    color: black;
+    color:
+        black;
 
 }
 
@@ -546,35 +671,45 @@ body {
 
 .socials {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-wrap: wrap;
+    flex-wrap:
+        wrap;
 
-    gap: 25px;
+    gap:
+        25px;
 
-    margin-top: 38px;
+    margin-top:
+        38px;
 
 }
 
 
 .socials a {
 
-    color: #777;
+    color:
+        #777;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    font-size: 10px;
+    font-size:
+        10px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    letter-spacing: 2px;
+    letter-spacing:
+        2px;
 
 }
 
 
 .socials a:hover {
 
-    color: var(--cyan);
+    color:
+        var(--cyan);
 
 }
 
@@ -585,22 +720,28 @@ body {
 
 .hero-right {
 
-    min-height: 550px;
+    min-height:
+        550px;
 
-    position: relative;
+    position:
+        relative;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
 }
 
 
 .developer-card {
 
-    width: min(390px,90%);
+    width:
+        min(390px,90%);
 
     background:
         linear-gradient(
@@ -617,112 +758,151 @@ body {
         0 0 50px
         rgba(0,140,255,.13);
 
-    position: relative;
+    position:
+        relative;
 
-    z-index: 5;
+    z-index:
+        5;
 
 }
 
 
 .card-top {
 
-    min-height: 45px;
+    min-height:
+        45px;
 
-    padding: 0 15px;
+    padding:
+        0 15px;
 
     border-bottom:
         1px solid var(--border);
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 6px;
+    gap:
+        6px;
 
 }
 
 
 .card-top small {
 
-    color: #777;
+    color:
+        #777;
 
-    font-family: monospace;
+    font-family:
+        monospace;
 
-    margin-left: 12px;
+    margin-left:
+        12px;
 
 }
 
 
 .dot {
 
-    width: 8px;
-    height: 8px;
+    width:
+        8px;
 
-    border-radius: 50%;
+    height:
+        8px;
 
-    background: #555;
+    border-radius:
+        50%;
+
+    background:
+        #555;
 
 }
 
 
 .code {
 
-    padding: 35px 30px;
+    padding:
+        35px 30px;
 
-    font-family: monospace;
+    font-family:
+        monospace;
 
-    line-height: 2;
+    line-height:
+        2;
 
-    font-size: 14px;
+    font-size:
+        14px;
 
 }
 
 
 .indent {
 
-    padding-left: 25px;
+    padding-left:
+        25px;
 
 }
 
 
 .purple {
-    color: #c792ea;
+
+    color:
+        #c792ea;
+
 }
 
 
 .blue {
-    color: #82aaff;
+
+    color:
+        #82aaff;
+
 }
 
 
 .green {
-    color: #c3e88d;
+
+    color:
+        #c3e88d;
+
 }
 
 
 .terminal-line {
 
-    padding: 15px 25px;
+    padding:
+        15px 25px;
 
     border-top:
         1px solid var(--border);
 
-    color: #777;
+    color:
+        #777;
 
-    font-family: monospace;
+    font-family:
+        monospace;
 
-    font-size: 11px;
+    font-size:
+        11px;
 
 }
 
 
 .terminal-line span {
-    color: var(--cyan);
+
+    color:
+        var(--cyan);
+
 }
 
 
 .terminal-line b {
-    color: white;
+
+    color:
+        white;
+
 }
 
 
@@ -732,21 +912,26 @@ body {
 
 .orbital {
 
-    position: absolute;
+    position:
+        absolute;
 
     border:
         1px solid
         rgba(0,140,255,.35);
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
 }
 
 
 .orbital-one {
 
-    width: 500px;
-    height: 500px;
+    width:
+        500px;
+
+    height:
+        500px;
 
     animation:
         spin 18s linear infinite;
@@ -756,8 +941,11 @@ body {
 
 .orbital-two {
 
-    width: 620px;
-    height: 280px;
+    width:
+        620px;
+
+    height:
+        280px;
 
     transform:
         rotate(-25deg);
@@ -770,17 +958,21 @@ body {
 
 .floating-box {
 
-    position: absolute;
+    position:
+        absolute;
 
-    padding: 12px 18px;
+    padding:
+        12px 18px;
 
-    background: #070a0e;
+    background:
+        #070a0e;
 
     border:
         1px solid
         rgba(0,140,255,.6);
 
-    z-index: 10;
+    z-index:
+        10;
 
     animation:
         float 3s ease-in-out infinite;
@@ -790,46 +982,67 @@ body {
 
 .floating-box b {
 
-    display: block;
+    display:
+        block;
 
-    color: var(--cyan);
+    color:
+        var(--cyan);
 
-    font-size: 20px;
+    font-size:
+        20px;
 
 }
 
 
 .floating-box small {
 
-    color: #777;
+    color:
+        #777;
 
-    font-size: 8px;
+    font-size:
+        8px;
 
-    letter-spacing: 1px;
+    letter-spacing:
+        1px;
 
 }
 
 
 .box-c {
-    top: 70px;
-    left: 0;
+
+    top:
+        70px;
+
+    left:
+        0;
+
 }
 
 
 .box-python {
-    top: 220px;
-    right: 0;
+
+    top:
+        220px;
+
+    right:
+        0;
+
 }
 
 
 .box-ai {
-    bottom: 70px;
-    left: 30px;
+
+    bottom:
+        70px;
+
+    left:
+        30px;
+
 }
 
 
 /* =====================================================
-   SECTIONS
+   SECTION SYSTEM
 ===================================================== */
 
 .page-section {
@@ -862,6 +1075,10 @@ body {
 
 }
 
+
+/* =====================================================
+   SECTION HEADINGS
+===================================================== */
 
 .section-heading span {
 
@@ -963,7 +1180,8 @@ body {
     grid-template-columns:
         1fr 1fr;
 
-    gap: 1px;
+    gap:
+        1px;
 
     background:
         var(--border);
@@ -1184,20 +1402,6 @@ body {
 
     flex-direction:
         column;
-
-    transition:
-        .4s;
-
-}
-
-
-.project-card:hover {
-
-    border-color:
-        var(--blue);
-
-    transform:
-        translateY(-7px);
 
 }
 
@@ -2024,14 +2228,19 @@ footer {
 
 @keyframes float {
 
-    0%,100% {
+    0%,
+    100% {
+
         transform:
             translateY(0);
+
     }
 
     50% {
+
         transform:
             translateY(-12px);
+
     }
 
 }
@@ -2044,20 +2253,34 @@ footer {
 @media (max-width:1100px) {
 
     .navbar nav {
-        gap: 15px;
+
+        gap:
+            15px;
+
     }
+
 
     .hero {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            1fr;
+
     }
+
 
     .about-layout {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            1fr;
+
     }
 
+
     .skills-grid {
+
         grid-template-columns:
             repeat(2,minmax(0,1fr));
+
     }
 
 }
