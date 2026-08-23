@@ -20,10 +20,6 @@
 }
 
 
-/* =====================================================
-   RESET
-===================================================== */
-
 * {
 
     margin: 0;
@@ -75,15 +71,13 @@ body {
     background-image:
 
         linear-gradient(
-            rgba(0,140,255,0.035)
-            1px,
+            rgba(0,140,255,0.035) 1px,
             transparent 1px
         ),
 
         linear-gradient(
             90deg,
-            rgba(0,140,255,0.035)
-            1px,
+            rgba(0,140,255,0.035) 1px,
             transparent 1px
         );
 
@@ -163,7 +157,7 @@ body {
     justify-content: space-between;
 
     background:
-        rgba(3,4,5,0.94);
+        rgba(3,4,5,0.95);
 
     backdrop-filter:
         blur(20px);
@@ -178,17 +172,20 @@ body {
 
 .logo {
 
-    flex-shrink: 0;
+    color:
+        white;
 
-    color: white;
+    text-decoration:
+        none;
 
-    text-decoration: none;
+    font-size:
+        24px;
 
-    font-size: 24px;
+    font-weight:
+        900;
 
-    font-weight: 900;
-
-    letter-spacing: 2px;
+    letter-spacing:
+        2px;
 
 }
 
@@ -203,32 +200,43 @@ body {
 
 .navbar nav {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: flex-end;
+    justify-content:
+        flex-end;
 
-    gap: 22px;
+    gap:
+        22px;
 
 }
 
 
 .navbar nav a {
 
-    display: block;
+    display:
+        block;
 
-    color: #bfc4ca;
+    color:
+        #bfc4ca;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    font-size: 10px;
+    font-size:
+        10px;
 
-    font-weight: 700;
+    font-weight:
+        700;
 
-    letter-spacing: 1px;
+    letter-spacing:
+        1px;
 
-    white-space: nowrap;
+    white-space:
+        nowrap;
 
     padding:
         10px 0;
@@ -257,15 +265,20 @@ body {
 
 .navbar nav a.active-nav::after {
 
-    content: "";
+    content:
+        "";
 
-    display: block;
+    display:
+        block;
 
-    height: 2px;
+    height:
+        2px;
 
-    width: 100%;
+    width:
+        100%;
 
-    margin-top: 5px;
+    margin-top:
+        5px;
 
     background:
         linear-gradient(
@@ -279,11 +292,14 @@ body {
 
 .menu-btn {
 
-    display: none;
+    display:
+        none;
 
-    width: 44px;
+    width:
+        44px;
 
-    height: 44px;
+    height:
+        44px;
 
     background:
         transparent;
@@ -295,13 +311,17 @@ body {
     color:
         var(--cyan);
 
-    font-size: 22px;
+    font-size:
+        22px;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
 }
 
@@ -318,50 +338,62 @@ body {
     padding:
         140px 7% 80px;
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         1.05fr 0.95fr;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 60px;
+    gap:
+        60px;
 
 }
 
 
 .hero-left {
 
-    max-width: 750px;
+    max-width:
+        750px;
 
 }
 
 
 .eyebrow {
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 12px;
+    gap:
+        12px;
 
     color:
         var(--cyan);
 
-    font-size: 11px;
+    font-size:
+        11px;
 
-    letter-spacing: 3px;
+    letter-spacing:
+        3px;
 
-    margin-bottom: 35px;
+    margin-bottom:
+        35px;
 
 }
 
 
 .eyebrow span {
 
-    width: 30px;
+    width:
+        30px;
 
-    height: 1px;
+    height:
+        1px;
 
     background:
         var(--cyan);
@@ -371,13 +403,17 @@ body {
 
 .hello {
 
-    color: #999;
+    color:
+        #999;
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    letter-spacing: 5px;
+    letter-spacing:
+        5px;
 
-    margin-bottom: 12px;
+    margin-bottom:
+        12px;
 
 }
 
@@ -405,7 +441,8 @@ body {
 
 .hero h1 strong {
 
-    display: block;
+    display:
+        block;
 
     color:
         white;
@@ -430,13 +467,17 @@ body {
 
 .programmer-tabs {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-wrap: wrap;
+    flex-wrap:
+        wrap;
 
-    gap: 9px;
+    gap:
+        9px;
 
-    margin-top: 35px;
+    margin-top:
+        35px;
 
 }
 
@@ -579,9 +620,6 @@ body {
     color:
         white;
 
-    background:
-        transparent;
-
 }
 
 
@@ -643,7 +681,7 @@ body {
 
 
 /* =====================================================
-   HERO GRAPHIC
+   HERO GRAPHICS
 ===================================================== */
 
 .hero-right {
@@ -901,10 +939,6 @@ body {
 }
 
 
-/* =====================================================
-   FLOATING BOXES
-===================================================== */
-
 .floating-box {
 
     position:
@@ -1001,13 +1035,13 @@ body {
 
 
 /* =====================================================
-   SINGLE PAGE SECTIONS
+   SINGLE PAGE SYSTEM
 ===================================================== */
 
 .page-section {
 
     display:
-        none;
+        none !important;
 
 }
 
@@ -1015,27 +1049,22 @@ body {
 .page-section.active-section {
 
     display:
-        block;
-
-}
-
-
-.page-section.section {
-
-    min-height:
-        calc(100vh - 76px);
+        block !important;
 
 }
 
 
 /* =====================================================
-   NORMAL SECTIONS
+   SECTIONS
 ===================================================== */
 
 .section {
 
     padding:
         130px 7%;
+
+    min-height:
+        calc(100vh - 76px);
 
     border-top:
         1px solid
@@ -2031,27 +2060,55 @@ body {
 }
 
 
-.education-info > span {
+/* BIG COLLEGE NAME */
+
+.education-info .college-name {
+
+    display:
+        block;
 
     color:
         var(--cyan);
 
     font-size:
-        10px;
+        22px;
+
+    line-height:
+        1.3;
+
+    font-weight:
+        900;
 
     letter-spacing:
-        3px;
+        1px;
+
+    margin-bottom:
+        10px;
 
 }
 
 
+/* SMALL STUDY DETAILS */
+
 .education-info h3 {
 
     margin-top:
-        10px;
+        0;
 
     font-size:
-        24px;
+        15px;
+
+    font-weight:
+        500;
+
+    color:
+        #aeb5bd;
+
+    line-height:
+        1.6;
+
+    letter-spacing:
+        0.5px;
 
 }
 
@@ -2063,6 +2120,9 @@ body {
 
     margin-top:
         8px;
+
+    font-size:
+        12px;
 
 }
 
@@ -2173,9 +2233,6 @@ body {
     color:
         white;
 
-    font-weight:
-        900;
-
 }
 
 
@@ -2195,10 +2252,6 @@ body {
 
 }
 
-
-/* =====================================================
-   CONTACT BOXES
-===================================================== */
 
 .contact-buttons {
 
@@ -2496,6 +2549,7 @@ footer {
 
 @media (max-width: 1100px) {
 
+
     .navbar {
 
         padding:
@@ -2561,6 +2615,16 @@ footer {
 @media (max-width: 700px) {
 
 
+    /* HIDE AKASH LOGO */
+
+    .navbar .logo {
+
+        display:
+            none;
+
+    }
+
+
     .navbar {
 
         height:
@@ -2569,16 +2633,13 @@ footer {
         padding:
             0 6%;
 
-    }
-
-
-    .logo {
-
-        font-size:
-            21px;
+        justify-content:
+            flex-end;
 
     }
 
+
+    /* MENU BUTTON */
 
     .menu-btn {
 
@@ -2593,6 +2654,8 @@ footer {
 
     }
 
+
+    /* MOBILE MENU */
 
     .navbar nav {
 
@@ -2618,7 +2681,7 @@ footer {
             30px 25px;
 
         background:
-            rgba(3,4,5,0.98);
+            rgba(3,4,5,0.99);
 
         backdrop-filter:
             blur(25px);
@@ -2631,9 +2694,6 @@ footer {
 
         align-items:
             stretch;
-
-        justify-content:
-            flex-start;
 
         gap:
             5px;
@@ -2709,6 +2769,26 @@ footer {
 
     }
 
+
+    /* ONLY ACTIVE SECTION */
+
+    .page-section {
+
+        display:
+            none !important;
+
+    }
+
+
+    .page-section.active-section {
+
+        display:
+            block !important;
+
+    }
+
+
+    /* HOME */
 
     .hero {
 
@@ -2839,18 +2919,15 @@ footer {
     }
 
 
+    /* SECTIONS */
+
     .section {
-
-        padding:
-            100px 6%;
-
-    }
-
-
-    .page-section.section {
 
         min-height:
             calc(100vh - 70px);
+
+        padding:
+            100px 6%;
 
     }
 
@@ -2866,6 +2943,8 @@ footer {
     }
 
 
+    /* SKILLS */
+
     .skills-grid {
 
         grid-template-columns:
@@ -2874,15 +2953,9 @@ footer {
     }
 
 
+    /* PROJECTS */
+
     .projects-grid {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-
-    .certificates-grid {
 
         grid-template-columns:
             1fr;
@@ -2909,6 +2982,18 @@ footer {
     }
 
 
+    /* CERTIFICATES */
+
+    .certificates-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    /* EDUCATION */
+
     .education-card {
 
         grid-template-columns:
@@ -2923,6 +3008,42 @@ footer {
     }
 
 
+    .education-info .college-name {
+
+        font-size:
+            20px;
+
+        line-height:
+            1.3;
+
+        letter-spacing:
+            0.5px;
+
+    }
+
+
+    .education-info h3 {
+
+        font-size:
+            14px;
+
+        font-weight:
+            500;
+
+        line-height:
+            1.6;
+
+    }
+
+
+    .education-info p {
+
+        font-size:
+            11px;
+
+    }
+
+
     .education-badge {
 
         width:
@@ -2931,7 +3052,12 @@ footer {
     }
 
 
+    /* CONTACT */
+
     .contact-section {
+
+        min-height:
+            calc(100vh - 70px);
 
         padding:
             110px 6%;
@@ -2965,6 +3091,8 @@ footer {
 
     }
 
+
+    /* FOOTER */
 
     footer {
 
