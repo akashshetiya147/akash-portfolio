@@ -1,1219 +1,1062 @@
-<!DOCTYPE html>
-<html lang="en">
+/* =====================================================
+   PORTFOLIO CONFIGURATION
+===================================================== */
 
-<head>
+const githubUsername = "akashshetiya147";
 
-    <meta charset="UTF-8">
+const akashNotesURL =
+    "https://akash-notes.vercel.app/";
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
 
-    <meta
-        name="description"
-        content="Akash Shetiya - Personal Portfolio"
-    >
+/* =====================================================
+   CERTIFICATES
+===================================================== */
 
-    <title>Akash Shetiya | Portfolio</title>
+const certificates = [
 
+    {
+        title:
+            "Python (Basic)",
 
-    <!-- =================================================
-         AS FAVICON / BROWSER TAB LOGO
-    ================================================== -->
+        issuer:
+            "HACKERRANK",
 
-    <link
-        rel="icon"
-        type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23030405'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-family='Arial,sans-serif' font-size='39' font-weight='900' fill='%2300d9ff'%3EAS%3C/text%3E%3C/svg%3E"
-    >
+        description:
+            "Python programming certification covering fundamentals, programming concepts and problem solving.",
 
+        date:
+            "2026",
 
-    <link rel="stylesheet" href="style.css">
+        url:
+            "https://www.linkedin.com/feed/update/urn:li:activity:7469989380703604736/"
+    },
 
-</head>
 
+    {
+        title:
+            "Introduction to Generative AI",
 
-<body>
+        issuer:
+            "GOOGLE",
 
+        description:
+            "Introduction to Generative AI and its fundamentals, concepts and applications.",
 
-<!-- =====================================================
-     BACKGROUND
-===================================================== -->
+        date:
+            "2026",
 
-<div class="background-grid"></div>
+        url:
+            "https://www.linkedin.com/feed/update/urn:li:activity:7494730038274162688/"
+    }
 
-<div class="glow glow-one"></div>
+];
 
-<div class="glow glow-two"></div>
 
+/* =====================================================
+   LOAD CERTIFICATES
+===================================================== */
 
+function loadCertificates() {
 
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
+    const container =
+        document.getElementById(
+            "certificateContainer"
+        );
 
-<header class="navbar">
 
+    if (!container) {
+        return;
+    }
 
-    <nav id="nav">
 
-        <a
-            href="#home"
-            class="active-nav">
+    container.innerHTML = "";
 
-            HOME
 
-        </a>
+    certificates.forEach(
+        function(certificate) {
 
 
-        <a href="#about">
+            const card =
+                document.createElement(
+                    "article"
+                );
 
-            ABOUT
 
-        </a>
+            card.className =
+                "certificate";
 
 
-        <a href="#skills">
+            card.innerHTML = `
 
-            SKILLS
+                <div class="certificate-icon">
 
-        </a>
-
-
-        <a href="#projects">
-
-            PROJECTS
-
-        </a>
-
-
-        <a href="#certificates">
-
-            CERTIFICATES
-
-        </a>
-
-
-        <a href="#education">
-
-            EDUCATION
-
-        </a>
-
-
-        <a href="#contact">
-
-            CONTACT
-
-        </a>
-
-    </nav>
-
-
-    <button
-        class="menu-btn"
-        id="menuBtn"
-        aria-label="Open navigation menu"
-        aria-expanded="false">
-
-        ☰
-
-    </button>
-
-
-</header>
-
-
-
-<!-- =====================================================
-     HOME
-===================================================== -->
-
-<section
-    id="home"
-    class="hero page-section active-section">
-
-
-    <div class="hero-left">
-
-
-        <div class="eyebrow">
-
-            <span></span>
-
-            WELCOME TO MY PORTFOLIO
-
-        </div>
-
-
-        <p class="hello">
-
-            HELLO, I'M
-
-        </p>
-
-
-        <h1>
-
-            <span class="akash-name">
-
-                AKASH
-
-            </span>
-
-
-            <strong>
-
-                SHETIYA
-
-            </strong>
-
-        </h1>
-
-
-        <!-- CONTINUOUS BLINKING -->
-
-        <div class="programmer-tabs">
-
-
-            <span>
-
-                C PROGRAMMER
-
-            </span>
-
-
-            <span>
-
-                PYTHON DEVELOPER
-
-            </span>
-
-
-            <span>
-
-                AI / ML EXPLORER
-
-            </span>
-
-
-            <span>
-
-                TECH ENTHUSIAST
-
-            </span>
-
-
-        </div>
-
-
-        <p class="hero-description">
-
-            BTech Computer Science and Engineering
-            student specializing in Artificial Intelligence
-            and Machine Learning at PES University.
-
-            <br><br>
-
-            I enjoy programming, problem solving and
-            building projects while continuously learning
-            new technologies.
-
-        </p>
-
-
-        <div class="hero-buttons">
-
-
-            <a
-                href="#projects"
-                class="button button-primary">
-
-                EXPLORE MY WORK →
-
-            </a>
-
-
-            <a
-                href="#contact"
-                class="button button-outline">
-
-                CONTACT ME
-
-            </a>
-
-
-        </div>
-
-
-        <div class="socials">
-
-
-            <a
-                href="https://github.com/akashshetiya147"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                GITHUB
-
-            </a>
-
-
-            <a
-                href="https://www.linkedin.com/in/akash-shetiya-00070a389/"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                LINKEDIN
-
-            </a>
-
-
-            <a
-                href="https://www.instagram.com/akashks147/"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                INSTAGRAM
-
-            </a>
-
-
-        </div>
-
-
-    </div>
-
-
-
-    <!-- =================================================
-         GRAPHIC
-    ================================================== -->
-
-    <div class="hero-right">
-
-
-        <div class="orbital orbital-one"></div>
-
-        <div class="orbital orbital-two"></div>
-
-
-        <div class="developer-card">
-
-
-            <div class="card-top">
-
-                <span class="dot"></span>
-
-                <span class="dot"></span>
-
-                <span class="dot"></span>
-
-                <small>
-
-                    developer.py
-
-                </small>
-
-            </div>
-
-
-            <div class="code">
-
-
-                <p>
-
-                    <span class="purple">
-                        class
-                    </span>
-
-                    <span class="blue">
-                        Developer
-                    </span>:
-
-                </p>
-
-
-                <p class="indent">
-
-                    name =
-
-                    <span class="green">
-
-                        "Akash Shetiya"
-
-                    </span>
-
-                </p>
-
-
-                <p class="indent">
-
-                    language =
-
-                    <span class="green">
-
-                        ["C", "Python"]
-
-                    </span>
-
-                </p>
-
-
-                <p class="indent">
-
-                    focus =
-
-                    <span class="green">
-
-                        "AI / ML"
-
-                    </span>
-
-                </p>
-
-
-                <p class="indent">
-
-                    university =
-
-                    <span class="green">
-
-                        "PES University"
-
-                    </span>
-
-                </p>
-
-
-                <p>
-
-                    <span class="purple">
-
-                        return
-
-                    </span>
-
-                    <span class="blue">
-
-                        success
-
-                    </span>
-
-                </p>
-
-
-            </div>
-
-
-            <div class="terminal-line">
-
-                <span>➜</span>
-
-                akash@portfolio:~$
-
-                <b>
-
-                    ./build_future
-
-                </b>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="floating-box box-c">
-
-            <b>C</b>
-
-            <small>
-                PROGRAMMING
-            </small>
-
-        </div>
-
-
-        <div class="floating-box box-python">
-
-            <b>PY</b>
-
-            <small>
-                PYTHON
-            </small>
-
-        </div>
-
-
-        <div class="floating-box box-ai">
-
-            <b>AI</b>
-
-            <small>
-                EXPLORING
-            </small>
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section
-    id="about"
-    class="section page-section">
-
-
-    <div class="section-heading">
-
-        <span>
-            ABOUT ME
-        </span>
-
-        <h2>
-            WHO AM I?
-        </h2>
-
-    </div>
-
-
-    <div class="about-layout">
-
-
-        <div class="about-main">
-
-
-            <p class="large-text">
-
-                I'm
-
-                <strong>
-                    Akash Shetiya
-                </strong>,
-
-                a BTech Computer Science and Engineering
-                student specializing in Artificial
-                Intelligence and Machine Learning.
-
-            </p>
-
-
-            <p>
-
-                I'm passionate about programming,
-                problem solving and exploring how
-                technology can be used to create
-                useful solutions.
-
-            </p>
-
-
-            <p>
-
-                I enjoy working with C and Python
-                while developing my understanding
-                of Data Structures, Algorithms and
-                Artificial Intelligence.
-
-            </p>
-
-
-            <p>
-
-                My goal is to keep learning,
-                build meaningful projects and
-                grow into a strong software developer.
-
-            </p>
-
-
-        </div>
-
-
-        <div class="about-stats">
-
-
-            <div>
-
-                <strong>C</strong>
-
-                <span>
-                    PROGRAMMING
-                </span>
-
-            </div>
-
-
-            <div>
-
-                <strong>PY</strong>
-
-                <span>
-                    PYTHON
-                </span>
-
-            </div>
-
-
-            <div>
-
-                <strong>AI</strong>
-
-                <span>
-                    EXPLORING
-                </span>
-
-            </div>
-
-
-            <div>
-
-                <strong>∞</strong>
-
-                <span>
-                    LEARNING
-                </span>
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     SKILLS
-===================================================== -->
-
-<section
-    id="skills"
-    class="section page-section">
-
-
-    <div class="section-heading">
-
-        <span>
-            MY SKILLS
-        </span>
-
-        <h2>
-            WHAT I USE
-        </h2>
-
-    </div>
-
-
-    <div class="skills-grid">
-
-
-        <div class="skill-card">
-
-
-            <div class="skill-icon">
-                C
-            </div>
-
-
-            <h3>
-                C PROGRAMMING
-            </h3>
-
-
-            <p>
-
-                Programming<br>
-                Data Structures<br>
-                Algorithms<br>
-                Problem Solving
-
-            </p>
-
-
-            <div class="skill-line"></div>
-
-
-        </div>
-
-
-
-        <div class="skill-card">
-
-
-            <div class="skill-icon">
-                PY
-            </div>
-
-
-            <h3>
-                PYTHON
-            </h3>
-
-
-            <p>
-
-                Programming<br>
-                Problem Solving<br>
-                Automation<br>
-                AI / ML Basics
-
-            </p>
-
-
-            <div class="skill-line"></div>
-
-
-        </div>
-
-
-
-        <div class="skill-card">
-
-
-            <div class="skill-icon">
-                AI
-            </div>
-
-
-            <h3>
-                AI / ML
-            </h3>
-
-
-            <p>
-
-                Artificial Intelligence<br>
-                Machine Learning<br>
-                Python<br>
-                Continuous Learning
-
-            </p>
-
-
-            <div class="skill-line"></div>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     PROJECTS
-===================================================== -->
-
-<section
-    id="projects"
-    class="section page-section">
-
-
-    <div class="section-heading project-heading">
-
-
-        <div>
-
-            <span>
-                MY WORK
-            </span>
-
-            <h2>
-                PROJECTS
-            </h2>
-
-        </div>
-
-
-        <a
-            href="https://github.com/akashshetiya147"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="github-button">
-
-            VIEW GITHUB →
-
-        </a>
-
-
-    </div>
-
-
-    <div
-        id="githubProjects"
-        class="projects-grid">
-
-        <div class="loading-projects">
-
-            <div class="loader"></div>
-
-            LOADING PROJECTS...
-
-        </div>
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     CERTIFICATES
-===================================================== -->
-
-<section
-    id="certificates"
-    class="section page-section">
-
-
-    <div class="section-heading">
-
-        <span>
-            CERTIFICATIONS
-        </span>
-
-        <h2>
-            CERTIFICATES
-        </h2>
-
-    </div>
-
-
-    <div
-        id="certificateContainer"
-        class="certificates-grid">
-
-    </div>
-
-
-    <div class="linkedin-link">
-
-
-        <span>
-
-            MORE CERTIFICATES & ACHIEVEMENTS
-
-        </span>
-
-
-        <a
-            href="https://www.linkedin.com/in/akash-shetiya-00070a389/"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            VISIT LINKEDIN →
-
-        </a>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     EDUCATION
-===================================================== -->
-
-<section
-    id="education"
-    class="section page-section">
-
-
-    <div class="section-heading">
-
-        <span>
-            EDUCATION
-        </span>
-
-        <h2>
-            MY JOURNEY
-        </h2>
-
-    </div>
-
-
-    <div class="education-list">
-
-
-        <!-- PES UNIVERSITY -->
-
-        <div class="education-card">
-
-
-            <div class="education-year">
-
-                2025
-
-                <span>
-                    PRESENT
-                </span>
-
-            </div>
-
-
-            <div class="education-info">
-
-
-                <span class="college-name">
-
-                    PES UNIVERSITY
-
-                </span>
-
-
-                <h3>
-
-                    BTech — Computer Science
-                    & Engineering (AIML)
-
-                </h3>
-
-
-                <p>
-
-                    Bengaluru, Karnataka
-
-                </p>
-
-
-            </div>
-
-
-            <div class="education-badge">
-
-                CURRENT
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- CREATIVE PU COLLEGE -->
-
-        <div class="education-card">
-
-
-            <div class="education-year">
-
-                2023
-
-                <span>
-                    2025
-                </span>
-
-            </div>
-
-
-            <div class="education-info">
-
-
-                <span class="college-name">
-
-                    CREATIVE PU COLLEGE UDUPI
-
-                </span>
-
-
-                <h3>
-
-                    II PUC
-
-                </h3>
-
-
-                <p>
-
-                    97.68% in II PUC Examination
-
-                    <br>
-
-                    Udupi, Karnataka
-
-                </p>
-
-
-            </div>
-
-
-            <div class="education-badge">
-
-                COMPLETED
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- CVSK HIGH SCHOOL -->
-
-        <div class="education-card">
-
-
-            <div class="education-year">
-
-                2023
-
-                <span>
-                    COMPLETED
-                </span>
-
-            </div>
-
-
-            <div class="education-info">
-
-
-                <span class="college-name">
-
-                    C V S K HIGH SCHOOL, KUMTA
-
-                </span>
-
-
-                <h3>
-
-                    10th Grade
-
-                </h3>
-
-
-                <p>
-
-                    99.68%
-
-                    <br>
-
-                    Kumta, Uttara Kannada
-
-                </p>
-
-
-            </div>
-
-
-            <div class="education-badge">
-
-                COMPLETED
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section
-    id="contact"
-    class="contact-section page-section">
-
-
-    <div class="contact-inner">
-
-
-        <span class="contact-label">
-
-            CONTACT
-
-        </span>
-
-
-        <h2>
-
-            LET'S
-
-            <strong class="creative-word">
-
-                CREATE.
-
-            </strong>
-
-        </h2>
-
-
-        <p>
-
-            I'm always interested in learning,
-            building and connecting with people
-            who love technology.
-
-        </p>
-
-
-        <div class="contact-buttons">
-
-
-            <!-- EMAIL -->
-
-            <a
-                href="mailto:akashkiranshetiya@gmail.com"
-                class="contact-box">
-
-
-                <span>
-                    ✉
-                </span>
-
-
-                <div>
-
-                    <small>
-                        EMAIL ME
-                    </small>
-
-
-                    <b>
-                        SEND AN EMAIL
-                    </b>
+                    CERT
 
                 </div>
 
 
-                <strong>
-                    →
-                </strong>
+                <div class="certificate-content">
+
+                    <span>
+
+                        ${escapeHTML(
+                            certificate.issuer
+                        )}
+
+                    </span>
 
 
-            </a>
+                    <h3>
+
+                        ${escapeHTML(
+                            certificate.title
+                        )}
+
+                    </h3>
 
 
+                    <p>
 
-            <!-- PHONE -->
+                        ${escapeHTML(
+                            certificate.description
+                        )}
 
-            <a
-                href="tel:+917676444177"
-                class="contact-box">
+                    </p>
 
-
-                <span>
-                    ☎
-                </span>
-
-
-                <div>
 
                     <small>
-                        CALL ME
+
+                        ISSUED
+                        ${escapeHTML(
+                            certificate.date
+                        )}
+
                     </small>
-
-
-                    <b>
-                        +91 76764 44177
-                    </b>
 
                 </div>
 
 
-                <strong>
-                    →
-                </strong>
+                <a
+                    href="${certificate.url}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    OPEN CERTIFICATE ↗
+
+                </a>
+
+            `;
 
 
-            </a>
+            container.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
 
 
-        </div>
+loadCertificates();
 
 
-        <div class="contact-socials">
+/* =====================================================
+   GITHUB + AKASH NOTES PROJECTS
+===================================================== */
+
+async function loadGitHubProjects() {
+
+    const container =
+        document.getElementById(
+            "githubProjects"
+        );
 
 
-            <a
-                href="https://github.com/akashshetiya147"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                GITHUB ↗
-
-            </a>
+    if (!container) {
+        return;
+    }
 
 
-            <a
-                href="https://www.linkedin.com/in/akash-shetiya-00070a389/"
-                target="_blank"
-                rel="noopener noreferrer">
+    /* =================================================
+       AKASH NOTES
+    ================================================= */
 
-                LINKEDIN ↗
+    const akashNotes = {
 
-            </a>
+        name:
+            "AKASH NOTES",
 
+        description:
+            "A personal academic notes platform created to organize and access study materials easily.",
 
-            <a
-                href="https://www.instagram.com/akashks147/"
-                target="_blank"
-                rel="noopener noreferrer">
+        language:
+            "WEB",
 
-                INSTAGRAM ↗
+        html_url:
+            akashNotesURL,
 
-            </a>
+        stargazers_count:
+            0,
 
+        forks_count:
+            0,
 
-        </div>
+        featured:
+            true
 
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-    <p>
-        © 2026 AKASH SHETIYA
-    </p>
+    };
 
 
-    <p>
-        BUILT WITH CODE & CURIOSITY
-    </p>
-
-</footer>
+    try {
 
 
+        container.innerHTML = `
 
-<script src="script.js"></script>
+            <div class="loading-projects">
 
-</body>
+                <div class="loader"></div>
 
-</html>
+                LOADING PROJECTS...
+
+            </div>
+
+        `;
+
+
+        /* =============================================
+           FETCH GITHUB
+        ============================================= */
+
+        const response =
+            await fetch(
+
+                `https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc&per_page=12`
+
+            );
+
+
+        let repos = [];
+
+
+        if (response.ok) {
+
+            repos =
+                await response.json();
+
+        }
+
+
+        /* =============================================
+           AKASH NOTES ALWAYS FIRST
+        ============================================= */
+
+        const projects = [
+
+            akashNotes,
+
+            ...repos
+
+        ];
+
+
+        container.innerHTML = "";
+
+
+        /* =============================================
+           CREATE PROJECT CARDS
+        ============================================= */
+
+        projects.forEach(
+            function(repo) {
+
+
+                const card =
+                    document.createElement(
+                        "article"
+                    );
+
+
+                card.className =
+                    "project-card";
+
+
+                const language =
+                    repo.language ||
+                    "CODE";
+
+
+                const description =
+                    repo.description ||
+                    "A project developed by Akash Shetiya.";
+
+
+                const isFeatured =
+                    repo.featured === true;
+
+
+                const projectType =
+                    isFeatured
+                    ? "FEATURED"
+                    : "PROJECT";
+
+
+                const icon =
+                    isFeatured
+                    ? "AN"
+                    : "&lt;/&gt;";
+
+
+                const button =
+                    isFeatured
+                    ? "OPEN WEBSITE →"
+                    : "VIEW PROJECT →";
+
+
+                const stats =
+                    isFeatured
+
+                    ? `
+
+                        <div class="github-stats">
+
+                            LIVE
+
+                        </div>
+
+                      `
+
+                    : `
+
+                        <div class="github-stats">
+
+                            ★
+                            ${repo.stargazers_count || 0}
+
+                            &nbsp;&nbsp;
+
+                            ⑂
+                            ${repo.forks_count || 0}
+
+                        </div>
+
+                      `;
+
+
+                card.innerHTML = `
+
+                    <div class="project-top">
+
+                        <span>
+
+                            ${projectType}
+
+                        </span>
+
+
+                        <span>
+
+                            ${escapeHTML(
+                                language.toUpperCase()
+                            )}
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="project-symbol">
+
+                        ${icon}
+
+                    </div>
+
+
+                    <h3>
+
+                        ${escapeHTML(
+                            repo.name
+                        )}
+
+                    </h3>
+
+
+                    <p>
+
+                        ${escapeHTML(
+                            description
+                        )}
+
+                    </p>
+
+
+                    ${stats}
+
+
+                    <a
+                        href="${repo.html_url}"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        ${button}
+
+                    </a>
+
+                `;
+
+
+                container.appendChild(
+                    card
+                );
+
+            }
+        );
+
+
+    }
+
+    catch (error) {
+
+
+        console.error(
+            "GitHub loading error:",
+            error
+        );
+
+
+        /* =============================================
+           AKASH NOTES FALLBACK
+        ============================================= */
+
+        container.innerHTML = `
+
+            <article class="project-card">
+
+                <div class="project-top">
+
+                    <span>
+                        FEATURED
+                    </span>
+
+                    <span>
+                        WEB
+                    </span>
+
+                </div>
+
+
+                <div class="project-symbol">
+
+                    AN
+
+                </div>
+
+
+                <h3>
+
+                    AKASH NOTES
+
+                </h3>
+
+
+                <p>
+
+                    A personal academic notes platform
+                    created to organize and access study
+                    materials easily.
+
+                </p>
+
+
+                <div class="github-stats">
+
+                    LIVE
+
+                </div>
+
+
+                <a
+                    href="${akashNotesURL}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    OPEN WEBSITE →
+
+                </a>
+
+            </article>
+
+        `;
+
+    }
+
+}
+
+
+loadGitHubProjects();
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value) {
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+
+        return "";
+
+    }
+
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        value;
+
+
+    return div.innerHTML;
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+const pageSections =
+    document.querySelectorAll(
+        ".page-section"
+    );
+
+
+const navigationLinks =
+    document.querySelectorAll(
+        ".navbar nav a"
+    );
+
+
+const menuBtn =
+    document.getElementById(
+        "menuBtn"
+    );
+
+
+const nav =
+    document.getElementById(
+        "nav"
+    );
+
+
+/* =====================================================
+   OPEN MOBILE MENU
+===================================================== */
+
+function openMobileMenu() {
+
+    if (!nav) {
+        return;
+    }
+
+
+    nav.classList.add(
+        "mobile-open"
+    );
+
+
+    if (menuBtn) {
+
+        menuBtn.innerHTML =
+            "✕";
+
+        menuBtn.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        menuBtn.setAttribute(
+            "aria-label",
+            "Close navigation menu"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   CLOSE MOBILE MENU
+===================================================== */
+
+function closeMobileMenu() {
+
+    if (!nav) {
+        return;
+    }
+
+
+    nav.classList.remove(
+        "mobile-open"
+    );
+
+
+    if (menuBtn) {
+
+        menuBtn.innerHTML =
+            "☰";
+
+        menuBtn.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuBtn.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   SHOW ONE SECTION ONLY
+===================================================== */
+
+function showSection(
+    sectionId,
+    updateURL = true
+) {
+
+
+    /* HIDE ALL */
+
+    pageSections.forEach(
+        function(section) {
+
+            section.classList.remove(
+                "active-section"
+            );
+
+        }
+    );
+
+
+    /* FIND SECTION */
+
+    const selectedSection =
+        document.getElementById(
+            sectionId
+        );
+
+
+    if (!selectedSection) {
+
+        sectionId =
+            "home";
+
+    }
+
+
+    const finalSection =
+        document.getElementById(
+            sectionId
+        );
+
+
+    if (!finalSection) {
+        return;
+    }
+
+
+    /* SHOW */
+
+    finalSection.classList.add(
+        "active-section"
+    );
+
+
+    /* ACTIVE NAV */
+
+    navigationLinks.forEach(
+        function(link) {
+
+            link.classList.remove(
+                "active-nav"
+            );
+
+
+            if (
+                link.getAttribute(
+                    "href"
+                ) ===
+                "#" + sectionId
+            ) {
+
+                link.classList.add(
+                    "active-nav"
+                );
+
+            }
+
+        }
+    );
+
+
+    /* CLOSE MOBILE */
+
+    closeMobileMenu();
+
+
+    /* URL */
+
+    if (updateURL) {
+
+        history.pushState(
+            null,
+            "",
+            "#" + sectionId
+        );
+
+    }
+
+
+    /* TOP */
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   NAVIGATION CLICKS
+===================================================== */
+
+navigationLinks.forEach(
+    function(link) {
+
+
+        link.addEventListener(
+            "click",
+            function(event) {
+
+
+                event.preventDefault();
+
+
+                const href =
+                    link.getAttribute(
+                        "href"
+                    );
+
+
+                if (
+                    !href ||
+                    !href.startsWith("#")
+                ) {
+
+                    return;
+
+                }
+
+
+                const sectionId =
+                    href.substring(1);
+
+
+                showSection(
+                    sectionId
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   MOBILE MENU BUTTON
+===================================================== */
+
+if (
+    menuBtn &&
+    nav
+) {
+
+
+    menuBtn.addEventListener(
+        "click",
+        function() {
+
+
+            if (
+                nav.classList.contains(
+                    "mobile-open"
+                )
+            ) {
+
+                closeMobileMenu();
+
+            }
+
+            else {
+
+                openMobileMenu();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ESCAPE KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key ===
+            "Escape"
+        ) {
+
+            closeMobileMenu();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   CLOSE MOBILE MENU OUTSIDE
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+
+        if (
+            !nav ||
+            !menuBtn
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            !nav.classList.contains(
+                "mobile-open"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            !nav.contains(
+                event.target
+            ) &&
+            !menuBtn.contains(
+                event.target
+            )
+        ) {
+
+            closeMobileMenu();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   RESIZE
+===================================================== */
+
+window.addEventListener(
+    "resize",
+    function() {
+
+        if (
+            window.innerWidth > 700
+        ) {
+
+            closeMobileMenu();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   INITIAL SECTION
+===================================================== */
+
+function loadInitialSection() {
+
+
+    const hash =
+        window.location.hash;
+
+
+    if (
+        hash &&
+        hash.length > 1
+    ) {
+
+
+        const sectionId =
+            hash.substring(1);
+
+
+        if (
+            document.getElementById(
+                sectionId
+            )
+        ) {
+
+
+            showSection(
+                sectionId,
+                false
+            );
+
+
+            return;
+
+        }
+
+    }
+
+
+    showSection(
+        "home",
+        false
+    );
+
+}
+
+
+loadInitialSection();
+
+
+/* =====================================================
+   BACK / FORWARD
+===================================================== */
+
+window.addEventListener(
+    "popstate",
+    function() {
+
+
+        const hash =
+            window.location.hash;
+
+
+        if (
+            hash &&
+            hash.length > 1
+        ) {
+
+
+            showSection(
+                hash.substring(1),
+                false
+            );
+
+
+        }
+
+        else {
+
+
+            showSection(
+                "home",
+                false
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   HERO BUTTONS
+===================================================== */
+
+document
+    .querySelectorAll(
+        '.hero a[href^="#"]'
+    )
+    .forEach(
+        function(link) {
+
+
+            link.addEventListener(
+                "click",
+                function(event) {
+
+
+                    event.preventDefault();
+
+
+                    const sectionId =
+                        link
+                        .getAttribute(
+                            "href"
+                        )
+                        .substring(1);
+
+
+                    showSection(
+                        sectionId
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+/* =====================================================
+   FINISHED
+===================================================== */
+
+console.log(
+    "Portfolio loaded successfully."
+);
+
+console.log(
+    "GitHub:",
+    githubUsername
+);
+
+console.log(
+    "Akash Notes:",
+    akashNotesURL
+);
