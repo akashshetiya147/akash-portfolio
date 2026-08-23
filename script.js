@@ -59,9 +59,7 @@ function loadCertificates() {
 
 
     if (!container) {
-
         return;
-
     }
 
 
@@ -124,11 +122,8 @@ function loadCertificates() {
 
 
                 <a
-
                     href="${certificate.url}"
-
                     target="_blank"
-
                     rel="noopener noreferrer">
 
                     OPEN CERTIFICATE ↗
@@ -151,7 +146,7 @@ loadCertificates();
 
 
 /* =====================================================
-   GITHUB PROJECTS
+   GITHUB
 ===================================================== */
 
 const githubUsername =
@@ -168,9 +163,7 @@ async function loadGitHubProjects() {
 
 
     if (!container) {
-
         return;
-
     }
 
 
@@ -180,18 +173,7 @@ async function loadGitHubProjects() {
         const response =
             await fetch(
 
-                `https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc&per_page=12`,
-
-                {
-
-                    headers: {
-
-                        "Accept":
-                            "application/vnd.github+json"
-
-                    }
-
-                }
+                `https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc&per_page=12`
 
             );
 
@@ -199,7 +181,7 @@ async function loadGitHubProjects() {
         if (!response.ok) {
 
             throw new Error(
-                "GitHub API request failed"
+                "GitHub request failed"
             );
 
         }
@@ -210,8 +192,7 @@ async function loadGitHubProjects() {
 
 
         if (
-            !Array.isArray(repos)
-            ||
+            !Array.isArray(repos) ||
             repos.length === 0
         ) {
 
@@ -314,11 +295,8 @@ async function loadGitHubProjects() {
 
 
                     <a
-
                         href="${repo.html_url}"
-
                         target="_blank"
-
                         rel="noopener noreferrer">
 
                         VIEW PROJECT →
@@ -340,7 +318,6 @@ async function loadGitHubProjects() {
 
 
         console.error(
-            "GitHub projects error:",
             error
         );
 
@@ -378,13 +355,9 @@ function showGitHubMessage(
 
 
             <a
-
                 href="https://github.com/akashshetiya147"
-
                 target="_blank"
-
                 rel="noopener noreferrer"
-
                 style="
                     color:#00d9ff;
                     text-decoration:none;
@@ -409,16 +382,13 @@ function showGitHubMessage(
 
 function escapeHTML(value) {
 
-
     const div =
         document.createElement(
             "div"
         );
 
-
     div.textContent =
         value;
-
 
     return div.innerHTML;
 
@@ -430,7 +400,7 @@ loadGitHubProjects();
 
 
 /* =====================================================
-   SINGLE PAGE NAVIGATION
+   NAVIGATION
 ===================================================== */
 
 const pageSections =
@@ -459,51 +429,13 @@ const nav =
 
 
 /* =====================================================
-   CLOSE MOBILE MENU
-===================================================== */
-
-function closeMobileMenu() {
-
-
-    if (!nav) {
-
-        return;
-
-    }
-
-
-    nav.classList.remove(
-        "mobile-open"
-    );
-
-
-    if (menuBtn) {
-
-        menuBtn.innerHTML =
-            "☰";
-
-        menuBtn.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    }
-
-}
-
-
-
-/* =====================================================
    OPEN MOBILE MENU
 ===================================================== */
 
 function openMobileMenu() {
 
-
     if (!nav) {
-
         return;
-
     }
 
 
@@ -529,7 +461,39 @@ function openMobileMenu() {
 
 
 /* =====================================================
-   SHOW ONLY ONE SECTION
+   CLOSE MOBILE MENU
+===================================================== */
+
+function closeMobileMenu() {
+
+    if (!nav) {
+        return;
+    }
+
+
+    nav.classList.remove(
+        "mobile-open"
+    );
+
+
+    if (menuBtn) {
+
+        menuBtn.innerHTML =
+            "☰";
+
+        menuBtn.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SHOW ONLY SELECTED SECTION
 ===================================================== */
 
 function showSection(
@@ -538,7 +502,7 @@ function showSection(
 ) {
 
 
-    /* HIDE EVERYTHING */
+    /* HIDE ALL */
 
     pageSections.forEach(
         function(section) {
@@ -551,7 +515,7 @@ function showSection(
     );
 
 
-    /* FIND SELECTED SECTION */
+    /* SELECT */
 
     const selectedSection =
         document.getElementById(
@@ -560,9 +524,7 @@ function showSection(
 
 
     if (!selectedSection) {
-
         return;
-
     }
 
 
@@ -573,11 +535,10 @@ function showSection(
     );
 
 
-    /* ACTIVE NAV */
+    /* ACTIVE TAB */
 
     navigationLinks.forEach(
         function(link) {
-
 
             link.classList.remove(
                 "active-nav"
@@ -605,7 +566,7 @@ function showSection(
     closeMobileMenu();
 
 
-    /* UPDATE URL */
+    /* URL */
 
     if (updateURL) {
 
@@ -618,12 +579,12 @@ function showSection(
     }
 
 
-    /* TOP OF PAGE */
+    /* TOP */
 
-    window.scrollTo(
-        0,
-        0
-    );
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
 }
 
@@ -675,11 +636,13 @@ if (menuBtn) {
         function() {
 
 
-            if (
+            const isOpen =
                 nav.classList.contains(
                     "mobile-open"
-                )
-            ) {
+                );
+
+
+            if (isOpen) {
 
                 closeMobileMenu();
 
@@ -699,29 +662,7 @@ if (menuBtn) {
 
 
 /* =====================================================
-   CLOSE MENU AFTER NAVIGATION
-===================================================== */
-
-navigationLinks.forEach(
-    function(link) {
-
-
-        link.addEventListener(
-            "click",
-            function() {
-
-                closeMobileMenu();
-
-            }
-        );
-
-    }
-);
-
-
-
-/* =====================================================
-   CLOSE MENU WHEN RESIZED
+   RESIZE
 ===================================================== */
 
 window.addEventListener(
@@ -763,18 +704,18 @@ function loadInitialSection() {
             hash.substring(1);
 
 
-        const section =
+        if (
             document.getElementById(
                 sectionId
-            );
+            )
+        ) {
 
-
-        if (section) {
 
             showSection(
                 sectionId,
                 false
             );
+
 
             return;
 
