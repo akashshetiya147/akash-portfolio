@@ -1,14 +1,4 @@
 /* =====================================================
-   PORTFOLIO CONFIGURATION
-===================================================== */
-
-const githubUsername = "akashshetiya147";
-
-const akashNotesURL =
-    "https://akash-notes.vercel.app/";
-
-
-/* =====================================================
    CERTIFICATES
 ===================================================== */
 
@@ -162,341 +152,6 @@ loadCertificates();
 
 
 /* =====================================================
-   GITHUB + AKASH NOTES PROJECTS
-===================================================== */
-
-async function loadGitHubProjects() {
-
-    const container =
-        document.getElementById(
-            "githubProjects"
-        );
-
-
-    if (!container) {
-        return;
-    }
-
-
-    /* =================================================
-       AKASH NOTES
-    ================================================= */
-
-    const akashNotes = {
-
-        name:
-            "AKASH NOTES",
-
-        description:
-            "A personal academic notes platform created to organize and access study materials easily.",
-
-        language:
-            "WEB",
-
-        html_url:
-            akashNotesURL,
-
-        stargazers_count:
-            0,
-
-        forks_count:
-            0,
-
-        featured:
-            true
-
-    };
-
-
-    try {
-
-
-        container.innerHTML = `
-
-            <div class="loading-projects">
-
-                <div class="loader"></div>
-
-                LOADING PROJECTS...
-
-            </div>
-
-        `;
-
-
-        /* =============================================
-           FETCH GITHUB
-        ============================================= */
-
-        const response =
-            await fetch(
-
-                `https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc&per_page=12`
-
-            );
-
-
-        let repos = [];
-
-
-        if (response.ok) {
-
-            repos =
-                await response.json();
-
-        }
-
-
-        /* =============================================
-           AKASH NOTES ALWAYS FIRST
-        ============================================= */
-
-        const projects = [
-
-            akashNotes,
-
-            ...repos
-
-        ];
-
-
-        container.innerHTML = "";
-
-
-        /* =============================================
-           CREATE PROJECT CARDS
-        ============================================= */
-
-        projects.forEach(
-            function(repo) {
-
-
-                const card =
-                    document.createElement(
-                        "article"
-                    );
-
-
-                card.className =
-                    "project-card";
-
-
-                const language =
-                    repo.language ||
-                    "CODE";
-
-
-                const description =
-                    repo.description ||
-                    "A project developed by Akash Shetiya.";
-
-
-                const isFeatured =
-                    repo.featured === true;
-
-
-                const projectType =
-                    isFeatured
-                    ? "FEATURED"
-                    : "PROJECT";
-
-
-                const icon =
-                    isFeatured
-                    ? "AN"
-                    : "&lt;/&gt;";
-
-
-                const button =
-                    isFeatured
-                    ? "OPEN WEBSITE →"
-                    : "VIEW PROJECT →";
-
-
-                const stats =
-                    isFeatured
-
-                    ? `
-
-                        <div class="github-stats">
-
-                            LIVE
-
-                        </div>
-
-                      `
-
-                    : `
-
-                        <div class="github-stats">
-
-                            ★
-                            ${repo.stargazers_count || 0}
-
-                            &nbsp;&nbsp;
-
-                            ⑂
-                            ${repo.forks_count || 0}
-
-                        </div>
-
-                      `;
-
-
-                card.innerHTML = `
-
-                    <div class="project-top">
-
-                        <span>
-
-                            ${projectType}
-
-                        </span>
-
-
-                        <span>
-
-                            ${escapeHTML(
-                                language.toUpperCase()
-                            )}
-
-                        </span>
-
-                    </div>
-
-
-                    <div class="project-symbol">
-
-                        ${icon}
-
-                    </div>
-
-
-                    <h3>
-
-                        ${escapeHTML(
-                            repo.name
-                        )}
-
-                    </h3>
-
-
-                    <p>
-
-                        ${escapeHTML(
-                            description
-                        )}
-
-                    </p>
-
-
-                    ${stats}
-
-
-                    <a
-                        href="${repo.html_url}"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        ${button}
-
-                    </a>
-
-                `;
-
-
-                container.appendChild(
-                    card
-                );
-
-            }
-        );
-
-
-    }
-
-    catch (error) {
-
-
-        console.error(
-            "GitHub loading error:",
-            error
-        );
-
-
-        /* =============================================
-           AKASH NOTES FALLBACK
-        ============================================= */
-
-        container.innerHTML = `
-
-            <article class="project-card">
-
-                <div class="project-top">
-
-                    <span>
-                        FEATURED
-                    </span>
-
-                    <span>
-                        WEB
-                    </span>
-
-                </div>
-
-
-                <div class="project-symbol">
-
-                    AN
-
-                </div>
-
-
-                <h3>
-
-                    AKASH NOTES
-
-                </h3>
-
-
-                <p>
-
-                    A personal academic notes platform
-                    created to organize and access study
-                    materials easily.
-
-                </p>
-
-
-                <div class="github-stats">
-
-                    LIVE
-
-                </div>
-
-
-                <a
-                    href="${akashNotesURL}"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    OPEN WEBSITE →
-
-                </a>
-
-            </article>
-
-        `;
-
-    }
-
-}
-
-
-loadGitHubProjects();
-
-
-/* =====================================================
    ESCAPE HTML
 ===================================================== */
 
@@ -528,7 +183,7 @@ function escapeHTML(value) {
 
 
 /* =====================================================
-   NAVIGATION
+   NAVIGATION ELEMENTS
 ===================================================== */
 
 const pageSections =
@@ -628,7 +283,7 @@ function closeMobileMenu() {
 
 
 /* =====================================================
-   SHOW ONE SECTION ONLY
+   SHOW ONLY SELECTED SECTION
 ===================================================== */
 
 function showSection(
@@ -637,7 +292,7 @@ function showSection(
 ) {
 
 
-    /* HIDE ALL */
+    /* HIDE ALL SECTIONS */
 
     pageSections.forEach(
         function(section) {
@@ -652,42 +307,44 @@ function showSection(
 
     /* FIND SECTION */
 
-    const selectedSection =
+    let selectedSection =
         document.getElementById(
             sectionId
         );
 
+
+    /* DEFAULT TO HOME */
 
     if (!selectedSection) {
 
         sectionId =
             "home";
 
+        selectedSection =
+            document.getElementById(
+                "home"
+            );
+
     }
 
 
-    const finalSection =
-        document.getElementById(
-            sectionId
-        );
-
-
-    if (!finalSection) {
+    if (!selectedSection) {
         return;
     }
 
 
-    /* SHOW */
+    /* SHOW SECTION */
 
-    finalSection.classList.add(
+    selectedSection.classList.add(
         "active-section"
     );
 
 
-    /* ACTIVE NAV */
+    /* ACTIVE NAVIGATION */
 
     navigationLinks.forEach(
         function(link) {
+
 
             link.classList.remove(
                 "active-nav"
@@ -711,12 +368,12 @@ function showSection(
     );
 
 
-    /* CLOSE MOBILE */
+    /* CLOSE MOBILE MENU */
 
     closeMobileMenu();
 
 
-    /* URL */
+    /* UPDATE URL */
 
     if (updateURL) {
 
@@ -729,11 +386,14 @@ function showSection(
     }
 
 
-    /* TOP */
+    /* SCROLL TO TOP */
 
     window.scrollTo({
+
         top: 0,
+
         behavior: "smooth"
+
     });
 
 }
@@ -801,11 +461,13 @@ if (
         function() {
 
 
-            if (
+            const isOpen =
                 nav.classList.contains(
                     "mobile-open"
-                )
-            ) {
+                );
+
+
+            if (isOpen) {
 
                 closeMobileMenu();
 
@@ -831,6 +493,7 @@ document.addEventListener(
     "keydown",
     function(event) {
 
+
         if (
             event.key ===
             "Escape"
@@ -845,7 +508,7 @@ document.addEventListener(
 
 
 /* =====================================================
-   CLOSE MOBILE MENU OUTSIDE
+   CLOSE MENU OUTSIDE
 ===================================================== */
 
 document.addEventListener(
@@ -892,12 +555,13 @@ document.addEventListener(
 
 
 /* =====================================================
-   RESIZE
+   WINDOW RESIZE
 ===================================================== */
 
 window.addEventListener(
     "resize",
     function() {
+
 
         if (
             window.innerWidth > 700
@@ -912,7 +576,7 @@ window.addEventListener(
 
 
 /* =====================================================
-   INITIAL SECTION
+   INITIAL PAGE
 ===================================================== */
 
 function loadInitialSection() {
@@ -964,7 +628,7 @@ loadInitialSection();
 
 
 /* =====================================================
-   BACK / FORWARD
+   BACK / FORWARD BUTTON
 ===================================================== */
 
 window.addEventListener(
@@ -987,7 +651,6 @@ window.addEventListener(
                 false
             );
 
-
         }
 
         else {
@@ -1005,7 +668,7 @@ window.addEventListener(
 
 
 /* =====================================================
-   HERO BUTTONS
+   HERO INTERNAL LINKS
 ===================================================== */
 
 document
@@ -1044,19 +707,13 @@ document
 
 
 /* =====================================================
-   FINISHED
+   CONSOLE
 ===================================================== */
 
 console.log(
-    "Portfolio loaded successfully."
+    "Akash Shetiya Portfolio loaded."
 );
 
 console.log(
-    "GitHub:",
-    githubUsername
-);
-
-console.log(
-    "Akash Notes:",
-    akashNotesURL
+    "Project: Akash Notes"
 );
