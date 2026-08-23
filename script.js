@@ -1,26 +1,16 @@
-/* ==========================================
+/* =====================================================
    AKASH SHETIYA PORTFOLIO
-========================================== */
+===================================================== */
 
 
-/* ==========================================
+/* =====================================================
    CERTIFICATES
-========================================== */
-
-const certificates = [
-
-    {/* ==========================================
-   AKASH SHETIYA PORTFOLIO
-========================================== */
-
-
-/* ==========================================
-   CERTIFICATES
-========================================== */
+===================================================== */
 
 const certificates = [
 
     {
+
         number: "01",
 
         title: "Python (Basic)",
@@ -28,694 +18,73 @@ const certificates = [
         issuer: "HACKERRANK",
 
         description:
-            "Python programming certification demonstrating foundational Python skills.",
+            "Python programming certification covering fundamentals, programming concepts and problem solving.",
 
-        date: "DECEMBER 2025",
+        date: "2026",
 
         url:
             "https://www.linkedin.com/feed/update/urn:li:activity:7469989380703604736/"
-    },
 
-    {
-        number: "02",
-
-        title: "Introduction to Generative AI",
-
-        issuer: "GOOGLE CLOUD / COURSERA",
-
-        description:
-            "Certification covering the fundamentals of Generative AI and its role in modern technology.",
-
-        date: "AUGUST 2026",
-
-        url:
-            "https://www.linkedin.com/feed/update/urn:li:activity:7494730038274162688/"
-    }
-
-];
-
-
-/* ==========================================
-   DISPLAY CERTIFICATES
-========================================== */
-
-const certificateContainer =
-    document.getElementById(
-        "certificateContainer"
-    );
-
-
-function displayCertificates() {
-
-    certificateContainer.innerHTML = "";
-
-    certificates.forEach(
-        certificate => {
-
-            const card =
-                document.createElement("div");
-
-            card.className =
-                "certificate reveal";
-
-            card.innerHTML = `
-
-                <div class="certificate-icon">
-                    ${certificate.number}
-                </div>
-
-                <div class="certificate-content">
-
-                    <span>
-                        ${certificate.issuer}
-                    </span>
-
-                    <h3>
-                        ${certificate.title}
-                    </h3>
-
-                    <p>
-                        ${certificate.description}
-                    </p>
-
-                    <small>
-                        ${certificate.date}
-                    </small>
-
-                </div>
-
-                <a
-                    href="${certificate.url}"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    OPEN CERTIFICATE POST ↗
-
-                </a>
-            `;
-
-            certificateContainer.appendChild(card);
-        }
-    );
-}
-
-
-displayCertificates();
-
-
-/* ==========================================
-   GITHUB PROJECTS
-========================================== */
-
-const githubProjects =
-    document.getElementById(
-        "githubProjects"
-    );
-
-const githubUsername =
-    "akashshetiya147";
-
-
-async function loadGitHubProjects() {
-
-    try {
-
-        const response =
-            await fetch(
-                `https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc&per_page=12`
-            );
-
-        if (!response.ok) {
-            throw new Error("GitHub API error");
-        }
-
-        const repositories =
-            await response.json();
-
-        githubProjects.innerHTML = "";
-
-        if (repositories.length === 0) {
-
-            githubProjects.innerHTML = `
-
-                <p class="loading-projects">
-                    NO PUBLIC PROJECTS FOUND.
-                </p>
-
-            `;
-
-            return;
-        }
-
-
-        repositories.forEach(
-            (repo, index) => {
-
-                const project =
-                    document.createElement(
-                        "article"
-                    );
-
-                project.className =
-                    "project-card reveal";
-
-
-                const language =
-                    repo.language || "CODE";
-
-
-                const description =
-                    repo.description ||
-                    "A project developed by Akash Shetiya.";
-
-
-                project.innerHTML = `
-
-                    <div class="project-top">
-
-                        <span>
-                            ${String(index + 1)
-                                .padStart(2, "0")}
-                        </span>
-
-                        <span>
-                            ${language.toUpperCase()}
-                        </span>
-
-                    </div>
-
-
-                    <div class="project-symbol">
-                        &lt;/&gt;
-                    </div>
-
-
-                    <h3>
-                        ${repo.name}
-                    </h3>
-
-
-                    <p>
-                        ${description}
-                    </p>
-
-
-                    <div class="github-stats">
-
-                        ★ ${repo.stargazers_count}
-
-                        &nbsp;&nbsp;
-
-                        ⑂ ${repo.forks_count}
-
-                    </div>
-
-
-                    <a
-                        href="${repo.html_url}"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        VIEW ON GITHUB →
-
-                    </a>
-
-                `;
-
-
-                githubProjects.appendChild(
-                    project
-                );
-
-
-                setTimeout(
-                    () => {
-
-                        project.classList.add(
-                            "visible"
-                        );
-
-                    },
-                    index * 100
-                );
-
-            }
-        );
-
-
-        addProjectEffects();
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "GitHub Error:",
-            error
-        );
-
-
-        githubProjects.innerHTML = `
-
-            <div class="github-error">
-
-                <h3>
-                    GITHUB PROJECTS
-                </h3>
-
-                <p>
-                    Projects could not be loaded
-                    right now.
-                </p>
-
-                <a
-                    href="https://github.com/akashshetiya147"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    VIEW GITHUB →
-
-                </a>
-
-            </div>
-
-        `;
-    }
-}
-
-
-loadGitHubProjects();
-
-
-/* ==========================================
-   TYPING EFFECT
-========================================== */
-
-const words = [
-
-    "C PROGRAMMER",
-    "PYTHON DEVELOPER",
-    "AI / ML EXPLORER",
-    "TECH ENTHUSIAST"
-
-];
-
-
-const typing =
-    document.getElementById(
-        "typing"
-    );
-
-
-let wordIndex = 0;
-
-let letterIndex = 0;
-
-let deleting = false;
-
-
-function typeWriter() {
-
-    const word =
-        words[wordIndex];
-
-
-    if (!deleting) {
-
-        typing.textContent =
-            word.substring(
-                0,
-                letterIndex + 1
-            );
-
-        letterIndex++;
-
-
-        if (
-            letterIndex ===
-            word.length
-        ) {
-
-            deleting = true;
-
-            setTimeout(
-                typeWriter,
-                1500
-            );
-
-            return;
-        }
-
-    }
-
-    else {
-
-        typing.textContent =
-            word.substring(
-                0,
-                letterIndex - 1
-            );
-
-        letterIndex--;
-
-
-        if (
-            letterIndex === 0
-        ) {
-
-            deleting = false;
-
-            wordIndex++;
-
-
-            if (
-                wordIndex >=
-                words.length
-            ) {
-
-                wordIndex = 0;
-
-            }
-        }
-    }
-
-
-    setTimeout(
-        typeWriter,
-        deleting ? 45 : 90
-    );
-}
-
-
-typeWriter();
-
-
-/* ==========================================
-   SCROLL REVEAL
-========================================== */
-
-const revealElements =
-    document.querySelectorAll(
-        ".skill-card, " +
-        ".certificate, " +
-        ".education, " +
-        ".about-main, " +
-        ".about-stats"
-    );
-
-
-const revealObserver =
-    new IntersectionObserver(
-
-        entries => {
-
-            entries.forEach(
-                entry => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-                        revealObserver.unobserve(
-                            entry.target
-                        );
-                    }
-
-                }
-            );
-
-        },
-
-        {
-            threshold: 0.12
-        }
-    );
-
-
-revealElements.forEach(
-    element => {
-
-        element.classList.add(
-            "reveal"
-        );
-
-        revealObserver.observe(
-            element
-        );
-
-    }
-);
-
-
-/* ==========================================
-   PROJECT 3D EFFECT
-========================================== */
-
-function addProjectEffects() {
-
-    const projectCards =
-        document.querySelectorAll(
-            ".project-card"
-        );
-
-
-    projectCards.forEach(
-        card => {
-
-            card.addEventListener(
-                "mousemove",
-                event => {
-
-                    const rect =
-                        card.getBoundingClientRect();
-
-
-                    const x =
-                        event.clientX -
-                        rect.left;
-
-
-                    const y =
-                        event.clientY -
-                        rect.top;
-
-
-                    const rotateX =
-                        ((y / rect.height) - 0.5)
-                        * -7;
-
-
-                    const rotateY =
-                        ((x / rect.width) - 0.5)
-                        * 7;
-
-
-                    card.style.transform =
-                        `perspective(800px)
-                         rotateX(${rotateX}deg)
-                         rotateY(${rotateY}deg)
-                         translateY(-8px)`;
-
-                }
-            );
-
-
-            card.addEventListener(
-                "mouseleave",
-                () => {
-
-                    card.style.transform = "";
-
-                }
-            );
-
-        }
-    );
-}
-
-
-/* ==========================================
-   MOBILE MENU
-========================================== */
-
-const menuBtn =
-    document.getElementById(
-        "menuBtn"
-    );
-
-
-const nav =
-    document.getElementById(
-        "nav"
-    );
-
-
-menuBtn.addEventListener(
-    "click",
-    () => {
-
-        if (
-            nav.style.display ===
-            "flex"
-        ) {
-
-            nav.style.display =
-                "none";
-
-        }
-
-        else {
-
-            nav.style.display =
-                "flex";
-
-            nav.style.position =
-                "absolute";
-
-            nav.style.top =
-                "76px";
-
-            nav.style.left =
-                "0";
-
-            nav.style.width =
-                "100%";
-
-            nav.style.padding =
-                "25px";
-
-            nav.style.flexDirection =
-                "column";
-
-            nav.style.background =
-                "#050608";
-
-            nav.style.borderBottom =
-                "1px solid #222";
-        }
-
-    }
-);
-
-
-/* ==========================================
-   CLOSE MOBILE MENU
-========================================== */
-
-const navLinks =
-    document.querySelectorAll(
-        ".navbar nav a"
-    );
-
-
-navLinks.forEach(
-    link => {
-
-        link.addEventListener(
-            "click",
-            () => {
-
-                if (
-                    window.innerWidth <=
-                    700
-                ) {
-
-                    nav.style.display =
-                        "none";
-
-                }
-
-            }
-        );
-
-    }
-);
-
-
-/* ==========================================
-   CONSOLE
-========================================== */
-
-console.log(
-    "%c AKASH SHETIYA ",
-    "background:#008cff;" +
-    "color:#000;" +
-    "font-size:18px;" +
-    "font-weight:bold;" +
-    "padding:8px;"
-);
-
-console.log(
-    "%c GitHub projects loaded automatically.",
-    "color:#00d9ff;" +
-    "font-size:13px;"
-);
-        number: "01",
-
-        title: "Python (Basic)",
-
-        issuer: "HACKERRANK",
-
-        description:
-            "Python programming certification demonstrating foundational Python skills.",
-
-        date: "DECEMBER 2025",
-
-        url:
-            "https://www.linkedin.com/feed/update/urn:li:activity:7469989380703604736/"
     },
 
 
     {
+
         number: "02",
 
         title: "Introduction to Generative AI",
 
-        issuer: "GOOGLE CLOUD / COURSERA",
+        issuer: "GOOGLE",
 
         description:
-            "Certification covering the fundamentals of Generative AI and its role in modern technology.",
+            "Introduction to Generative AI and its fundamentals, concepts and applications.",
 
-        date: "AUGUST 2026",
+        date: "2026",
 
         url:
             "https://www.linkedin.com/feed/update/urn:li:activity:7494730038274162688/"
+
     }
 
 ];
 
 
-/* ==========================================
-   DISPLAY CERTIFICATES
-========================================== */
 
-const certificateContainer =
-    document.getElementById(
-        "certificateContainer"
-    );
+/* =====================================================
+   LOAD CERTIFICATES
+===================================================== */
+
+function loadCertificates() {
 
 
-function displayCertificates() {
+    const container =
+        document.getElementById(
+            "certificateContainer"
+        );
 
-    certificateContainer.innerHTML = "";
+
+    if (!container) {
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
 
 
     certificates.forEach(
-        certificate => {
+        function(certificate) {
 
 
             const card =
                 document.createElement(
-                    "div"
+                    "article"
                 );
 
 
             card.className =
-                "certificate reveal";
+                "certificate";
 
 
             card.innerHTML = `
@@ -730,42 +99,51 @@ function displayCertificates() {
                 <div class="certificate-content">
 
                     <span>
+
                         ${certificate.issuer}
+
                     </span>
 
 
                     <h3>
+
                         ${certificate.title}
+
                     </h3>
 
 
                     <p>
+
                         ${certificate.description}
+
                     </p>
 
 
                     <small>
-                        ${certificate.date}
+
+                        ISSUED ${certificate.date}
+
                     </small>
 
                 </div>
 
 
                 <a
+
                     href="${certificate.url}"
+
                     target="_blank"
+
                     rel="noopener noreferrer">
 
-                    OPEN CERTIFICATE POST ↗
+                    OPEN CERTIFICATE ↗
 
                 </a>
 
             `;
 
 
-            certificateContainer.appendChild(
-                card
-            );
+            container.appendChild(card);
 
         }
     );
@@ -773,19 +151,13 @@ function displayCertificates() {
 }
 
 
-displayCertificates();
+loadCertificates();
 
 
 
-/* ==========================================
+/* =====================================================
    GITHUB PROJECTS
-========================================== */
-
-const githubProjects =
-    document.getElementById(
-        "githubProjects"
-    );
-
+===================================================== */
 
 const githubUsername =
     "akashshetiya147";
@@ -794,13 +166,37 @@ const githubUsername =
 async function loadGitHubProjects() {
 
 
+    const container =
+        document.getElementById(
+            "githubProjects"
+        );
+
+
+    if (!container) {
+
+        return;
+
+    }
+
+
     try {
 
 
         const response =
             await fetch(
 
-                `https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc&per_page=12`
+                `https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc&per_page=12`,
+
+                {
+
+                    headers: {
+
+                        "Accept":
+                            "application/vnd.github+json"
+
+                    }
+
+                }
 
             );
 
@@ -808,33 +204,27 @@ async function loadGitHubProjects() {
         if (!response.ok) {
 
             throw new Error(
-                "GitHub API error"
+                "GitHub API request failed"
             );
 
         }
 
 
-        const repositories =
+        const repos =
             await response.json();
 
 
-        githubProjects.innerHTML = "";
-
-
         if (
-            repositories.length === 0
+            !Array.isArray(repos)
+            ||
+            repos.length === 0
         ) {
 
 
-            githubProjects.innerHTML = `
-
-                <p class="loading-projects">
-
-                    NO PUBLIC PROJECTS FOUND.
-
-                </p>
-
-            `;
+            showGitHubMessage(
+                container,
+                "NO PUBLIC PROJECTS YET"
+            );
 
 
             return;
@@ -842,18 +232,21 @@ async function loadGitHubProjects() {
         }
 
 
-        repositories.forEach(
-            (repo, index) => {
+        container.innerHTML = "";
 
 
-                const project =
+        repos.forEach(
+            function(repo, index) {
+
+
+                const card =
                     document.createElement(
                         "article"
                     );
 
 
-                project.className =
-                    "project-card reveal";
+                card.className =
+                    "project-card";
 
 
                 const language =
@@ -866,15 +259,7 @@ async function loadGitHubProjects() {
                     "A project developed by Akash Shetiya.";
 
 
-                const stars =
-                    repo.stargazers_count;
-
-
-                const forks =
-                    repo.forks_count;
-
-
-                project.innerHTML = `
+                card.innerHTML = `
 
                     <div class="project-top">
 
@@ -885,9 +270,12 @@ async function loadGitHubProjects() {
 
                         </span>
 
+
                         <span>
 
-                            ${language.toUpperCase()}
+                            ${escapeHTML(
+                                language.toUpperCase()
+                            )}
 
                         </span>
 
@@ -903,25 +291,31 @@ async function loadGitHubProjects() {
 
                     <h3>
 
-                        ${repo.name}
+                        ${escapeHTML(
+                            repo.name
+                        )}
 
                     </h3>
 
 
                     <p>
 
-                        ${description}
+                        ${escapeHTML(
+                            description
+                        )}
 
                     </p>
 
 
                     <div class="github-stats">
 
-                        ★ ${stars}
+                        ★
+                        ${repo.stargazers_count || 0}
 
                         &nbsp;&nbsp;
 
-                        ⑂ ${forks}
+                        ⑂
+                        ${repo.forks_count || 0}
 
                     </div>
 
@@ -934,72 +328,107 @@ async function loadGitHubProjects() {
 
                         rel="noopener noreferrer">
 
-                        VIEW ON GITHUB →
+                        VIEW PROJECT →
 
                     </a>
 
                 `;
 
 
-                githubProjects.appendChild(
-                    project
-                );
-
-
-                setTimeout(
-                    () => {
-
-                        project.classList.add(
-                            "visible"
-                        );
-
-                    },
-                    index * 100
-                );
+                container.appendChild(card);
 
             }
         );
 
 
-        addProjectEffects();
+    }
 
 
-    } catch (error) {
+    catch (error) {
 
 
         console.error(
-            "GitHub Error:",
+            "GitHub projects error:",
             error
         );
 
 
-        githubProjects.innerHTML = `
-
-            <div class="github-error">
-
-                <h3>
-                    GITHUB PROJECTS
-                </h3>
-
-                <p>
-                    Projects could not be loaded
-                    right now.
-                </p>
-
-                <a
-                    href="https://github.com/akashshetiya147"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    VIEW GITHUB →
-
-                </a>
-
-            </div>
-
-        `;
+        showGitHubMessage(
+            container,
+            "COULD NOT LOAD PROJECTS"
+        );
 
     }
+
+}
+
+
+
+/* =====================================================
+   GITHUB FALLBACK
+===================================================== */
+
+function showGitHubMessage(
+    container,
+    message
+) {
+
+
+    container.innerHTML = `
+
+        <div class="loading-projects">
+
+            <strong>
+
+                ${message}
+
+            </strong>
+
+
+            <a
+
+                href="https://github.com/akashshetiya147"
+
+                target="_blank"
+
+                rel="noopener noreferrer"
+
+                style="
+                    color:#00d9ff;
+                    text-decoration:none;
+                    margin-top:15px;
+                ">
+
+                OPEN MY GITHUB →
+
+            </a>
+
+        </div>
+
+    `;
+
+}
+
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value) {
+
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        value;
+
+
+    return div.innerHTML;
 
 }
 
@@ -1008,282 +437,21 @@ loadGitHubProjects();
 
 
 
-/* ==========================================
-   TYPING EFFECT
-========================================== */
+/* =====================================================
+   SINGLE PAGE NAVIGATION
+===================================================== */
 
-const words = [
-
-    "C PROGRAMMER",
-
-    "PYTHON DEVELOPER",
-
-    "AI / ML EXPLORER",
-
-    "TECH ENTHUSIAST"
-
-];
-
-
-const typing =
-    document.getElementById(
-        "typing"
-    );
-
-
-let wordIndex = 0;
-
-let letterIndex = 0;
-
-let deleting = false;
-
-
-function typeWriter() {
-
-
-    const word =
-        words[wordIndex];
-
-
-    if (!deleting) {
-
-
-        typing.textContent =
-            word.substring(
-                0,
-                letterIndex + 1
-            );
-
-
-        letterIndex++;
-
-
-        if (
-            letterIndex ===
-            word.length
-        ) {
-
-
-            deleting = true;
-
-
-            setTimeout(
-                typeWriter,
-                1500
-            );
-
-
-            return;
-
-        }
-
-
-    } else {
-
-
-        typing.textContent =
-            word.substring(
-                0,
-                letterIndex - 1
-            );
-
-
-        letterIndex--;
-
-
-        if (
-            letterIndex === 0
-        ) {
-
-
-            deleting = false;
-
-
-            wordIndex++;
-
-
-            if (
-                wordIndex >=
-                words.length
-            ) {
-
-                wordIndex = 0;
-
-            }
-
-        }
-
-    }
-
-
-    setTimeout(
-
-        typeWriter,
-
-        deleting
-            ? 45
-            : 90
-
-    );
-
-}
-
-
-typeWriter();
-
-
-
-/* ==========================================
-   SCROLL REVEAL
-========================================== */
-
-const revealElements =
+const pageSections =
     document.querySelectorAll(
-
-        ".skill-card, " +
-        ".certificate, " +
-        ".education, " +
-        ".about-main, " +
-        ".about-stats"
-
+        ".page-section"
     );
 
 
-const revealObserver =
-    new IntersectionObserver(
-
-        entries => {
-
-
-            entries.forEach(
-                entry => {
-
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-
-                        revealObserver.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                }
-            );
-
-
-        },
-
-        {
-            threshold:
-                0.12
-        }
-
+const navigationLinks =
+    document.querySelectorAll(
+        ".navbar nav a"
     );
 
-
-revealElements.forEach(
-    element => {
-
-
-        element.classList.add(
-            "reveal"
-        );
-
-
-        revealObserver.observe(
-            element
-        );
-
-    }
-);
-
-
-
-/* ==========================================
-   3D PROJECT EFFECT
-========================================== */
-
-function addProjectEffects() {
-
-
-    const projectCards =
-        document.querySelectorAll(
-            ".project-card"
-        );
-
-
-    projectCards.forEach(
-        card => {
-
-
-            card.addEventListener(
-                "mousemove",
-                event => {
-
-
-                    const rect =
-                        card.getBoundingClientRect();
-
-
-                    const x =
-                        event.clientX -
-                        rect.left;
-
-
-                    const y =
-                        event.clientY -
-                        rect.top;
-
-
-                    const rotateX =
-                        ((y / rect.height) - 0.5)
-                        * -7;
-
-
-                    const rotateY =
-                        ((x / rect.width) - 0.5)
-                        * 7;
-
-
-                    card.style.transform =
-
-                        `perspective(800px)
-                         rotateX(${rotateX}deg)
-                         rotateY(${rotateY}deg)
-                         translateY(-8px)`;
-
-                }
-            );
-
-
-            card.addEventListener(
-                "mouseleave",
-                () => {
-
-                    card.style.transform =
-                        "";
-
-                }
-            );
-
-        }
-    );
-
-}
-
-
-
-/* ==========================================
-   MOBILE MENU
-========================================== */
 
 const menuBtn =
     document.getElementById(
@@ -1297,95 +465,136 @@ const nav =
     );
 
 
-menuBtn.addEventListener(
-    "click",
-    () => {
+
+/* =====================================================
+   SHOW SECTION
+===================================================== */
+
+function showSection(
+    sectionId,
+    updateURL = true
+) {
 
 
-        if (
-            nav.style.display ===
-            "flex"
-        ) {
+    pageSections.forEach(
+        function(section) {
 
 
-            nav.style.display =
-                "none";
-
-
-        } else {
-
-
-            nav.style.display =
-                "flex";
-
-
-            nav.style.position =
-                "absolute";
-
-
-            nav.style.top =
-                "76px";
-
-
-            nav.style.left =
-                "0";
-
-
-            nav.style.width =
-                "100%";
-
-
-            nav.style.padding =
-                "25px";
-
-
-            nav.style.flexDirection =
-                "column";
-
-
-            nav.style.background =
-                "#050608";
-
-
-            nav.style.borderBottom =
-                "1px solid #222";
+            section.classList.remove(
+                "active-section"
+            );
 
         }
-
-    }
-);
-
-
-
-/* ==========================================
-   CLOSE MOBILE MENU
-========================================== */
-
-const navLinks =
-    document.querySelectorAll(
-        ".navbar nav a"
     );
 
 
-navLinks.forEach(
-    link => {
+    const selectedSection =
+        document.getElementById(
+            sectionId
+        );
+
+
+    if (!selectedSection) {
+
+        return;
+
+    }
+
+
+    selectedSection.classList.add(
+        "active-section"
+    );
+
+
+
+    /* UPDATE ACTIVE NAV */
+
+    navigationLinks.forEach(
+        function(link) {
+
+
+            link.classList.remove(
+                "active-nav"
+            );
+
+
+            if (
+                link.getAttribute("href")
+                ===
+                "#" + sectionId
+            ) {
+
+                link.classList.add(
+                    "active-nav"
+                );
+
+            }
+
+        }
+    );
+
+
+
+    /* CLOSE MOBILE MENU */
+
+    closeMobileMenu();
+
+
+
+    /* UPDATE URL */
+
+    if (updateURL) {
+
+        history.replaceState(
+            null,
+            "",
+            "#" + sectionId
+        );
+
+    }
+
+
+    /* MOVE TO TOP */
+
+    window.scrollTo(
+        {
+            top: 0,
+            behavior: "smooth"
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   NAVIGATION CLICKS
+===================================================== */
+
+navigationLinks.forEach(
+    function(link) {
 
 
         link.addEventListener(
             "click",
-            () => {
+            function(event) {
 
 
-                if (
-                    window.innerWidth <=
-                    700
-                ) {
+                event.preventDefault();
 
 
-                    nav.style.display =
-                        "none";
+                const sectionId =
+                    link
+                    .getAttribute("href")
+                    .replace(
+                        "#",
+                        ""
+                    );
 
-                }
+
+                showSection(
+                    sectionId
+                );
 
             }
         );
@@ -1395,28 +604,324 @@ navLinks.forEach(
 
 
 
-/* ==========================================
-   CONSOLE
-========================================== */
+/* =====================================================
+   MOBILE MENU OPEN / CLOSE
+===================================================== */
 
-console.log(
+function closeMobileMenu() {
 
-    "%c AKASH SHETIYA ",
 
-    "background:#008cff;" +
-    "color:#000;" +
-    "font-size:18px;" +
-    "font-weight:bold;" +
-    "padding:8px;"
+    if (!nav) {
 
+        return;
+
+    }
+
+
+    nav.classList.remove(
+        "mobile-open"
+    );
+
+
+    if (menuBtn) {
+
+
+        menuBtn.innerHTML =
+            "☰";
+
+
+        menuBtn.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
+
+}
+
+
+
+function openMobileMenu() {
+
+
+    if (!nav) {
+
+        return;
+
+    }
+
+
+    nav.classList.add(
+        "mobile-open"
+    );
+
+
+    if (menuBtn) {
+
+
+        menuBtn.innerHTML =
+            "✕";
+
+
+        menuBtn.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   MENU BUTTON
+===================================================== */
+
+if (menuBtn) {
+
+
+    menuBtn.addEventListener(
+        "click",
+        function() {
+
+
+            const isOpen =
+                nav.classList.contains(
+                    "mobile-open"
+                );
+
+
+            if (isOpen) {
+
+                closeMobileMenu();
+
+            }
+
+            else {
+
+                openMobileMenu();
+
+            }
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   CLOSE MENU WHEN LINK CLICKED
+===================================================== */
+
+navigationLinks.forEach(
+    function(link) {
+
+
+        link.addEventListener(
+            "click",
+            function() {
+
+                closeMobileMenu();
+
+            }
+        );
+
+    }
 );
 
 
+
+/* =====================================================
+   CLOSE MENU WHEN RESIZING TO PC
+===================================================== */
+
+window.addEventListener(
+    "resize",
+    function() {
+
+
+        if (
+            window.innerWidth > 700
+        ) {
+
+            closeMobileMenu();
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   OPEN CORRECT SECTION WHEN URL HAS #SECTION
+===================================================== */
+
+function loadInitialSection() {
+
+
+    const hash =
+        window.location.hash;
+
+
+    if (
+        hash &&
+        hash.length > 1
+    ) {
+
+
+        const sectionId =
+            hash.substring(1);
+
+
+        if (
+            document.getElementById(
+                sectionId
+            )
+        ) {
+
+
+            showSection(
+                sectionId,
+                false
+            );
+
+
+            return;
+
+        }
+
+    }
+
+
+    showSection(
+        "home",
+        false
+    );
+
+}
+
+
+loadInitialSection();
+
+
+
+/* =====================================================
+   BROWSER BACK / FORWARD
+===================================================== */
+
+window.addEventListener(
+    "popstate",
+    function() {
+
+
+        const hash =
+            window.location.hash;
+
+
+        if (
+            hash &&
+            hash.length > 1
+        ) {
+
+
+            showSection(
+                hash.substring(1),
+                false
+            );
+
+        }
+
+        else {
+
+
+            showSection(
+                "home",
+                false
+            );
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   PREVENT HASH LINK DEFAULT JUMP
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+
+        const link =
+            event.target.closest(
+                'a[href^="#"]'
+            );
+
+
+        if (!link) {
+
+            return;
+
+        }
+
+
+        if (
+            link.closest(
+                ".navbar"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        const target =
+            link.getAttribute(
+                "href"
+            );
+
+
+        if (
+            target === "#projects"
+            ||
+            target === "#contact"
+        ) {
+
+
+            event.preventDefault();
+
+
+            const sectionId =
+                target.substring(1);
+
+
+            showSection(
+                sectionId
+            );
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   CONSOLE
+===================================================== */
+
 console.log(
+    "AKASH SHETIYA PORTFOLIO"
+);
 
-    "%cGitHub projects loaded automatically.",
-
-    "color:#00d9ff;" +
-    "font-size:13px;"
-
+console.log(
+    "GitHub:",
+    githubUsername
 );
