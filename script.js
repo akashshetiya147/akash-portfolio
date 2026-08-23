@@ -55,10 +55,8 @@ function escapeHTML(value) {
     const div =
         document.createElement("div");
 
-
     div.textContent =
         value;
-
 
     return div.innerHTML;
 
@@ -78,9 +76,7 @@ function loadCertificates() {
 
 
     if (!container) {
-
         return;
-
     }
 
 
@@ -175,6 +171,7 @@ function loadCertificates() {
 loadCertificates();
 
 
+
 /* =====================================================
    NAVIGATION
 ===================================================== */
@@ -204,15 +201,13 @@ const nav =
 
 
 /* =====================================================
-   MOBILE MENU
+   OPEN MENU
 ===================================================== */
 
 function openMenu() {
 
     if (!nav) {
-
         return;
-
     }
 
 
@@ -236,12 +231,14 @@ function openMenu() {
 }
 
 
+/* =====================================================
+   CLOSE MENU
+===================================================== */
+
 function closeMenu() {
 
     if (!nav) {
-
         return;
-
     }
 
 
@@ -304,9 +301,7 @@ function showSection(
 
 
     if (!selected) {
-
         return;
-
     }
 
 
@@ -366,7 +361,7 @@ function showSection(
 
 
 /* =====================================================
-   NAVIGATION CLICKS
+   NAV LINKS
 ===================================================== */
 
 navLinks.forEach(
@@ -391,9 +386,7 @@ navLinks.forEach(
                     !target ||
                     !target.startsWith("#")
                 ) {
-
                     return;
-
                 }
 
 
@@ -447,7 +440,7 @@ if (
 
 
 /* =====================================================
-   ESC
+   ESCAPE
 ===================================================== */
 
 document.addEventListener(
@@ -468,7 +461,7 @@ document.addEventListener(
 
 
 /* =====================================================
-   CLICK OUTSIDE
+   CLICK OUTSIDE MOBILE MENU
 ===================================================== */
 
 document.addEventListener(
@@ -480,9 +473,7 @@ document.addEventListener(
             !nav ||
             !menuBtn
         ) {
-
             return;
-
         }
 
 
@@ -491,19 +482,13 @@ document.addEventListener(
                 "mobile-open"
             )
         ) {
-
             return;
-
         }
 
 
         if (
-            !nav.contains(
-                event.target
-            ) &&
-            !menuBtn.contains(
-                event.target
-            )
+            !nav.contains(event.target) &&
+            !menuBtn.contains(event.target)
         ) {
 
             closeMenu();
@@ -521,6 +506,7 @@ document.addEventListener(
 window.addEventListener(
     "resize",
     function() {
+
 
         if (
             window.innerWidth > 700
@@ -549,14 +535,13 @@ function loadInitialSection() {
         hash.length > 1
     ) {
 
+
         const id =
             hash.substring(1);
 
 
         if (
-            document.getElementById(
-                id
-            )
+            document.getElementById(id)
         ) {
 
             showSection(
@@ -583,7 +568,7 @@ loadInitialSection();
 
 
 /* =====================================================
-   BACK / FORWARD
+   BACK/FORWARD
 ===================================================== */
 
 window.addEventListener(
@@ -619,7 +604,7 @@ window.addEventListener(
 
 
 /* =====================================================
-   HERO INTERNAL BUTTONS
+   HERO INTERNAL LINKS
 ===================================================== */
 
 document
@@ -654,5 +639,5 @@ document
 
 
 console.log(
-    "Akash Shetiya Portfolio loaded."
+    "Akash Shetiya Portfolio loaded successfully."
 );
