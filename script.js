@@ -166,9 +166,7 @@ function loadCertificates() {
             `;
 
 
-            container.appendChild(
-                card
-            );
+            container.appendChild(card);
 
         }
     );
@@ -184,13 +182,13 @@ loadCertificates();
    NAVIGATION
 ===================================================== */
 
-const pageSections =
+const sections =
     document.querySelectorAll(
         ".page-section"
     );
 
 
-const navigationLinks =
+const navLinks =
     document.querySelectorAll(
         ".navbar nav a"
     );
@@ -210,15 +208,13 @@ const nav =
 
 
 /* =====================================================
-   OPEN MOBILE MENU
+   MOBILE MENU
 ===================================================== */
 
-function openMobileMenu() {
+function openMenu() {
 
     if (!nav) {
-
         return;
-
     }
 
 
@@ -232,16 +228,9 @@ function openMobileMenu() {
         menuBtn.innerHTML =
             "✕";
 
-
         menuBtn.setAttribute(
             "aria-expanded",
             "true"
-        );
-
-
-        menuBtn.setAttribute(
-            "aria-label",
-            "Close menu"
         );
 
     }
@@ -250,16 +239,10 @@ function openMobileMenu() {
 
 
 
-/* =====================================================
-   CLOSE MOBILE MENU
-===================================================== */
-
-function closeMobileMenu() {
+function closeMenu() {
 
     if (!nav) {
-
         return;
-
     }
 
 
@@ -273,16 +256,9 @@ function closeMobileMenu() {
         menuBtn.innerHTML =
             "☰";
 
-
         menuBtn.setAttribute(
             "aria-expanded",
             "false"
-        );
-
-
-        menuBtn.setAttribute(
-            "aria-label",
-            "Open menu"
         );
 
     }
@@ -292,16 +268,16 @@ function closeMobileMenu() {
 
 
 /* =====================================================
-   SHOW SECTION
+   SHOW ONE SECTION ONLY
 ===================================================== */
 
 function showSection(
-    sectionId,
+    id,
     updateURL = true
 ) {
 
 
-    pageSections.forEach(
+    sections.forEach(
         function(section) {
 
             section.classList.remove(
@@ -312,19 +288,16 @@ function showSection(
     );
 
 
-    let selectedSection =
-        document.getElementById(
-            sectionId
-        );
+    let selected =
+        document.getElementById(id);
 
 
-    if (!selectedSection) {
+    if (!selected) {
 
-        sectionId =
+        id =
             "home";
 
-
-        selectedSection =
+        selected =
             document.getElementById(
                 "home"
             );
@@ -332,19 +305,17 @@ function showSection(
     }
 
 
-    if (!selectedSection) {
-
+    if (!selected) {
         return;
-
     }
 
 
-    selectedSection.classList.add(
+    selected.classList.add(
         "active-section"
     );
 
 
-    navigationLinks.forEach(
+    navLinks.forEach(
         function(link) {
 
 
@@ -357,7 +328,7 @@ function showSection(
                 link.getAttribute(
                     "href"
                 ) ===
-                "#" + sectionId
+                "#" + id
             ) {
 
                 link.classList.add(
@@ -370,7 +341,7 @@ function showSection(
     );
 
 
-    closeMobileMenu();
+    closeMenu();
 
 
     if (updateURL) {
@@ -378,7 +349,7 @@ function showSection(
         history.pushState(
             null,
             "",
-            "#" + sectionId
+            "#" + id
         );
 
     }
@@ -397,10 +368,10 @@ function showSection(
 
 
 /* =====================================================
-   NAVIGATION CLICKS
+   NAVIGATION
 ===================================================== */
 
-navigationLinks.forEach(
+navLinks.forEach(
     function(link) {
 
 
@@ -412,15 +383,15 @@ navigationLinks.forEach(
                 event.preventDefault();
 
 
-                const href =
+                const target =
                     link.getAttribute(
                         "href"
                     );
 
 
                 if (
-                    !href ||
-                    !href.startsWith("#")
+                    !target ||
+                    !target.startsWith("#")
                 ) {
 
                     return;
@@ -428,12 +399,8 @@ navigationLinks.forEach(
                 }
 
 
-                const sectionId =
-                    href.substring(1);
-
-
                 showSection(
-                    sectionId
+                    target.substring(1)
                 );
 
             }
@@ -445,7 +412,7 @@ navigationLinks.forEach(
 
 
 /* =====================================================
-   MOBILE MENU BUTTON
+   MENU BUTTON
 ===================================================== */
 
 if (
@@ -468,13 +435,11 @@ if (
                 )
             ) {
 
-                closeMobileMenu();
+                closeMenu();
 
-            }
+            } else {
 
-            else {
-
-                openMobileMenu();
+                openMenu();
 
             }
 
@@ -486,20 +451,19 @@ if (
 
 
 /* =====================================================
-   ESC KEY
+   CLOSE WITH ESC
 ===================================================== */
 
 document.addEventListener(
     "keydown",
     function(event) {
 
-
         if (
             event.key ===
             "Escape"
         ) {
 
-            closeMobileMenu();
+            closeMenu();
 
         }
 
@@ -509,7 +473,7 @@ document.addEventListener(
 
 
 /* =====================================================
-   CLICK OUTSIDE MENU
+   CLOSE MENU OUTSIDE
 ===================================================== */
 
 document.addEventListener(
@@ -547,7 +511,7 @@ document.addEventListener(
             )
         ) {
 
-            closeMobileMenu();
+            closeMenu();
 
         }
 
@@ -569,7 +533,7 @@ window.addEventListener(
             window.innerWidth > 700
         ) {
 
-            closeMobileMenu();
+            closeMenu();
 
         }
 
@@ -595,22 +559,20 @@ function loadInitialSection() {
     ) {
 
 
-        const sectionId =
+        const id =
             hash.substring(1);
 
 
         if (
             document.getElementById(
-                sectionId
+                id
             )
         ) {
 
-
             showSection(
-                sectionId,
+                id,
                 false
             );
-
 
             return;
 
@@ -649,16 +611,12 @@ window.addEventListener(
             hash.length > 1
         ) {
 
-
             showSection(
                 hash.substring(1),
                 false
             );
 
-        }
-
-        else {
-
+        } else {
 
             showSection(
                 "home",
@@ -692,16 +650,12 @@ document
                     event.preventDefault();
 
 
-                    const sectionId =
+                    showSection(
                         link
                         .getAttribute(
                             "href"
                         )
-                        .substring(1);
-
-
-                    showSection(
-                        sectionId
+                        .substring(1)
                     );
 
                 }
@@ -712,14 +666,10 @@ document
 
 
 
-/* =====================================================
-   CONSOLE
-===================================================== */
-
 console.log(
-    "Akash Shetiya Portfolio loaded successfully."
+    "Portfolio loaded successfully."
 );
 
 console.log(
-    "Projects: AKASH NOTES only."
+    "Resume: assets/Akash_Shetiya_Resume.pdf"
 );
