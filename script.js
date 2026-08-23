@@ -1,12 +1,26 @@
 /* =====================================================
+   AKASH SHETIYA - PORTFOLIO JAVASCRIPT
+===================================================== */
+
+
+/* =====================================================
+   CONFIGURATION
+===================================================== */
+
+const githubUsername = "akashshetiya147";
+
+const akashNotesURL =
+    "https://akash-notes.vercel.app/";
+
+
+
+/* =====================================================
    CERTIFICATES
 ===================================================== */
 
 const certificates = [
 
     {
-        number: "CERT",
-
         title: "Python (Basic)",
 
         issuer: "HACKERRANK",
@@ -18,12 +32,11 @@ const certificates = [
 
         url:
             "https://www.linkedin.com/feed/update/urn:li:activity:7469989380703604736/"
+
     },
 
 
     {
-        number: "CERT",
-
         title: "Introduction to Generative AI",
 
         issuer: "GOOGLE",
@@ -35,6 +48,7 @@ const certificates = [
 
         url:
             "https://www.linkedin.com/feed/update/urn:li:activity:7494730038274162688/"
+
     }
 
 ];
@@ -53,7 +67,9 @@ function loadCertificates() {
         );
 
 
-    if (!container) return;
+    if (!container) {
+        return;
+    }
 
 
     container.innerHTML = "";
@@ -77,7 +93,7 @@ function loadCertificates() {
 
                 <div class="certificate-icon">
 
-                    ${certificate.number}
+                    CERT
 
                 </div>
 
@@ -86,28 +102,36 @@ function loadCertificates() {
 
                     <span>
 
-                        ${certificate.issuer}
+                        ${escapeHTML(
+                            certificate.issuer
+                        )}
 
                     </span>
 
 
                     <h3>
 
-                        ${certificate.title}
+                        ${escapeHTML(
+                            certificate.title
+                        )}
 
                     </h3>
 
 
                     <p>
 
-                        ${certificate.description}
+                        ${escapeHTML(
+                            certificate.description
+                        )}
 
                     </p>
 
 
                     <small>
 
-                        ISSUED ${certificate.date}
+                        ISSUED ${escapeHTML(
+                            certificate.date
+                        )}
 
                     </small>
 
@@ -126,7 +150,9 @@ function loadCertificates() {
             `;
 
 
-            container.appendChild(card);
+            container.appendChild(
+                card
+            );
 
         }
     );
@@ -142,10 +168,6 @@ loadCertificates();
    GITHUB PROJECTS
 ===================================================== */
 
-const githubUsername =
-    "akashshetiya147";
-
-
 async function loadGitHubProjects() {
 
 
@@ -155,11 +177,35 @@ async function loadGitHubProjects() {
         );
 
 
-    if (!container) return;
+    if (!container) {
+        return;
+    }
 
 
     try {
 
+
+        /* =========================================
+           SHOW LOADING
+        ========================================= */
+
+        container.innerHTML = `
+
+            <div class="loading-projects">
+
+                <div class="loader"></div>
+
+                LOADING PROJECTS...
+
+            </div>
+
+        `;
+
+
+
+        /* =========================================
+           GET GITHUB REPOSITORIES
+        ========================================= */
 
         const response =
             await fetch(
@@ -172,7 +218,7 @@ async function loadGitHubProjects() {
         if (!response.ok) {
 
             throw new Error(
-                "GitHub request failed"
+                "GitHub API request failed"
             );
 
         }
@@ -182,25 +228,65 @@ async function loadGitHubProjects() {
             await response.json();
 
 
-        if (
-            !Array.isArray(repos) ||
-            repos.length === 0
-        ) {
 
-            showGitHubMessage(
-                container,
-                "NO PUBLIC PROJECTS YET"
-            );
+        /* =========================================
+           AKASH NOTES PROJECT
+        ========================================= */
 
-            return;
+        const akashNotes = {
 
-        }
+            name:
+                "AKASH NOTES",
 
+            description:
+                "A personal academic notes platform created to organize and access study materials easily.",
+
+            language:
+                "WEB",
+
+            html_url:
+                akashNotesURL,
+
+            stargazers_count:
+                0,
+
+            forks_count:
+                0,
+
+            featured:
+                true
+
+        };
+
+
+
+        /* =========================================
+           PUT AKASH NOTES FIRST
+        ========================================= */
+
+        const projects = [
+
+            akashNotes,
+
+            ...repos
+
+        ];
+
+
+
+        /* =========================================
+           CLEAR LOADING
+        ========================================= */
 
         container.innerHTML = "";
 
 
-        repos.forEach(
+
+        /* =========================================
+           CREATE PROJECT CARDS
+        ========================================= */
+
+        projects.forEach(
             function(repo, index) {
 
 
@@ -214,23 +300,103 @@ async function loadGitHubProjects() {
                     "project-card";
 
 
+
+                /* ---------------------------------
+                   PROJECT LANGUAGE
+                --------------------------------- */
+
                 const language =
                     repo.language ||
                     "CODE";
 
+
+
+                /* ---------------------------------
+                   PROJECT DESCRIPTION
+                --------------------------------- */
 
                 const description =
                     repo.description ||
                     "A project developed by Akash Shetiya.";
 
 
+
+                /* ---------------------------------
+                   PROJECT TYPE
+                --------------------------------- */
+
+                const projectType =
+                    repo.featured
+                    ? "FEATURED"
+                    : "PROJECT";
+
+
+
+                /* ---------------------------------
+                   PROJECT ICON
+                --------------------------------- */
+
+                const projectIcon =
+                    repo.featured
+                    ? "AN"
+                    : "&lt;/&gt;";
+
+
+
+                /* ---------------------------------
+                   PROJECT BUTTON
+                --------------------------------- */
+
+                const buttonText =
+                    repo.featured
+                    ? "OPEN WEBSITE →"
+                    : "VIEW PROJECT →";
+
+
+
+                /* ---------------------------------
+                   STATS
+                --------------------------------- */
+
+                const stats =
+                    repo.featured
+
+                    ? `
+                        <div class="github-stats">
+                            LIVE
+                        </div>
+                      `
+
+                    : `
+                        <div class="github-stats">
+
+                            ★
+                            ${repo.stargazers_count || 0}
+
+                            &nbsp;&nbsp;
+
+                            ⑂
+                            ${repo.forks_count || 0}
+
+                        </div>
+                      `;
+
+
+
+                /* ---------------------------------
+                   CARD HTML
+                --------------------------------- */
+
                 card.innerHTML = `
 
                     <div class="project-top">
 
                         <span>
-                            PROJECT
+
+                            ${projectType}
+
                         </span>
+
 
                         <span>
 
@@ -243,11 +409,13 @@ async function loadGitHubProjects() {
                     </div>
 
 
+
                     <div class="project-symbol">
 
-                        &lt;/&gt;
+                        ${projectIcon}
 
                     </div>
+
 
 
                     <h3>
@@ -259,6 +427,7 @@ async function loadGitHubProjects() {
                     </h3>
 
 
+
                     <p>
 
                         ${escapeHTML(
@@ -268,17 +437,9 @@ async function loadGitHubProjects() {
                     </p>
 
 
-                    <div class="github-stats">
 
-                        ★
-                        ${repo.stargazers_count || 0}
+                    ${stats}
 
-                        &nbsp;&nbsp;
-
-                        ⑂
-                        ${repo.forks_count || 0}
-
-                    </div>
 
 
                     <a
@@ -286,14 +447,17 @@ async function loadGitHubProjects() {
                         target="_blank"
                         rel="noopener noreferrer">
 
-                        VIEW PROJECT →
+                        ${buttonText}
 
                     </a>
 
                 `;
 
 
-                container.appendChild(card);
+
+                container.appendChild(
+                    card
+                );
 
             }
         );
@@ -305,79 +469,85 @@ async function loadGitHubProjects() {
 
 
         console.error(
+            "GitHub Error:",
             error
         );
 
 
-        showGitHubMessage(
-            container,
-            "COULD NOT LOAD PROJECTS"
-        );
+        /* =========================================
+           FALLBACK
+        ========================================= */
+
+        container.innerHTML = `
+
+            <article class="project-card">
+
+
+                <div class="project-top">
+
+                    <span>
+                        FEATURED
+                    </span>
+
+
+                    <span>
+                        WEB
+                    </span>
+
+                </div>
+
+
+
+                <div class="project-symbol">
+
+                    AN
+
+                </div>
+
+
+
+                <h3>
+
+                    AKASH NOTES
+
+                </h3>
+
+
+
+                <p>
+
+                    A personal academic notes platform
+                    created to organize and access study
+                    materials easily.
+
+                </p>
+
+
+
+                <div class="github-stats">
+
+                    LIVE
+
+                </div>
+
+
+
+                <a
+                    href="${akashNotesURL}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    OPEN WEBSITE →
+
+                </a>
+
+
+            </article>
+
+        `;
+
 
     }
-
-}
-
-
-
-/* =====================================================
-   GITHUB FALLBACK
-===================================================== */
-
-function showGitHubMessage(
-    container,
-    message
-) {
-
-
-    container.innerHTML = `
-
-        <div class="loading-projects">
-
-            <strong>
-
-                ${message}
-
-            </strong>
-
-
-            <a
-                href="https://github.com/akashshetiya147"
-                target="_blank"
-                rel="noopener noreferrer"
-                style="
-                    color:#00d9ff;
-                    text-decoration:none;
-                    margin-top:15px;
-                ">
-
-                OPEN MY GITHUB →
-
-            </a>
-
-        </div>
-
-    `;
-
-}
-
-
-
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHTML(value) {
-
-    const div =
-        document.createElement(
-            "div"
-        );
-
-    div.textContent =
-        value;
-
-    return div.innerHTML;
 
 }
 
@@ -387,7 +557,38 @@ loadGitHubProjects();
 
 
 /* =====================================================
-   NAVIGATION
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value) {
+
+
+    if (value === null ||
+        value === undefined) {
+
+        return "";
+
+    }
+
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        value;
+
+
+    return div.innerHTML;
+
+}
+
+
+
+/* =====================================================
+   NAVIGATION ELEMENTS
 ===================================================== */
 
 const pageSections =
@@ -421,7 +622,10 @@ const nav =
 
 function openMobileMenu() {
 
-    if (!nav) return;
+
+    if (!nav) {
+        return;
+    }
 
 
     nav.classList.add(
@@ -431,12 +635,20 @@ function openMobileMenu() {
 
     if (menuBtn) {
 
+
         menuBtn.innerHTML =
             "✕";
+
 
         menuBtn.setAttribute(
             "aria-expanded",
             "true"
+        );
+
+
+        menuBtn.setAttribute(
+            "aria-label",
+            "Close navigation menu"
         );
 
     }
@@ -451,7 +663,10 @@ function openMobileMenu() {
 
 function closeMobileMenu() {
 
-    if (!nav) return;
+
+    if (!nav) {
+        return;
+    }
 
 
     nav.classList.remove(
@@ -461,12 +676,20 @@ function closeMobileMenu() {
 
     if (menuBtn) {
 
+
         menuBtn.innerHTML =
             "☰";
+
 
         menuBtn.setAttribute(
             "aria-expanded",
             "false"
+        );
+
+
+        menuBtn.setAttribute(
+            "aria-label",
+            "Open navigation menu"
         );
 
     }
@@ -476,7 +699,7 @@ function closeMobileMenu() {
 
 
 /* =====================================================
-   SHOW ONLY SELECTED SECTION
+   SHOW SELECTED SECTION ONLY
 ===================================================== */
 
 function showSection(
@@ -484,6 +707,10 @@ function showSection(
     updateURL = true
 ) {
 
+
+    /* -----------------------------------------
+       HIDE EVERY SECTION
+    ----------------------------------------- */
 
     pageSections.forEach(
         function(section) {
@@ -496,31 +723,61 @@ function showSection(
     );
 
 
+
+    /* -----------------------------------------
+       FIND SELECTED SECTION
+    ----------------------------------------- */
+
     const selectedSection =
         document.getElementById(
             sectionId
         );
 
 
-    if (!selectedSection) return;
+    if (!selectedSection) {
 
+        showSection(
+            "home",
+            false
+        );
+
+        return;
+
+    }
+
+
+
+    /* -----------------------------------------
+       SHOW SELECTED SECTION
+    ----------------------------------------- */
 
     selectedSection.classList.add(
         "active-section"
     );
 
 
+
+    /* -----------------------------------------
+       UPDATE ACTIVE NAVIGATION
+    ----------------------------------------- */
+
     navigationLinks.forEach(
         function(link) {
+
 
             link.classList.remove(
                 "active-nav"
             );
 
 
+            const linkTarget =
+                link.getAttribute(
+                    "href"
+                );
+
+
             if (
-                link.getAttribute("href")
-                ===
+                linkTarget ===
                 "#" + sectionId
             ) {
 
@@ -534,10 +791,21 @@ function showSection(
     );
 
 
+
+    /* -----------------------------------------
+       CLOSE MOBILE MENU
+    ----------------------------------------- */
+
     closeMobileMenu();
 
 
+
+    /* -----------------------------------------
+       UPDATE URL
+    ----------------------------------------- */
+
     if (updateURL) {
+
 
         history.pushState(
             null,
@@ -548,9 +816,17 @@ function showSection(
     }
 
 
+
+    /* -----------------------------------------
+       SCROLL TO TOP
+    ----------------------------------------- */
+
     window.scrollTo({
+
         top: 0,
+
         behavior: "smooth"
+
     });
 
 }
@@ -558,7 +834,7 @@ function showSection(
 
 
 /* =====================================================
-   NAVIGATION CLICKS
+   NAVIGATION CLICK EVENTS
 ===================================================== */
 
 navigationLinks.forEach(
@@ -573,10 +849,24 @@ navigationLinks.forEach(
                 event.preventDefault();
 
 
+                const href =
+                    link.getAttribute(
+                        "href"
+                    );
+
+
+                if (
+                    !href ||
+                    !href.startsWith("#")
+                ) {
+
+                    return;
+
+                }
+
+
                 const sectionId =
-                    link
-                    .getAttribute("href")
-                    .substring(1);
+                    href.substring(1);
 
 
                 showSection(
@@ -595,7 +885,7 @@ navigationLinks.forEach(
    MOBILE MENU BUTTON
 ===================================================== */
 
-if (menuBtn) {
+if (menuBtn && nav) {
 
 
     menuBtn.addEventListener(
@@ -603,11 +893,13 @@ if (menuBtn) {
         function() {
 
 
-            if (
+            const menuIsOpen =
                 nav.classList.contains(
                     "mobile-open"
-                )
-            ) {
+                );
+
+
+            if (menuIsOpen) {
 
                 closeMobileMenu();
 
@@ -627,12 +919,75 @@ if (menuBtn) {
 
 
 /* =====================================================
-   RESIZE
+   CLOSE MENU WITH ESCAPE KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+
+        if (
+            event.key ===
+            "Escape"
+        ) {
+
+            closeMobileMenu();
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   CLOSE MENU WHEN CLICKING OUTSIDE
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+
+        if (!nav || !menuBtn) {
+            return;
+        }
+
+
+        if (
+            !nav.classList.contains(
+                "mobile-open"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            !nav.contains(event.target) &&
+            !menuBtn.contains(event.target)
+        ) {
+
+            closeMobileMenu();
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   WINDOW RESIZE
 ===================================================== */
 
 window.addEventListener(
     "resize",
     function() {
+
 
         if (
             window.innerWidth > 700
@@ -648,7 +1003,7 @@ window.addEventListener(
 
 
 /* =====================================================
-   INITIAL PAGE
+   LOAD INITIAL SECTION
 ===================================================== */
 
 function loadInitialSection() {
@@ -657,6 +1012,10 @@ function loadInitialSection() {
     const hash =
         window.location.hash;
 
+
+    /* -----------------------------------------
+       OPEN HASH SECTION
+    ----------------------------------------- */
 
     if (
         hash &&
@@ -668,16 +1027,20 @@ function loadInitialSection() {
             hash.substring(1);
 
 
-        if (
+        const section =
             document.getElementById(
                 sectionId
-            )
-        ) {
+            );
+
+
+        if (section) {
+
 
             showSection(
                 sectionId,
                 false
             );
+
 
             return;
 
@@ -685,6 +1048,11 @@ function loadInitialSection() {
 
     }
 
+
+
+    /* -----------------------------------------
+       DEFAULT HOME
+    ----------------------------------------- */
 
     showSection(
         "home",
@@ -716,14 +1084,21 @@ window.addEventListener(
             hash.length > 1
         ) {
 
+
+            const sectionId =
+                hash.substring(1);
+
+
             showSection(
-                hash.substring(1),
+                sectionId,
                 false
             );
+
 
         }
 
         else {
+
 
             showSection(
                 "home",
@@ -738,29 +1113,107 @@ window.addEventListener(
 
 
 /* =====================================================
-   HERO BUTTONS
+   HERO INTERNAL BUTTONS
 ===================================================== */
 
-document
-    .querySelectorAll(
+const heroInternalLinks =
+    document.querySelectorAll(
         '.hero a[href^="#"]'
-    )
-    .forEach(
-        function(link) {
+    );
 
 
-            link.addEventListener(
-                "click",
-                function(event) {
+heroInternalLinks.forEach(
+    function(link) {
+
+
+        link.addEventListener(
+            "click",
+            function(event) {
+
+
+                event.preventDefault();
+
+
+                const href =
+                    link.getAttribute(
+                        "href"
+                    );
+
+
+                const sectionId =
+                    href.substring(1);
+
+
+                showSection(
+                    sectionId
+                );
+
+            }
+        );
+
+    }
+);
+
+
+
+/* =====================================================
+   CONTACT INTERNAL LINKS
+===================================================== */
+
+const internalLinks =
+    document.querySelectorAll(
+        'a[href^="#"]'
+    );
+
+
+internalLinks.forEach(
+    function(link) {
+
+
+        if (
+            link.closest(
+                ".navbar"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        link.addEventListener(
+            "click",
+            function(event) {
+
+
+                const href =
+                    link.getAttribute(
+                        "href"
+                    );
+
+
+                if (
+                    !href ||
+                    href === "#"
+                ) {
+
+                    return;
+
+                }
+
+
+                const sectionId =
+                    href.substring(1);
+
+
+                if (
+                    document.getElementById(
+                        sectionId
+                    )
+                ) {
 
 
                     event.preventDefault();
-
-
-                    const sectionId =
-                        link
-                        .getAttribute("href")
-                        .substring(1);
 
 
                     showSection(
@@ -768,7 +1221,29 @@ document
                     );
 
                 }
-            );
 
-        }
-    );
+            }
+        );
+
+    }
+);
+
+
+
+/* =====================================================
+   CONSOLE MESSAGE
+===================================================== */
+
+console.log(
+    "Portfolio loaded successfully."
+);
+
+console.log(
+    "GitHub:",
+    githubUsername
+);
+
+console.log(
+    "Akash Notes:",
+    akashNotesURL
+);
