@@ -10,7 +10,6 @@
 const certificates = [
 
     {
-
         number: "01",
 
         title: "Python (Basic)",
@@ -24,12 +23,10 @@ const certificates = [
 
         url:
             "https://www.linkedin.com/feed/update/urn:li:activity:7469989380703604736/"
-
     },
 
 
     {
-
         number: "02",
 
         title: "Introduction to Generative AI",
@@ -43,7 +40,6 @@ const certificates = [
 
         url:
             "https://www.linkedin.com/feed/update/urn:li:activity:7494730038274162688/"
-
     }
 
 ];
@@ -55,7 +51,6 @@ const certificates = [
 ===================================================== */
 
 function loadCertificates() {
-
 
     const container =
         document.getElementById(
@@ -220,12 +215,10 @@ async function loadGitHubProjects() {
             repos.length === 0
         ) {
 
-
             showGitHubMessage(
                 container,
                 "NO PUBLIC PROJECTS YET"
             );
-
 
             return;
 
@@ -342,7 +335,6 @@ async function loadGitHubProjects() {
 
 
     }
-
 
     catch (error) {
 
@@ -467,7 +459,77 @@ const nav =
 
 
 /* =====================================================
-   SHOW SECTION
+   CLOSE MOBILE MENU
+===================================================== */
+
+function closeMobileMenu() {
+
+
+    if (!nav) {
+
+        return;
+
+    }
+
+
+    nav.classList.remove(
+        "mobile-open"
+    );
+
+
+    if (menuBtn) {
+
+        menuBtn.innerHTML =
+            "☰";
+
+        menuBtn.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   OPEN MOBILE MENU
+===================================================== */
+
+function openMobileMenu() {
+
+
+    if (!nav) {
+
+        return;
+
+    }
+
+
+    nav.classList.add(
+        "mobile-open"
+    );
+
+
+    if (menuBtn) {
+
+        menuBtn.innerHTML =
+            "✕";
+
+        menuBtn.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SHOW ONLY ONE SECTION
 ===================================================== */
 
 function showSection(
@@ -476,9 +538,10 @@ function showSection(
 ) {
 
 
+    /* HIDE EVERYTHING */
+
     pageSections.forEach(
         function(section) {
-
 
             section.classList.remove(
                 "active-section"
@@ -487,6 +550,8 @@ function showSection(
         }
     );
 
+
+    /* FIND SELECTED SECTION */
 
     const selectedSection =
         document.getElementById(
@@ -501,13 +566,14 @@ function showSection(
     }
 
 
+    /* SHOW ONLY SELECTED */
+
     selectedSection.classList.add(
         "active-section"
     );
 
 
-
-    /* UPDATE ACTIVE NAV */
+    /* ACTIVE NAV */
 
     navigationLinks.forEach(
         function(link) {
@@ -534,18 +600,16 @@ function showSection(
     );
 
 
-
     /* CLOSE MOBILE MENU */
 
     closeMobileMenu();
-
 
 
     /* UPDATE URL */
 
     if (updateURL) {
 
-        history.replaceState(
+        history.pushState(
             null,
             "",
             "#" + sectionId
@@ -554,13 +618,11 @@ function showSection(
     }
 
 
-    /* MOVE TO TOP */
+    /* TOP OF PAGE */
 
     window.scrollTo(
-        {
-            top: 0,
-            behavior: "smooth"
-        }
+        0,
+        0
     );
 
 }
@@ -568,7 +630,7 @@ function showSection(
 
 
 /* =====================================================
-   NAVIGATION CLICKS
+   NAVIGATION CLICK
 ===================================================== */
 
 navigationLinks.forEach(
@@ -586,10 +648,7 @@ navigationLinks.forEach(
                 const sectionId =
                     link
                     .getAttribute("href")
-                    .replace(
-                        "#",
-                        ""
-                    );
+                    .substring(1);
 
 
                 showSection(
@@ -605,77 +664,7 @@ navigationLinks.forEach(
 
 
 /* =====================================================
-   MOBILE MENU OPEN / CLOSE
-===================================================== */
-
-function closeMobileMenu() {
-
-
-    if (!nav) {
-
-        return;
-
-    }
-
-
-    nav.classList.remove(
-        "mobile-open"
-    );
-
-
-    if (menuBtn) {
-
-
-        menuBtn.innerHTML =
-            "☰";
-
-
-        menuBtn.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    }
-
-}
-
-
-
-function openMobileMenu() {
-
-
-    if (!nav) {
-
-        return;
-
-    }
-
-
-    nav.classList.add(
-        "mobile-open"
-    );
-
-
-    if (menuBtn) {
-
-
-        menuBtn.innerHTML =
-            "✕";
-
-
-        menuBtn.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-    }
-
-}
-
-
-
-/* =====================================================
-   MENU BUTTON
+   MOBILE MENU BUTTON
 ===================================================== */
 
 if (menuBtn) {
@@ -686,13 +675,11 @@ if (menuBtn) {
         function() {
 
 
-            const isOpen =
+            if (
                 nav.classList.contains(
                     "mobile-open"
-                );
-
-
-            if (isOpen) {
+                )
+            ) {
 
                 closeMobileMenu();
 
@@ -712,7 +699,7 @@ if (menuBtn) {
 
 
 /* =====================================================
-   CLOSE MENU WHEN LINK CLICKED
+   CLOSE MENU AFTER NAVIGATION
 ===================================================== */
 
 navigationLinks.forEach(
@@ -734,7 +721,7 @@ navigationLinks.forEach(
 
 
 /* =====================================================
-   CLOSE MENU WHEN RESIZING TO PC
+   CLOSE MENU WHEN RESIZED
 ===================================================== */
 
 window.addEventListener(
@@ -756,7 +743,7 @@ window.addEventListener(
 
 
 /* =====================================================
-   OPEN CORRECT SECTION WHEN URL HAS #SECTION
+   INITIAL SECTION
 ===================================================== */
 
 function loadInitialSection() {
@@ -776,18 +763,18 @@ function loadInitialSection() {
             hash.substring(1);
 
 
-        if (
+        const section =
             document.getElementById(
                 sectionId
-            )
-        ) {
+            );
 
+
+        if (section) {
 
             showSection(
                 sectionId,
                 false
             );
-
 
             return;
 
@@ -809,7 +796,7 @@ loadInitialSection();
 
 
 /* =====================================================
-   BROWSER BACK / FORWARD
+   BACK / FORWARD
 ===================================================== */
 
 window.addEventListener(
@@ -850,66 +837,40 @@ window.addEventListener(
 
 
 /* =====================================================
-   PREVENT HASH LINK DEFAULT JUMP
+   HERO BUTTONS
 ===================================================== */
 
-document.addEventListener(
-    "click",
-    function(event) {
+document
+    .querySelectorAll(
+        '.hero a[href^="#"]'
+    )
+    .forEach(
+        function(link) {
 
 
-        const link =
-            event.target.closest(
-                'a[href^="#"]'
-            );
+            link.addEventListener(
+                "click",
+                function(event) {
 
 
-        if (!link) {
-
-            return;
-
-        }
+                    event.preventDefault();
 
 
-        if (
-            link.closest(
-                ".navbar"
-            )
-        ) {
-
-            return;
-
-        }
+                    const sectionId =
+                        link
+                        .getAttribute("href")
+                        .substring(1);
 
 
-        const target =
-            link.getAttribute(
-                "href"
-            );
+                    showSection(
+                        sectionId
+                    );
 
-
-        if (
-            target === "#projects"
-            ||
-            target === "#contact"
-        ) {
-
-
-            event.preventDefault();
-
-
-            const sectionId =
-                target.substring(1);
-
-
-            showSection(
-                sectionId
+                }
             );
 
         }
-
-    }
-);
+    );
 
 
 
